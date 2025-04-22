@@ -1,6 +1,7 @@
 export const siteConfig = {
   title: "Versus Fighting Improve.io",
-  description: "Plateforme qui t'aide à devenir meilleur sur un jeu de combat",
+  description:
+    "Bienvenue sur la plateforme pour t'améliorer à un jeu de combat",
   url: "https://versus-fighting-improve.io",
   ogImage: "https://versus-fighting-improve.io/og-image.png",
   links: {
