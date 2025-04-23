@@ -1,6 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig } from "@/config/site-config";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
