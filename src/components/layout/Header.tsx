@@ -1,5 +1,6 @@
 import { Auth } from "@/features/auth/Auth";
 import Link from "next/link";
+import { ThemeToggle } from "../ThemeToggle";
 
 export function Header() {
   return (
@@ -7,8 +8,9 @@ export function Header() {
       <Link href="/">
         <h1 className="text-2xl font-bold">VSF.io</h1>
       </Link>
-      <div className="ml-auto">
+      <div className="ml-auto flex items-center gap-4">
         <Auth />
+        <ThemeToggle />
       </div>
     </div>
   );

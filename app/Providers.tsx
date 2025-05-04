@@ -1,5 +1,8 @@
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
+"use client";
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { PropsWithChildren } from "react";
+
+export const Providers = ({ children }: PropsWithChildren) => {
   return <ThemeProvider>{children}</ThemeProvider>;
 };

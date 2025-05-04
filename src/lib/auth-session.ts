@@ -1,4 +1,5 @@
 import { headers } from "next/headers";
+import { unauthorized } from "next/navigation";
 import { auth } from "./auth";
 
 export async function getUser() {
@@ -7,4 +8,12 @@ export async function getUser() {
   });
 
   return session?.user;
+}
+
+export async function getRequiredUser() {
+  const user = await getUser();
+
+  if (!user) unauthorized();
+
+  return user;
 }

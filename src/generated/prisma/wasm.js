@@ -163,6 +163,58 @@ exports.Prisma.VerificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SheetScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  content: 'content',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId',
+  fightingGameId: 'fightingGameId'
+};
+
+exports.Prisma.FilterScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId',
+  sheetId: 'sheetId'
+};
+
+exports.Prisma.FightingGameScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CharacterScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  fightingGameId: 'fightingGameId'
+};
+
+exports.Prisma.CharacterOnSheetScalarFieldEnum = {
+  id: 'id',
+  characterId: 'characterId',
+  sheetId: 'sheetId'
+};
+
+exports.Prisma.OpponentOnSheetScalarFieldEnum = {
+  id: 'id',
+  opponentId: 'opponentId',
+  sheetId: 'sheetId'
+};
+
+exports.Prisma.FightingGameOnUserScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  fightingGameId: 'fightingGameId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -183,7 +235,14 @@ exports.Prisma.ModelName = {
   User: 'User',
   Session: 'Session',
   Account: 'Account',
-  Verification: 'Verification'
+  Verification: 'Verification',
+  Sheet: 'Sheet',
+  Filter: 'Filter',
+  FightingGame: 'FightingGame',
+  Character: 'Character',
+  CharacterOnSheet: 'CharacterOnSheet',
+  OpponentOnSheet: 'OpponentOnSheet',
+  FightingGameOnUser: 'FightingGameOnUser'
 };
 
 /**

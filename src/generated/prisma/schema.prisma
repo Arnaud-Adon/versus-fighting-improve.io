@@ -15,15 +15,18 @@ datasource db {
 }
 
 model User {
-  id            String    @id
-  name          String
-  email         String
-  emailVerified Boolean
-  image         String?
-  createdAt     DateTime
-  updatedAt     DateTime
-  sessions      Session[]
-  accounts      Account[]
+  id                 String               @id
+  name               String
+  email              String
+  emailVerified      Boolean
+  image              String?
+  createdAt          DateTime
+  updatedAt          DateTime
+  sessions           Session[]
+  accounts           Account[]
+  Sheet              Sheet[]
+  Filter             Filter[]
+  FightingGameOnUser FightingGameOnUser[]
 
   @@unique([email])
   @@map("user")
@@ -72,4 +75,93 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+model Sheet {
+  id           String       @id @default(ulid())
+  title        String
+  content      String
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  fightingGame FightingGame @relation(fields: [fightingGameId], references: [id])
+
+  userId           String
+  user             User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  filter           Filter[]
+  CharacterOnSheet CharacterOnSheet[]
+  OpponentOnSheet  OpponentOnSheet[]
+  fightingGameId   String
+
+  @@map("sheet")
+}
+
+model Filter {
+  id        String   @id @default(ulid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId  String
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Sheet   Sheet?  @relation(fields: [sheetId], references: [id])
+  sheetId String?
+
+  @@map("filter")
+}
+
+model FightingGame {
+  id                 String               @id @default(ulid())
+  name               String
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  characters         Character[]
+  Sheet              Sheet[]
+  FightingGameOnUser FightingGameOnUser[]
+
+  @@map("fighting_game")
+}
+
+model Character {
+  id        String   @id @default(ulid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  fightingGameId   String
+  fightingGame     FightingGame       @relation(fields: [fightingGameId], references: [id])
+  CharacterOnSheet CharacterOnSheet[]
+  OpponentOnSheet  OpponentOnSheet[]
+
+  @@map("character")
+}
+
+model CharacterOnSheet {
+  id          String @id @default(ulid())
+  characterId String
+  sheetId     String
+
+  character Character @relation(fields: [characterId], references: [id])
+  sheet     Sheet     @relation(fields: [sheetId], references: [id])
+
+  @@unique([sheetId, characterId])
+}
+
+model OpponentOnSheet {
+  id         String @id @default(ulid())
+  opponentId String
+  sheetId    String
+
+  opponent Character @relation(fields: [opponentId], references: [id])
+  sheet    Sheet     @relation(fields: [sheetId], references: [id])
+
+  @@unique([sheetId, opponentId])
+}
+
+model FightingGameOnUser {
+  id             String @id @default(ulid())
+  userId         String
+  fightingGameId String
+
+  user         User         @relation(fields: [userId], references: [id])
+  fightingGame FightingGame @relation(fields: [fightingGameId], references: [id])
 }

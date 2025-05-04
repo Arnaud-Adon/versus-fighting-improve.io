@@ -30,7 +30,7 @@ export default function SignInPage() {
       {
         email,
         password,
-        callbackURL: "/",
+        callbackURL: "/dashboard",
       },
       {
         onRequest: () => setIsLoading(true),

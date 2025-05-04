@@ -33,6 +33,41 @@ export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
  * 
  */
 export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
+/**
+ * Model Sheet
+ * 
+ */
+export type Sheet = $Result.DefaultSelection<Prisma.$SheetPayload>
+/**
+ * Model Filter
+ * 
+ */
+export type Filter = $Result.DefaultSelection<Prisma.$FilterPayload>
+/**
+ * Model FightingGame
+ * 
+ */
+export type FightingGame = $Result.DefaultSelection<Prisma.$FightingGamePayload>
+/**
+ * Model Character
+ * 
+ */
+export type Character = $Result.DefaultSelection<Prisma.$CharacterPayload>
+/**
+ * Model CharacterOnSheet
+ * 
+ */
+export type CharacterOnSheet = $Result.DefaultSelection<Prisma.$CharacterOnSheetPayload>
+/**
+ * Model OpponentOnSheet
+ * 
+ */
+export type OpponentOnSheet = $Result.DefaultSelection<Prisma.$OpponentOnSheetPayload>
+/**
+ * Model FightingGameOnUser
+ * 
+ */
+export type FightingGameOnUser = $Result.DefaultSelection<Prisma.$FightingGameOnUserPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,6 +233,76 @@ export class PrismaClient<
     * ```
     */
   get verification(): Prisma.VerificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.sheet`: Exposes CRUD operations for the **Sheet** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Sheets
+    * const sheets = await prisma.sheet.findMany()
+    * ```
+    */
+  get sheet(): Prisma.SheetDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.filter`: Exposes CRUD operations for the **Filter** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Filters
+    * const filters = await prisma.filter.findMany()
+    * ```
+    */
+  get filter(): Prisma.FilterDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.fightingGame`: Exposes CRUD operations for the **FightingGame** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FightingGames
+    * const fightingGames = await prisma.fightingGame.findMany()
+    * ```
+    */
+  get fightingGame(): Prisma.FightingGameDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.character`: Exposes CRUD operations for the **Character** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Characters
+    * const characters = await prisma.character.findMany()
+    * ```
+    */
+  get character(): Prisma.CharacterDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.characterOnSheet`: Exposes CRUD operations for the **CharacterOnSheet** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CharacterOnSheets
+    * const characterOnSheets = await prisma.characterOnSheet.findMany()
+    * ```
+    */
+  get characterOnSheet(): Prisma.CharacterOnSheetDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.opponentOnSheet`: Exposes CRUD operations for the **OpponentOnSheet** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more OpponentOnSheets
+    * const opponentOnSheets = await prisma.opponentOnSheet.findMany()
+    * ```
+    */
+  get opponentOnSheet(): Prisma.OpponentOnSheetDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.fightingGameOnUser`: Exposes CRUD operations for the **FightingGameOnUser** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FightingGameOnUsers
+    * const fightingGameOnUsers = await prisma.fightingGameOnUser.findMany()
+    * ```
+    */
+  get fightingGameOnUser(): Prisma.FightingGameOnUserDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -641,7 +746,14 @@ export namespace Prisma {
     User: 'User',
     Session: 'Session',
     Account: 'Account',
-    Verification: 'Verification'
+    Verification: 'Verification',
+    Sheet: 'Sheet',
+    Filter: 'Filter',
+    FightingGame: 'FightingGame',
+    Character: 'Character',
+    CharacterOnSheet: 'CharacterOnSheet',
+    OpponentOnSheet: 'OpponentOnSheet',
+    FightingGameOnUser: 'FightingGameOnUser'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +772,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification"
+      modelProps: "user" | "session" | "account" | "verification" | "sheet" | "filter" | "fightingGame" | "character" | "characterOnSheet" | "opponentOnSheet" | "fightingGameOnUser"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -960,6 +1072,524 @@ export namespace Prisma {
           }
         }
       }
+      Sheet: {
+        payload: Prisma.$SheetPayload<ExtArgs>
+        fields: Prisma.SheetFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SheetFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SheetFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>
+          }
+          findFirst: {
+            args: Prisma.SheetFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SheetFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>
+          }
+          findMany: {
+            args: Prisma.SheetFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>[]
+          }
+          create: {
+            args: Prisma.SheetCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>
+          }
+          createMany: {
+            args: Prisma.SheetCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SheetCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>[]
+          }
+          delete: {
+            args: Prisma.SheetDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>
+          }
+          update: {
+            args: Prisma.SheetUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>
+          }
+          deleteMany: {
+            args: Prisma.SheetDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SheetUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SheetUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>[]
+          }
+          upsert: {
+            args: Prisma.SheetUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SheetPayload>
+          }
+          aggregate: {
+            args: Prisma.SheetAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSheet>
+          }
+          groupBy: {
+            args: Prisma.SheetGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SheetGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SheetCountArgs<ExtArgs>
+            result: $Utils.Optional<SheetCountAggregateOutputType> | number
+          }
+        }
+      }
+      Filter: {
+        payload: Prisma.$FilterPayload<ExtArgs>
+        fields: Prisma.FilterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FilterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FilterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>
+          }
+          findFirst: {
+            args: Prisma.FilterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FilterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>
+          }
+          findMany: {
+            args: Prisma.FilterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>[]
+          }
+          create: {
+            args: Prisma.FilterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>
+          }
+          createMany: {
+            args: Prisma.FilterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FilterCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>[]
+          }
+          delete: {
+            args: Prisma.FilterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>
+          }
+          update: {
+            args: Prisma.FilterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>
+          }
+          deleteMany: {
+            args: Prisma.FilterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FilterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FilterUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>[]
+          }
+          upsert: {
+            args: Prisma.FilterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilterPayload>
+          }
+          aggregate: {
+            args: Prisma.FilterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFilter>
+          }
+          groupBy: {
+            args: Prisma.FilterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FilterGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FilterCountArgs<ExtArgs>
+            result: $Utils.Optional<FilterCountAggregateOutputType> | number
+          }
+        }
+      }
+      FightingGame: {
+        payload: Prisma.$FightingGamePayload<ExtArgs>
+        fields: Prisma.FightingGameFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FightingGameFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FightingGameFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>
+          }
+          findFirst: {
+            args: Prisma.FightingGameFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FightingGameFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>
+          }
+          findMany: {
+            args: Prisma.FightingGameFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>[]
+          }
+          create: {
+            args: Prisma.FightingGameCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>
+          }
+          createMany: {
+            args: Prisma.FightingGameCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FightingGameCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>[]
+          }
+          delete: {
+            args: Prisma.FightingGameDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>
+          }
+          update: {
+            args: Prisma.FightingGameUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>
+          }
+          deleteMany: {
+            args: Prisma.FightingGameDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FightingGameUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FightingGameUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>[]
+          }
+          upsert: {
+            args: Prisma.FightingGameUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGamePayload>
+          }
+          aggregate: {
+            args: Prisma.FightingGameAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFightingGame>
+          }
+          groupBy: {
+            args: Prisma.FightingGameGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FightingGameGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FightingGameCountArgs<ExtArgs>
+            result: $Utils.Optional<FightingGameCountAggregateOutputType> | number
+          }
+        }
+      }
+      Character: {
+        payload: Prisma.$CharacterPayload<ExtArgs>
+        fields: Prisma.CharacterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CharacterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CharacterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          findFirst: {
+            args: Prisma.CharacterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CharacterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          findMany: {
+            args: Prisma.CharacterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>[]
+          }
+          create: {
+            args: Prisma.CharacterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          createMany: {
+            args: Prisma.CharacterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CharacterCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>[]
+          }
+          delete: {
+            args: Prisma.CharacterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          update: {
+            args: Prisma.CharacterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          deleteMany: {
+            args: Prisma.CharacterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CharacterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CharacterUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>[]
+          }
+          upsert: {
+            args: Prisma.CharacterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterPayload>
+          }
+          aggregate: {
+            args: Prisma.CharacterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCharacter>
+          }
+          groupBy: {
+            args: Prisma.CharacterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CharacterGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CharacterCountArgs<ExtArgs>
+            result: $Utils.Optional<CharacterCountAggregateOutputType> | number
+          }
+        }
+      }
+      CharacterOnSheet: {
+        payload: Prisma.$CharacterOnSheetPayload<ExtArgs>
+        fields: Prisma.CharacterOnSheetFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CharacterOnSheetFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CharacterOnSheetFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>
+          }
+          findFirst: {
+            args: Prisma.CharacterOnSheetFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CharacterOnSheetFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>
+          }
+          findMany: {
+            args: Prisma.CharacterOnSheetFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>[]
+          }
+          create: {
+            args: Prisma.CharacterOnSheetCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>
+          }
+          createMany: {
+            args: Prisma.CharacterOnSheetCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CharacterOnSheetCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>[]
+          }
+          delete: {
+            args: Prisma.CharacterOnSheetDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>
+          }
+          update: {
+            args: Prisma.CharacterOnSheetUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>
+          }
+          deleteMany: {
+            args: Prisma.CharacterOnSheetDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CharacterOnSheetUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CharacterOnSheetUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>[]
+          }
+          upsert: {
+            args: Prisma.CharacterOnSheetUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CharacterOnSheetPayload>
+          }
+          aggregate: {
+            args: Prisma.CharacterOnSheetAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCharacterOnSheet>
+          }
+          groupBy: {
+            args: Prisma.CharacterOnSheetGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CharacterOnSheetGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CharacterOnSheetCountArgs<ExtArgs>
+            result: $Utils.Optional<CharacterOnSheetCountAggregateOutputType> | number
+          }
+        }
+      }
+      OpponentOnSheet: {
+        payload: Prisma.$OpponentOnSheetPayload<ExtArgs>
+        fields: Prisma.OpponentOnSheetFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OpponentOnSheetFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OpponentOnSheetFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>
+          }
+          findFirst: {
+            args: Prisma.OpponentOnSheetFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OpponentOnSheetFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>
+          }
+          findMany: {
+            args: Prisma.OpponentOnSheetFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>[]
+          }
+          create: {
+            args: Prisma.OpponentOnSheetCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>
+          }
+          createMany: {
+            args: Prisma.OpponentOnSheetCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OpponentOnSheetCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>[]
+          }
+          delete: {
+            args: Prisma.OpponentOnSheetDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>
+          }
+          update: {
+            args: Prisma.OpponentOnSheetUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>
+          }
+          deleteMany: {
+            args: Prisma.OpponentOnSheetDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OpponentOnSheetUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OpponentOnSheetUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>[]
+          }
+          upsert: {
+            args: Prisma.OpponentOnSheetUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OpponentOnSheetPayload>
+          }
+          aggregate: {
+            args: Prisma.OpponentOnSheetAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOpponentOnSheet>
+          }
+          groupBy: {
+            args: Prisma.OpponentOnSheetGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OpponentOnSheetGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OpponentOnSheetCountArgs<ExtArgs>
+            result: $Utils.Optional<OpponentOnSheetCountAggregateOutputType> | number
+          }
+        }
+      }
+      FightingGameOnUser: {
+        payload: Prisma.$FightingGameOnUserPayload<ExtArgs>
+        fields: Prisma.FightingGameOnUserFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FightingGameOnUserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FightingGameOnUserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>
+          }
+          findFirst: {
+            args: Prisma.FightingGameOnUserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FightingGameOnUserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>
+          }
+          findMany: {
+            args: Prisma.FightingGameOnUserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>[]
+          }
+          create: {
+            args: Prisma.FightingGameOnUserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>
+          }
+          createMany: {
+            args: Prisma.FightingGameOnUserCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FightingGameOnUserCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>[]
+          }
+          delete: {
+            args: Prisma.FightingGameOnUserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>
+          }
+          update: {
+            args: Prisma.FightingGameOnUserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>
+          }
+          deleteMany: {
+            args: Prisma.FightingGameOnUserDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FightingGameOnUserUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FightingGameOnUserUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>[]
+          }
+          upsert: {
+            args: Prisma.FightingGameOnUserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FightingGameOnUserPayload>
+          }
+          aggregate: {
+            args: Prisma.FightingGameOnUserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFightingGameOnUser>
+          }
+          groupBy: {
+            args: Prisma.FightingGameOnUserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FightingGameOnUserGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FightingGameOnUserCountArgs<ExtArgs>
+            result: $Utils.Optional<FightingGameOnUserCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1048,6 +1678,13 @@ export namespace Prisma {
     session?: SessionOmit
     account?: AccountOmit
     verification?: VerificationOmit
+    sheet?: SheetOmit
+    filter?: FilterOmit
+    fightingGame?: FightingGameOmit
+    character?: CharacterOmit
+    characterOnSheet?: CharacterOnSheetOmit
+    opponentOnSheet?: OpponentOnSheetOmit
+    fightingGameOnUser?: FightingGameOnUserOmit
   }
 
   /* Types for Logging */
@@ -1144,11 +1781,17 @@ export namespace Prisma {
   export type UserCountOutputType = {
     sessions: number
     accounts: number
+    Sheet: number
+    Filter: number
+    FightingGameOnUser: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
+    Sheet?: boolean | UserCountOutputTypeCountSheetArgs
+    Filter?: boolean | UserCountOutputTypeCountFilterArgs
+    FightingGameOnUser?: boolean | UserCountOutputTypeCountFightingGameOnUserArgs
   }
 
   // Custom InputTypes
@@ -1174,6 +1817,165 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountAccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AccountWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SheetWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFilterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FilterWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFightingGameOnUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FightingGameOnUserWhereInput
+  }
+
+
+  /**
+   * Count Type SheetCountOutputType
+   */
+
+  export type SheetCountOutputType = {
+    filter: number
+    CharacterOnSheet: number
+    OpponentOnSheet: number
+  }
+
+  export type SheetCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    filter?: boolean | SheetCountOutputTypeCountFilterArgs
+    CharacterOnSheet?: boolean | SheetCountOutputTypeCountCharacterOnSheetArgs
+    OpponentOnSheet?: boolean | SheetCountOutputTypeCountOpponentOnSheetArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SheetCountOutputType without action
+   */
+  export type SheetCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SheetCountOutputType
+     */
+    select?: SheetCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SheetCountOutputType without action
+   */
+  export type SheetCountOutputTypeCountFilterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FilterWhereInput
+  }
+
+  /**
+   * SheetCountOutputType without action
+   */
+  export type SheetCountOutputTypeCountCharacterOnSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterOnSheetWhereInput
+  }
+
+  /**
+   * SheetCountOutputType without action
+   */
+  export type SheetCountOutputTypeCountOpponentOnSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OpponentOnSheetWhereInput
+  }
+
+
+  /**
+   * Count Type FightingGameCountOutputType
+   */
+
+  export type FightingGameCountOutputType = {
+    characters: number
+    Sheet: number
+    FightingGameOnUser: number
+  }
+
+  export type FightingGameCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    characters?: boolean | FightingGameCountOutputTypeCountCharactersArgs
+    Sheet?: boolean | FightingGameCountOutputTypeCountSheetArgs
+    FightingGameOnUser?: boolean | FightingGameCountOutputTypeCountFightingGameOnUserArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FightingGameCountOutputType without action
+   */
+  export type FightingGameCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameCountOutputType
+     */
+    select?: FightingGameCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FightingGameCountOutputType without action
+   */
+  export type FightingGameCountOutputTypeCountCharactersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterWhereInput
+  }
+
+  /**
+   * FightingGameCountOutputType without action
+   */
+  export type FightingGameCountOutputTypeCountSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SheetWhereInput
+  }
+
+  /**
+   * FightingGameCountOutputType without action
+   */
+  export type FightingGameCountOutputTypeCountFightingGameOnUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FightingGameOnUserWhereInput
+  }
+
+
+  /**
+   * Count Type CharacterCountOutputType
+   */
+
+  export type CharacterCountOutputType = {
+    CharacterOnSheet: number
+    OpponentOnSheet: number
+  }
+
+  export type CharacterCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    CharacterOnSheet?: boolean | CharacterCountOutputTypeCountCharacterOnSheetArgs
+    OpponentOnSheet?: boolean | CharacterCountOutputTypeCountOpponentOnSheetArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CharacterCountOutputType without action
+   */
+  export type CharacterCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterCountOutputType
+     */
+    select?: CharacterCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CharacterCountOutputType without action
+   */
+  export type CharacterCountOutputTypeCountCharacterOnSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterOnSheetWhereInput
+  }
+
+  /**
+   * CharacterCountOutputType without action
+   */
+  export type CharacterCountOutputTypeCountOpponentOnSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OpponentOnSheetWhereInput
   }
 
 
@@ -1363,6 +2165,9 @@ export namespace Prisma {
     updatedAt?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
+    Sheet?: boolean | User$SheetArgs<ExtArgs>
+    Filter?: boolean | User$FilterArgs<ExtArgs>
+    FightingGameOnUser?: boolean | User$FightingGameOnUserArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1400,6 +2205,9 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
+    Sheet?: boolean | User$SheetArgs<ExtArgs>
+    Filter?: boolean | User$FilterArgs<ExtArgs>
+    FightingGameOnUser?: boolean | User$FightingGameOnUserArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1410,6 +2218,9 @@ export namespace Prisma {
     objects: {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
+      Sheet: Prisma.$SheetPayload<ExtArgs>[]
+      Filter: Prisma.$FilterPayload<ExtArgs>[]
+      FightingGameOnUser: Prisma.$FightingGameOnUserPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1815,6 +2626,9 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Sheet<T extends User$SheetArgs<ExtArgs> = {}>(args?: Subset<T, User$SheetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Filter<T extends User$FilterArgs<ExtArgs> = {}>(args?: Subset<T, User$FilterArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    FightingGameOnUser<T extends User$FightingGameOnUserArgs<ExtArgs> = {}>(args?: Subset<T, User$FightingGameOnUserArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2284,6 +3098,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
+   * User.Sheet
+   */
+  export type User$SheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    where?: SheetWhereInput
+    orderBy?: SheetOrderByWithRelationInput | SheetOrderByWithRelationInput[]
+    cursor?: SheetWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SheetScalarFieldEnum | SheetScalarFieldEnum[]
+  }
+
+  /**
+   * User.Filter
+   */
+  export type User$FilterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    where?: FilterWhereInput
+    orderBy?: FilterOrderByWithRelationInput | FilterOrderByWithRelationInput[]
+    cursor?: FilterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FilterScalarFieldEnum | FilterScalarFieldEnum[]
+  }
+
+  /**
+   * User.FightingGameOnUser
+   */
+  export type User$FightingGameOnUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    where?: FightingGameOnUserWhereInput
+    orderBy?: FightingGameOnUserOrderByWithRelationInput | FightingGameOnUserOrderByWithRelationInput[]
+    cursor?: FightingGameOnUserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FightingGameOnUserScalarFieldEnum | FightingGameOnUserScalarFieldEnum[]
   }
 
   /**
@@ -5573,6 +6459,7631 @@ export namespace Prisma {
 
 
   /**
+   * Model Sheet
+   */
+
+  export type AggregateSheet = {
+    _count: SheetCountAggregateOutputType | null
+    _min: SheetMinAggregateOutputType | null
+    _max: SheetMaxAggregateOutputType | null
+  }
+
+  export type SheetMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+    fightingGameId: string | null
+  }
+
+  export type SheetMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    content: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+    fightingGameId: string | null
+  }
+
+  export type SheetCountAggregateOutputType = {
+    id: number
+    title: number
+    content: number
+    createdAt: number
+    updatedAt: number
+    userId: number
+    fightingGameId: number
+    _all: number
+  }
+
+
+  export type SheetMinAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    fightingGameId?: true
+  }
+
+  export type SheetMaxAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    fightingGameId?: true
+  }
+
+  export type SheetCountAggregateInputType = {
+    id?: true
+    title?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    fightingGameId?: true
+    _all?: true
+  }
+
+  export type SheetAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sheet to aggregate.
+     */
+    where?: SheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sheets to fetch.
+     */
+    orderBy?: SheetOrderByWithRelationInput | SheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Sheets
+    **/
+    _count?: true | SheetCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SheetMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SheetMaxAggregateInputType
+  }
+
+  export type GetSheetAggregateType<T extends SheetAggregateArgs> = {
+        [P in keyof T & keyof AggregateSheet]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSheet[P]>
+      : GetScalarType<T[P], AggregateSheet[P]>
+  }
+
+
+
+
+  export type SheetGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SheetWhereInput
+    orderBy?: SheetOrderByWithAggregationInput | SheetOrderByWithAggregationInput[]
+    by: SheetScalarFieldEnum[] | SheetScalarFieldEnum
+    having?: SheetScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SheetCountAggregateInputType | true
+    _min?: SheetMinAggregateInputType
+    _max?: SheetMaxAggregateInputType
+  }
+
+  export type SheetGroupByOutputType = {
+    id: string
+    title: string
+    content: string
+    createdAt: Date
+    updatedAt: Date
+    userId: string
+    fightingGameId: string
+    _count: SheetCountAggregateOutputType | null
+    _min: SheetMinAggregateOutputType | null
+    _max: SheetMaxAggregateOutputType | null
+  }
+
+  type GetSheetGroupByPayload<T extends SheetGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SheetGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SheetGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SheetGroupByOutputType[P]>
+            : GetScalarType<T[P], SheetGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SheetSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    fightingGameId?: boolean
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    filter?: boolean | Sheet$filterArgs<ExtArgs>
+    CharacterOnSheet?: boolean | Sheet$CharacterOnSheetArgs<ExtArgs>
+    OpponentOnSheet?: boolean | Sheet$OpponentOnSheetArgs<ExtArgs>
+    _count?: boolean | SheetCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sheet"]>
+
+  export type SheetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    fightingGameId?: boolean
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sheet"]>
+
+  export type SheetSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    fightingGameId?: boolean
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["sheet"]>
+
+  export type SheetSelectScalar = {
+    id?: boolean
+    title?: boolean
+    content?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    fightingGameId?: boolean
+  }
+
+  export type SheetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "createdAt" | "updatedAt" | "userId" | "fightingGameId", ExtArgs["result"]["sheet"]>
+  export type SheetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    filter?: boolean | Sheet$filterArgs<ExtArgs>
+    CharacterOnSheet?: boolean | Sheet$CharacterOnSheetArgs<ExtArgs>
+    OpponentOnSheet?: boolean | Sheet$OpponentOnSheetArgs<ExtArgs>
+    _count?: boolean | SheetCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type SheetIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type SheetIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $SheetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Sheet"
+    objects: {
+      fightingGame: Prisma.$FightingGamePayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
+      filter: Prisma.$FilterPayload<ExtArgs>[]
+      CharacterOnSheet: Prisma.$CharacterOnSheetPayload<ExtArgs>[]
+      OpponentOnSheet: Prisma.$OpponentOnSheetPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      content: string
+      createdAt: Date
+      updatedAt: Date
+      userId: string
+      fightingGameId: string
+    }, ExtArgs["result"]["sheet"]>
+    composites: {}
+  }
+
+  type SheetGetPayload<S extends boolean | null | undefined | SheetDefaultArgs> = $Result.GetResult<Prisma.$SheetPayload, S>
+
+  type SheetCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SheetFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SheetCountAggregateInputType | true
+    }
+
+  export interface SheetDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Sheet'], meta: { name: 'Sheet' } }
+    /**
+     * Find zero or one Sheet that matches the filter.
+     * @param {SheetFindUniqueArgs} args - Arguments to find a Sheet
+     * @example
+     * // Get one Sheet
+     * const sheet = await prisma.sheet.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SheetFindUniqueArgs>(args: SelectSubset<T, SheetFindUniqueArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Sheet that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SheetFindUniqueOrThrowArgs} args - Arguments to find a Sheet
+     * @example
+     * // Get one Sheet
+     * const sheet = await prisma.sheet.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SheetFindUniqueOrThrowArgs>(args: SelectSubset<T, SheetFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Sheet that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SheetFindFirstArgs} args - Arguments to find a Sheet
+     * @example
+     * // Get one Sheet
+     * const sheet = await prisma.sheet.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SheetFindFirstArgs>(args?: SelectSubset<T, SheetFindFirstArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Sheet that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SheetFindFirstOrThrowArgs} args - Arguments to find a Sheet
+     * @example
+     * // Get one Sheet
+     * const sheet = await prisma.sheet.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SheetFindFirstOrThrowArgs>(args?: SelectSubset<T, SheetFindFirstOrThrowArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Sheets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SheetFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Sheets
+     * const sheets = await prisma.sheet.findMany()
+     * 
+     * // Get first 10 Sheets
+     * const sheets = await prisma.sheet.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const sheetWithIdOnly = await prisma.sheet.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SheetFindManyArgs>(args?: SelectSubset<T, SheetFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Sheet.
+     * @param {SheetCreateArgs} args - Arguments to create a Sheet.
+     * @example
+     * // Create one Sheet
+     * const Sheet = await prisma.sheet.create({
+     *   data: {
+     *     // ... data to create a Sheet
+     *   }
+     * })
+     * 
+     */
+    create<T extends SheetCreateArgs>(args: SelectSubset<T, SheetCreateArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Sheets.
+     * @param {SheetCreateManyArgs} args - Arguments to create many Sheets.
+     * @example
+     * // Create many Sheets
+     * const sheet = await prisma.sheet.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SheetCreateManyArgs>(args?: SelectSubset<T, SheetCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Sheets and returns the data saved in the database.
+     * @param {SheetCreateManyAndReturnArgs} args - Arguments to create many Sheets.
+     * @example
+     * // Create many Sheets
+     * const sheet = await prisma.sheet.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Sheets and only return the `id`
+     * const sheetWithIdOnly = await prisma.sheet.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SheetCreateManyAndReturnArgs>(args?: SelectSubset<T, SheetCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Sheet.
+     * @param {SheetDeleteArgs} args - Arguments to delete one Sheet.
+     * @example
+     * // Delete one Sheet
+     * const Sheet = await prisma.sheet.delete({
+     *   where: {
+     *     // ... filter to delete one Sheet
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SheetDeleteArgs>(args: SelectSubset<T, SheetDeleteArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Sheet.
+     * @param {SheetUpdateArgs} args - Arguments to update one Sheet.
+     * @example
+     * // Update one Sheet
+     * const sheet = await prisma.sheet.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SheetUpdateArgs>(args: SelectSubset<T, SheetUpdateArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Sheets.
+     * @param {SheetDeleteManyArgs} args - Arguments to filter Sheets to delete.
+     * @example
+     * // Delete a few Sheets
+     * const { count } = await prisma.sheet.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SheetDeleteManyArgs>(args?: SelectSubset<T, SheetDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SheetUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Sheets
+     * const sheet = await prisma.sheet.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SheetUpdateManyArgs>(args: SelectSubset<T, SheetUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Sheets and returns the data updated in the database.
+     * @param {SheetUpdateManyAndReturnArgs} args - Arguments to update many Sheets.
+     * @example
+     * // Update many Sheets
+     * const sheet = await prisma.sheet.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Sheets and only return the `id`
+     * const sheetWithIdOnly = await prisma.sheet.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SheetUpdateManyAndReturnArgs>(args: SelectSubset<T, SheetUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Sheet.
+     * @param {SheetUpsertArgs} args - Arguments to update or create a Sheet.
+     * @example
+     * // Update or create a Sheet
+     * const sheet = await prisma.sheet.upsert({
+     *   create: {
+     *     // ... data to create a Sheet
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Sheet we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SheetUpsertArgs>(args: SelectSubset<T, SheetUpsertArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Sheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SheetCountArgs} args - Arguments to filter Sheets to count.
+     * @example
+     * // Count the number of Sheets
+     * const count = await prisma.sheet.count({
+     *   where: {
+     *     // ... the filter for the Sheets we want to count
+     *   }
+     * })
+    **/
+    count<T extends SheetCountArgs>(
+      args?: Subset<T, SheetCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SheetCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Sheet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SheetAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SheetAggregateArgs>(args: Subset<T, SheetAggregateArgs>): Prisma.PrismaPromise<GetSheetAggregateType<T>>
+
+    /**
+     * Group by Sheet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SheetGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SheetGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SheetGroupByArgs['orderBy'] }
+        : { orderBy?: SheetGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SheetGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSheetGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Sheet model
+   */
+  readonly fields: SheetFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Sheet.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SheetClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    fightingGame<T extends FightingGameDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FightingGameDefaultArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    filter<T extends Sheet$filterArgs<ExtArgs> = {}>(args?: Subset<T, Sheet$filterArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    CharacterOnSheet<T extends Sheet$CharacterOnSheetArgs<ExtArgs> = {}>(args?: Subset<T, Sheet$CharacterOnSheetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OpponentOnSheet<T extends Sheet$OpponentOnSheetArgs<ExtArgs> = {}>(args?: Subset<T, Sheet$OpponentOnSheetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Sheet model
+   */
+  interface SheetFieldRefs {
+    readonly id: FieldRef<"Sheet", 'String'>
+    readonly title: FieldRef<"Sheet", 'String'>
+    readonly content: FieldRef<"Sheet", 'String'>
+    readonly createdAt: FieldRef<"Sheet", 'DateTime'>
+    readonly updatedAt: FieldRef<"Sheet", 'DateTime'>
+    readonly userId: FieldRef<"Sheet", 'String'>
+    readonly fightingGameId: FieldRef<"Sheet", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Sheet findUnique
+   */
+  export type SheetFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * Filter, which Sheet to fetch.
+     */
+    where: SheetWhereUniqueInput
+  }
+
+  /**
+   * Sheet findUniqueOrThrow
+   */
+  export type SheetFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * Filter, which Sheet to fetch.
+     */
+    where: SheetWhereUniqueInput
+  }
+
+  /**
+   * Sheet findFirst
+   */
+  export type SheetFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * Filter, which Sheet to fetch.
+     */
+    where?: SheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sheets to fetch.
+     */
+    orderBy?: SheetOrderByWithRelationInput | SheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sheets.
+     */
+    cursor?: SheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sheets.
+     */
+    distinct?: SheetScalarFieldEnum | SheetScalarFieldEnum[]
+  }
+
+  /**
+   * Sheet findFirstOrThrow
+   */
+  export type SheetFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * Filter, which Sheet to fetch.
+     */
+    where?: SheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sheets to fetch.
+     */
+    orderBy?: SheetOrderByWithRelationInput | SheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Sheets.
+     */
+    cursor?: SheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Sheets.
+     */
+    distinct?: SheetScalarFieldEnum | SheetScalarFieldEnum[]
+  }
+
+  /**
+   * Sheet findMany
+   */
+  export type SheetFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * Filter, which Sheets to fetch.
+     */
+    where?: SheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Sheets to fetch.
+     */
+    orderBy?: SheetOrderByWithRelationInput | SheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Sheets.
+     */
+    cursor?: SheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Sheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Sheets.
+     */
+    skip?: number
+    distinct?: SheetScalarFieldEnum | SheetScalarFieldEnum[]
+  }
+
+  /**
+   * Sheet create
+   */
+  export type SheetCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Sheet.
+     */
+    data: XOR<SheetCreateInput, SheetUncheckedCreateInput>
+  }
+
+  /**
+   * Sheet createMany
+   */
+  export type SheetCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Sheets.
+     */
+    data: SheetCreateManyInput | SheetCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Sheet createManyAndReturn
+   */
+  export type SheetCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * The data used to create many Sheets.
+     */
+    data: SheetCreateManyInput | SheetCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Sheet update
+   */
+  export type SheetUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Sheet.
+     */
+    data: XOR<SheetUpdateInput, SheetUncheckedUpdateInput>
+    /**
+     * Choose, which Sheet to update.
+     */
+    where: SheetWhereUniqueInput
+  }
+
+  /**
+   * Sheet updateMany
+   */
+  export type SheetUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Sheets.
+     */
+    data: XOR<SheetUpdateManyMutationInput, SheetUncheckedUpdateManyInput>
+    /**
+     * Filter which Sheets to update
+     */
+    where?: SheetWhereInput
+    /**
+     * Limit how many Sheets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Sheet updateManyAndReturn
+   */
+  export type SheetUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * The data used to update Sheets.
+     */
+    data: XOR<SheetUpdateManyMutationInput, SheetUncheckedUpdateManyInput>
+    /**
+     * Filter which Sheets to update
+     */
+    where?: SheetWhereInput
+    /**
+     * Limit how many Sheets to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Sheet upsert
+   */
+  export type SheetUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Sheet to update in case it exists.
+     */
+    where: SheetWhereUniqueInput
+    /**
+     * In case the Sheet found by the `where` argument doesn't exist, create a new Sheet with this data.
+     */
+    create: XOR<SheetCreateInput, SheetUncheckedCreateInput>
+    /**
+     * In case the Sheet was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SheetUpdateInput, SheetUncheckedUpdateInput>
+  }
+
+  /**
+   * Sheet delete
+   */
+  export type SheetDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    /**
+     * Filter which Sheet to delete.
+     */
+    where: SheetWhereUniqueInput
+  }
+
+  /**
+   * Sheet deleteMany
+   */
+  export type SheetDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Sheets to delete
+     */
+    where?: SheetWhereInput
+    /**
+     * Limit how many Sheets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Sheet.filter
+   */
+  export type Sheet$filterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    where?: FilterWhereInput
+    orderBy?: FilterOrderByWithRelationInput | FilterOrderByWithRelationInput[]
+    cursor?: FilterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FilterScalarFieldEnum | FilterScalarFieldEnum[]
+  }
+
+  /**
+   * Sheet.CharacterOnSheet
+   */
+  export type Sheet$CharacterOnSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    where?: CharacterOnSheetWhereInput
+    orderBy?: CharacterOnSheetOrderByWithRelationInput | CharacterOnSheetOrderByWithRelationInput[]
+    cursor?: CharacterOnSheetWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CharacterOnSheetScalarFieldEnum | CharacterOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * Sheet.OpponentOnSheet
+   */
+  export type Sheet$OpponentOnSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    where?: OpponentOnSheetWhereInput
+    orderBy?: OpponentOnSheetOrderByWithRelationInput | OpponentOnSheetOrderByWithRelationInput[]
+    cursor?: OpponentOnSheetWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OpponentOnSheetScalarFieldEnum | OpponentOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * Sheet without action
+   */
+  export type SheetDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Filter
+   */
+
+  export type AggregateFilter = {
+    _count: FilterCountAggregateOutputType | null
+    _min: FilterMinAggregateOutputType | null
+    _max: FilterMaxAggregateOutputType | null
+  }
+
+  export type FilterMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+    sheetId: string | null
+  }
+
+  export type FilterMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+    sheetId: string | null
+  }
+
+  export type FilterCountAggregateOutputType = {
+    id: number
+    name: number
+    createdAt: number
+    updatedAt: number
+    userId: number
+    sheetId: number
+    _all: number
+  }
+
+
+  export type FilterMinAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    sheetId?: true
+  }
+
+  export type FilterMaxAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    sheetId?: true
+  }
+
+  export type FilterCountAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    sheetId?: true
+    _all?: true
+  }
+
+  export type FilterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Filter to aggregate.
+     */
+    where?: FilterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Filters to fetch.
+     */
+    orderBy?: FilterOrderByWithRelationInput | FilterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FilterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Filters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Filters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Filters
+    **/
+    _count?: true | FilterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FilterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FilterMaxAggregateInputType
+  }
+
+  export type GetFilterAggregateType<T extends FilterAggregateArgs> = {
+        [P in keyof T & keyof AggregateFilter]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFilter[P]>
+      : GetScalarType<T[P], AggregateFilter[P]>
+  }
+
+
+
+
+  export type FilterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FilterWhereInput
+    orderBy?: FilterOrderByWithAggregationInput | FilterOrderByWithAggregationInput[]
+    by: FilterScalarFieldEnum[] | FilterScalarFieldEnum
+    having?: FilterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FilterCountAggregateInputType | true
+    _min?: FilterMinAggregateInputType
+    _max?: FilterMaxAggregateInputType
+  }
+
+  export type FilterGroupByOutputType = {
+    id: string
+    name: string
+    createdAt: Date
+    updatedAt: Date
+    userId: string
+    sheetId: string | null
+    _count: FilterCountAggregateOutputType | null
+    _min: FilterMinAggregateOutputType | null
+    _max: FilterMaxAggregateOutputType | null
+  }
+
+  type GetFilterGroupByPayload<T extends FilterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FilterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FilterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FilterGroupByOutputType[P]>
+            : GetScalarType<T[P], FilterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FilterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    sheetId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    Sheet?: boolean | Filter$SheetArgs<ExtArgs>
+  }, ExtArgs["result"]["filter"]>
+
+  export type FilterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    sheetId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    Sheet?: boolean | Filter$SheetArgs<ExtArgs>
+  }, ExtArgs["result"]["filter"]>
+
+  export type FilterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    sheetId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    Sheet?: boolean | Filter$SheetArgs<ExtArgs>
+  }, ExtArgs["result"]["filter"]>
+
+  export type FilterSelectScalar = {
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    sheetId?: boolean
+  }
+
+  export type FilterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt" | "userId" | "sheetId", ExtArgs["result"]["filter"]>
+  export type FilterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    Sheet?: boolean | Filter$SheetArgs<ExtArgs>
+  }
+  export type FilterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    Sheet?: boolean | Filter$SheetArgs<ExtArgs>
+  }
+  export type FilterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    Sheet?: boolean | Filter$SheetArgs<ExtArgs>
+  }
+
+  export type $FilterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Filter"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      Sheet: Prisma.$SheetPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      createdAt: Date
+      updatedAt: Date
+      userId: string
+      sheetId: string | null
+    }, ExtArgs["result"]["filter"]>
+    composites: {}
+  }
+
+  type FilterGetPayload<S extends boolean | null | undefined | FilterDefaultArgs> = $Result.GetResult<Prisma.$FilterPayload, S>
+
+  type FilterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FilterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FilterCountAggregateInputType | true
+    }
+
+  export interface FilterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Filter'], meta: { name: 'Filter' } }
+    /**
+     * Find zero or one Filter that matches the filter.
+     * @param {FilterFindUniqueArgs} args - Arguments to find a Filter
+     * @example
+     * // Get one Filter
+     * const filter = await prisma.filter.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FilterFindUniqueArgs>(args: SelectSubset<T, FilterFindUniqueArgs<ExtArgs>>): Prisma__FilterClient<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Filter that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FilterFindUniqueOrThrowArgs} args - Arguments to find a Filter
+     * @example
+     * // Get one Filter
+     * const filter = await prisma.filter.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FilterFindUniqueOrThrowArgs>(args: SelectSubset<T, FilterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FilterClient<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Filter that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilterFindFirstArgs} args - Arguments to find a Filter
+     * @example
+     * // Get one Filter
+     * const filter = await prisma.filter.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FilterFindFirstArgs>(args?: SelectSubset<T, FilterFindFirstArgs<ExtArgs>>): Prisma__FilterClient<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Filter that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilterFindFirstOrThrowArgs} args - Arguments to find a Filter
+     * @example
+     * // Get one Filter
+     * const filter = await prisma.filter.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FilterFindFirstOrThrowArgs>(args?: SelectSubset<T, FilterFindFirstOrThrowArgs<ExtArgs>>): Prisma__FilterClient<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Filters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Filters
+     * const filters = await prisma.filter.findMany()
+     * 
+     * // Get first 10 Filters
+     * const filters = await prisma.filter.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const filterWithIdOnly = await prisma.filter.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FilterFindManyArgs>(args?: SelectSubset<T, FilterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Filter.
+     * @param {FilterCreateArgs} args - Arguments to create a Filter.
+     * @example
+     * // Create one Filter
+     * const Filter = await prisma.filter.create({
+     *   data: {
+     *     // ... data to create a Filter
+     *   }
+     * })
+     * 
+     */
+    create<T extends FilterCreateArgs>(args: SelectSubset<T, FilterCreateArgs<ExtArgs>>): Prisma__FilterClient<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Filters.
+     * @param {FilterCreateManyArgs} args - Arguments to create many Filters.
+     * @example
+     * // Create many Filters
+     * const filter = await prisma.filter.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FilterCreateManyArgs>(args?: SelectSubset<T, FilterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Filters and returns the data saved in the database.
+     * @param {FilterCreateManyAndReturnArgs} args - Arguments to create many Filters.
+     * @example
+     * // Create many Filters
+     * const filter = await prisma.filter.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Filters and only return the `id`
+     * const filterWithIdOnly = await prisma.filter.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FilterCreateManyAndReturnArgs>(args?: SelectSubset<T, FilterCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Filter.
+     * @param {FilterDeleteArgs} args - Arguments to delete one Filter.
+     * @example
+     * // Delete one Filter
+     * const Filter = await prisma.filter.delete({
+     *   where: {
+     *     // ... filter to delete one Filter
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FilterDeleteArgs>(args: SelectSubset<T, FilterDeleteArgs<ExtArgs>>): Prisma__FilterClient<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Filter.
+     * @param {FilterUpdateArgs} args - Arguments to update one Filter.
+     * @example
+     * // Update one Filter
+     * const filter = await prisma.filter.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FilterUpdateArgs>(args: SelectSubset<T, FilterUpdateArgs<ExtArgs>>): Prisma__FilterClient<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Filters.
+     * @param {FilterDeleteManyArgs} args - Arguments to filter Filters to delete.
+     * @example
+     * // Delete a few Filters
+     * const { count } = await prisma.filter.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FilterDeleteManyArgs>(args?: SelectSubset<T, FilterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Filters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Filters
+     * const filter = await prisma.filter.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FilterUpdateManyArgs>(args: SelectSubset<T, FilterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Filters and returns the data updated in the database.
+     * @param {FilterUpdateManyAndReturnArgs} args - Arguments to update many Filters.
+     * @example
+     * // Update many Filters
+     * const filter = await prisma.filter.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Filters and only return the `id`
+     * const filterWithIdOnly = await prisma.filter.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FilterUpdateManyAndReturnArgs>(args: SelectSubset<T, FilterUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Filter.
+     * @param {FilterUpsertArgs} args - Arguments to update or create a Filter.
+     * @example
+     * // Update or create a Filter
+     * const filter = await prisma.filter.upsert({
+     *   create: {
+     *     // ... data to create a Filter
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Filter we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FilterUpsertArgs>(args: SelectSubset<T, FilterUpsertArgs<ExtArgs>>): Prisma__FilterClient<$Result.GetResult<Prisma.$FilterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Filters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilterCountArgs} args - Arguments to filter Filters to count.
+     * @example
+     * // Count the number of Filters
+     * const count = await prisma.filter.count({
+     *   where: {
+     *     // ... the filter for the Filters we want to count
+     *   }
+     * })
+    **/
+    count<T extends FilterCountArgs>(
+      args?: Subset<T, FilterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FilterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FilterAggregateArgs>(args: Subset<T, FilterAggregateArgs>): Prisma.PrismaPromise<GetFilterAggregateType<T>>
+
+    /**
+     * Group by Filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FilterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FilterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FilterGroupByArgs['orderBy'] }
+        : { orderBy?: FilterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FilterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFilterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Filter model
+   */
+  readonly fields: FilterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Filter.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FilterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Sheet<T extends Filter$SheetArgs<ExtArgs> = {}>(args?: Subset<T, Filter$SheetArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Filter model
+   */
+  interface FilterFieldRefs {
+    readonly id: FieldRef<"Filter", 'String'>
+    readonly name: FieldRef<"Filter", 'String'>
+    readonly createdAt: FieldRef<"Filter", 'DateTime'>
+    readonly updatedAt: FieldRef<"Filter", 'DateTime'>
+    readonly userId: FieldRef<"Filter", 'String'>
+    readonly sheetId: FieldRef<"Filter", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Filter findUnique
+   */
+  export type FilterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * Filter, which Filter to fetch.
+     */
+    where: FilterWhereUniqueInput
+  }
+
+  /**
+   * Filter findUniqueOrThrow
+   */
+  export type FilterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * Filter, which Filter to fetch.
+     */
+    where: FilterWhereUniqueInput
+  }
+
+  /**
+   * Filter findFirst
+   */
+  export type FilterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * Filter, which Filter to fetch.
+     */
+    where?: FilterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Filters to fetch.
+     */
+    orderBy?: FilterOrderByWithRelationInput | FilterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Filters.
+     */
+    cursor?: FilterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Filters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Filters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Filters.
+     */
+    distinct?: FilterScalarFieldEnum | FilterScalarFieldEnum[]
+  }
+
+  /**
+   * Filter findFirstOrThrow
+   */
+  export type FilterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * Filter, which Filter to fetch.
+     */
+    where?: FilterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Filters to fetch.
+     */
+    orderBy?: FilterOrderByWithRelationInput | FilterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Filters.
+     */
+    cursor?: FilterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Filters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Filters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Filters.
+     */
+    distinct?: FilterScalarFieldEnum | FilterScalarFieldEnum[]
+  }
+
+  /**
+   * Filter findMany
+   */
+  export type FilterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * Filter, which Filters to fetch.
+     */
+    where?: FilterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Filters to fetch.
+     */
+    orderBy?: FilterOrderByWithRelationInput | FilterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Filters.
+     */
+    cursor?: FilterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Filters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Filters.
+     */
+    skip?: number
+    distinct?: FilterScalarFieldEnum | FilterScalarFieldEnum[]
+  }
+
+  /**
+   * Filter create
+   */
+  export type FilterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Filter.
+     */
+    data: XOR<FilterCreateInput, FilterUncheckedCreateInput>
+  }
+
+  /**
+   * Filter createMany
+   */
+  export type FilterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Filters.
+     */
+    data: FilterCreateManyInput | FilterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Filter createManyAndReturn
+   */
+  export type FilterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * The data used to create many Filters.
+     */
+    data: FilterCreateManyInput | FilterCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Filter update
+   */
+  export type FilterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Filter.
+     */
+    data: XOR<FilterUpdateInput, FilterUncheckedUpdateInput>
+    /**
+     * Choose, which Filter to update.
+     */
+    where: FilterWhereUniqueInput
+  }
+
+  /**
+   * Filter updateMany
+   */
+  export type FilterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Filters.
+     */
+    data: XOR<FilterUpdateManyMutationInput, FilterUncheckedUpdateManyInput>
+    /**
+     * Filter which Filters to update
+     */
+    where?: FilterWhereInput
+    /**
+     * Limit how many Filters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Filter updateManyAndReturn
+   */
+  export type FilterUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * The data used to update Filters.
+     */
+    data: XOR<FilterUpdateManyMutationInput, FilterUncheckedUpdateManyInput>
+    /**
+     * Filter which Filters to update
+     */
+    where?: FilterWhereInput
+    /**
+     * Limit how many Filters to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Filter upsert
+   */
+  export type FilterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Filter to update in case it exists.
+     */
+    where: FilterWhereUniqueInput
+    /**
+     * In case the Filter found by the `where` argument doesn't exist, create a new Filter with this data.
+     */
+    create: XOR<FilterCreateInput, FilterUncheckedCreateInput>
+    /**
+     * In case the Filter was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FilterUpdateInput, FilterUncheckedUpdateInput>
+  }
+
+  /**
+   * Filter delete
+   */
+  export type FilterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+    /**
+     * Filter which Filter to delete.
+     */
+    where: FilterWhereUniqueInput
+  }
+
+  /**
+   * Filter deleteMany
+   */
+  export type FilterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Filters to delete
+     */
+    where?: FilterWhereInput
+    /**
+     * Limit how many Filters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Filter.Sheet
+   */
+  export type Filter$SheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    where?: SheetWhereInput
+  }
+
+  /**
+   * Filter without action
+   */
+  export type FilterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Filter
+     */
+    select?: FilterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Filter
+     */
+    omit?: FilterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FilterInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FightingGame
+   */
+
+  export type AggregateFightingGame = {
+    _count: FightingGameCountAggregateOutputType | null
+    _min: FightingGameMinAggregateOutputType | null
+    _max: FightingGameMaxAggregateOutputType | null
+  }
+
+  export type FightingGameMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FightingGameMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FightingGameCountAggregateOutputType = {
+    id: number
+    name: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FightingGameMinAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FightingGameMaxAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FightingGameCountAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FightingGameAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FightingGame to aggregate.
+     */
+    where?: FightingGameWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FightingGames to fetch.
+     */
+    orderBy?: FightingGameOrderByWithRelationInput | FightingGameOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FightingGameWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FightingGames from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FightingGames.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FightingGames
+    **/
+    _count?: true | FightingGameCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FightingGameMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FightingGameMaxAggregateInputType
+  }
+
+  export type GetFightingGameAggregateType<T extends FightingGameAggregateArgs> = {
+        [P in keyof T & keyof AggregateFightingGame]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFightingGame[P]>
+      : GetScalarType<T[P], AggregateFightingGame[P]>
+  }
+
+
+
+
+  export type FightingGameGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FightingGameWhereInput
+    orderBy?: FightingGameOrderByWithAggregationInput | FightingGameOrderByWithAggregationInput[]
+    by: FightingGameScalarFieldEnum[] | FightingGameScalarFieldEnum
+    having?: FightingGameScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FightingGameCountAggregateInputType | true
+    _min?: FightingGameMinAggregateInputType
+    _max?: FightingGameMaxAggregateInputType
+  }
+
+  export type FightingGameGroupByOutputType = {
+    id: string
+    name: string
+    createdAt: Date
+    updatedAt: Date
+    _count: FightingGameCountAggregateOutputType | null
+    _min: FightingGameMinAggregateOutputType | null
+    _max: FightingGameMaxAggregateOutputType | null
+  }
+
+  type GetFightingGameGroupByPayload<T extends FightingGameGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FightingGameGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FightingGameGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FightingGameGroupByOutputType[P]>
+            : GetScalarType<T[P], FightingGameGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FightingGameSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    characters?: boolean | FightingGame$charactersArgs<ExtArgs>
+    Sheet?: boolean | FightingGame$SheetArgs<ExtArgs>
+    FightingGameOnUser?: boolean | FightingGame$FightingGameOnUserArgs<ExtArgs>
+    _count?: boolean | FightingGameCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fightingGame"]>
+
+  export type FightingGameSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["fightingGame"]>
+
+  export type FightingGameSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["fightingGame"]>
+
+  export type FightingGameSelectScalar = {
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FightingGameOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["fightingGame"]>
+  export type FightingGameInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    characters?: boolean | FightingGame$charactersArgs<ExtArgs>
+    Sheet?: boolean | FightingGame$SheetArgs<ExtArgs>
+    FightingGameOnUser?: boolean | FightingGame$FightingGameOnUserArgs<ExtArgs>
+    _count?: boolean | FightingGameCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type FightingGameIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FightingGameIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $FightingGamePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FightingGame"
+    objects: {
+      characters: Prisma.$CharacterPayload<ExtArgs>[]
+      Sheet: Prisma.$SheetPayload<ExtArgs>[]
+      FightingGameOnUser: Prisma.$FightingGameOnUserPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["fightingGame"]>
+    composites: {}
+  }
+
+  type FightingGameGetPayload<S extends boolean | null | undefined | FightingGameDefaultArgs> = $Result.GetResult<Prisma.$FightingGamePayload, S>
+
+  type FightingGameCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FightingGameFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FightingGameCountAggregateInputType | true
+    }
+
+  export interface FightingGameDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FightingGame'], meta: { name: 'FightingGame' } }
+    /**
+     * Find zero or one FightingGame that matches the filter.
+     * @param {FightingGameFindUniqueArgs} args - Arguments to find a FightingGame
+     * @example
+     * // Get one FightingGame
+     * const fightingGame = await prisma.fightingGame.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FightingGameFindUniqueArgs>(args: SelectSubset<T, FightingGameFindUniqueArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FightingGame that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FightingGameFindUniqueOrThrowArgs} args - Arguments to find a FightingGame
+     * @example
+     * // Get one FightingGame
+     * const fightingGame = await prisma.fightingGame.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FightingGameFindUniqueOrThrowArgs>(args: SelectSubset<T, FightingGameFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FightingGame that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameFindFirstArgs} args - Arguments to find a FightingGame
+     * @example
+     * // Get one FightingGame
+     * const fightingGame = await prisma.fightingGame.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FightingGameFindFirstArgs>(args?: SelectSubset<T, FightingGameFindFirstArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FightingGame that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameFindFirstOrThrowArgs} args - Arguments to find a FightingGame
+     * @example
+     * // Get one FightingGame
+     * const fightingGame = await prisma.fightingGame.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FightingGameFindFirstOrThrowArgs>(args?: SelectSubset<T, FightingGameFindFirstOrThrowArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FightingGames that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FightingGames
+     * const fightingGames = await prisma.fightingGame.findMany()
+     * 
+     * // Get first 10 FightingGames
+     * const fightingGames = await prisma.fightingGame.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fightingGameWithIdOnly = await prisma.fightingGame.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FightingGameFindManyArgs>(args?: SelectSubset<T, FightingGameFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FightingGame.
+     * @param {FightingGameCreateArgs} args - Arguments to create a FightingGame.
+     * @example
+     * // Create one FightingGame
+     * const FightingGame = await prisma.fightingGame.create({
+     *   data: {
+     *     // ... data to create a FightingGame
+     *   }
+     * })
+     * 
+     */
+    create<T extends FightingGameCreateArgs>(args: SelectSubset<T, FightingGameCreateArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FightingGames.
+     * @param {FightingGameCreateManyArgs} args - Arguments to create many FightingGames.
+     * @example
+     * // Create many FightingGames
+     * const fightingGame = await prisma.fightingGame.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FightingGameCreateManyArgs>(args?: SelectSubset<T, FightingGameCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FightingGames and returns the data saved in the database.
+     * @param {FightingGameCreateManyAndReturnArgs} args - Arguments to create many FightingGames.
+     * @example
+     * // Create many FightingGames
+     * const fightingGame = await prisma.fightingGame.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FightingGames and only return the `id`
+     * const fightingGameWithIdOnly = await prisma.fightingGame.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FightingGameCreateManyAndReturnArgs>(args?: SelectSubset<T, FightingGameCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FightingGame.
+     * @param {FightingGameDeleteArgs} args - Arguments to delete one FightingGame.
+     * @example
+     * // Delete one FightingGame
+     * const FightingGame = await prisma.fightingGame.delete({
+     *   where: {
+     *     // ... filter to delete one FightingGame
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FightingGameDeleteArgs>(args: SelectSubset<T, FightingGameDeleteArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FightingGame.
+     * @param {FightingGameUpdateArgs} args - Arguments to update one FightingGame.
+     * @example
+     * // Update one FightingGame
+     * const fightingGame = await prisma.fightingGame.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FightingGameUpdateArgs>(args: SelectSubset<T, FightingGameUpdateArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FightingGames.
+     * @param {FightingGameDeleteManyArgs} args - Arguments to filter FightingGames to delete.
+     * @example
+     * // Delete a few FightingGames
+     * const { count } = await prisma.fightingGame.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FightingGameDeleteManyArgs>(args?: SelectSubset<T, FightingGameDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FightingGames.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FightingGames
+     * const fightingGame = await prisma.fightingGame.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FightingGameUpdateManyArgs>(args: SelectSubset<T, FightingGameUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FightingGames and returns the data updated in the database.
+     * @param {FightingGameUpdateManyAndReturnArgs} args - Arguments to update many FightingGames.
+     * @example
+     * // Update many FightingGames
+     * const fightingGame = await prisma.fightingGame.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FightingGames and only return the `id`
+     * const fightingGameWithIdOnly = await prisma.fightingGame.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FightingGameUpdateManyAndReturnArgs>(args: SelectSubset<T, FightingGameUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FightingGame.
+     * @param {FightingGameUpsertArgs} args - Arguments to update or create a FightingGame.
+     * @example
+     * // Update or create a FightingGame
+     * const fightingGame = await prisma.fightingGame.upsert({
+     *   create: {
+     *     // ... data to create a FightingGame
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FightingGame we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FightingGameUpsertArgs>(args: SelectSubset<T, FightingGameUpsertArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FightingGames.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameCountArgs} args - Arguments to filter FightingGames to count.
+     * @example
+     * // Count the number of FightingGames
+     * const count = await prisma.fightingGame.count({
+     *   where: {
+     *     // ... the filter for the FightingGames we want to count
+     *   }
+     * })
+    **/
+    count<T extends FightingGameCountArgs>(
+      args?: Subset<T, FightingGameCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FightingGameCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FightingGame.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FightingGameAggregateArgs>(args: Subset<T, FightingGameAggregateArgs>): Prisma.PrismaPromise<GetFightingGameAggregateType<T>>
+
+    /**
+     * Group by FightingGame.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FightingGameGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FightingGameGroupByArgs['orderBy'] }
+        : { orderBy?: FightingGameGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FightingGameGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFightingGameGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FightingGame model
+   */
+  readonly fields: FightingGameFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FightingGame.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FightingGameClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    characters<T extends FightingGame$charactersArgs<ExtArgs> = {}>(args?: Subset<T, FightingGame$charactersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Sheet<T extends FightingGame$SheetArgs<ExtArgs> = {}>(args?: Subset<T, FightingGame$SheetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    FightingGameOnUser<T extends FightingGame$FightingGameOnUserArgs<ExtArgs> = {}>(args?: Subset<T, FightingGame$FightingGameOnUserArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FightingGame model
+   */
+  interface FightingGameFieldRefs {
+    readonly id: FieldRef<"FightingGame", 'String'>
+    readonly name: FieldRef<"FightingGame", 'String'>
+    readonly createdAt: FieldRef<"FightingGame", 'DateTime'>
+    readonly updatedAt: FieldRef<"FightingGame", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FightingGame findUnique
+   */
+  export type FightingGameFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGame to fetch.
+     */
+    where: FightingGameWhereUniqueInput
+  }
+
+  /**
+   * FightingGame findUniqueOrThrow
+   */
+  export type FightingGameFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGame to fetch.
+     */
+    where: FightingGameWhereUniqueInput
+  }
+
+  /**
+   * FightingGame findFirst
+   */
+  export type FightingGameFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGame to fetch.
+     */
+    where?: FightingGameWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FightingGames to fetch.
+     */
+    orderBy?: FightingGameOrderByWithRelationInput | FightingGameOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FightingGames.
+     */
+    cursor?: FightingGameWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FightingGames from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FightingGames.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FightingGames.
+     */
+    distinct?: FightingGameScalarFieldEnum | FightingGameScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGame findFirstOrThrow
+   */
+  export type FightingGameFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGame to fetch.
+     */
+    where?: FightingGameWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FightingGames to fetch.
+     */
+    orderBy?: FightingGameOrderByWithRelationInput | FightingGameOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FightingGames.
+     */
+    cursor?: FightingGameWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FightingGames from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FightingGames.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FightingGames.
+     */
+    distinct?: FightingGameScalarFieldEnum | FightingGameScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGame findMany
+   */
+  export type FightingGameFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGames to fetch.
+     */
+    where?: FightingGameWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FightingGames to fetch.
+     */
+    orderBy?: FightingGameOrderByWithRelationInput | FightingGameOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FightingGames.
+     */
+    cursor?: FightingGameWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FightingGames from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FightingGames.
+     */
+    skip?: number
+    distinct?: FightingGameScalarFieldEnum | FightingGameScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGame create
+   */
+  export type FightingGameCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FightingGame.
+     */
+    data: XOR<FightingGameCreateInput, FightingGameUncheckedCreateInput>
+  }
+
+  /**
+   * FightingGame createMany
+   */
+  export type FightingGameCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FightingGames.
+     */
+    data: FightingGameCreateManyInput | FightingGameCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FightingGame createManyAndReturn
+   */
+  export type FightingGameCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * The data used to create many FightingGames.
+     */
+    data: FightingGameCreateManyInput | FightingGameCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FightingGame update
+   */
+  export type FightingGameUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FightingGame.
+     */
+    data: XOR<FightingGameUpdateInput, FightingGameUncheckedUpdateInput>
+    /**
+     * Choose, which FightingGame to update.
+     */
+    where: FightingGameWhereUniqueInput
+  }
+
+  /**
+   * FightingGame updateMany
+   */
+  export type FightingGameUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FightingGames.
+     */
+    data: XOR<FightingGameUpdateManyMutationInput, FightingGameUncheckedUpdateManyInput>
+    /**
+     * Filter which FightingGames to update
+     */
+    where?: FightingGameWhereInput
+    /**
+     * Limit how many FightingGames to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FightingGame updateManyAndReturn
+   */
+  export type FightingGameUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * The data used to update FightingGames.
+     */
+    data: XOR<FightingGameUpdateManyMutationInput, FightingGameUncheckedUpdateManyInput>
+    /**
+     * Filter which FightingGames to update
+     */
+    where?: FightingGameWhereInput
+    /**
+     * Limit how many FightingGames to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FightingGame upsert
+   */
+  export type FightingGameUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FightingGame to update in case it exists.
+     */
+    where: FightingGameWhereUniqueInput
+    /**
+     * In case the FightingGame found by the `where` argument doesn't exist, create a new FightingGame with this data.
+     */
+    create: XOR<FightingGameCreateInput, FightingGameUncheckedCreateInput>
+    /**
+     * In case the FightingGame was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FightingGameUpdateInput, FightingGameUncheckedUpdateInput>
+  }
+
+  /**
+   * FightingGame delete
+   */
+  export type FightingGameDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+    /**
+     * Filter which FightingGame to delete.
+     */
+    where: FightingGameWhereUniqueInput
+  }
+
+  /**
+   * FightingGame deleteMany
+   */
+  export type FightingGameDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FightingGames to delete
+     */
+    where?: FightingGameWhereInput
+    /**
+     * Limit how many FightingGames to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FightingGame.characters
+   */
+  export type FightingGame$charactersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    where?: CharacterWhereInput
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    cursor?: CharacterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CharacterScalarFieldEnum | CharacterScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGame.Sheet
+   */
+  export type FightingGame$SheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Sheet
+     */
+    select?: SheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Sheet
+     */
+    omit?: SheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SheetInclude<ExtArgs> | null
+    where?: SheetWhereInput
+    orderBy?: SheetOrderByWithRelationInput | SheetOrderByWithRelationInput[]
+    cursor?: SheetWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SheetScalarFieldEnum | SheetScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGame.FightingGameOnUser
+   */
+  export type FightingGame$FightingGameOnUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    where?: FightingGameOnUserWhereInput
+    orderBy?: FightingGameOnUserOrderByWithRelationInput | FightingGameOnUserOrderByWithRelationInput[]
+    cursor?: FightingGameOnUserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FightingGameOnUserScalarFieldEnum | FightingGameOnUserScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGame without action
+   */
+  export type FightingGameDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGame
+     */
+    select?: FightingGameSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGame
+     */
+    omit?: FightingGameOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Character
+   */
+
+  export type AggregateCharacter = {
+    _count: CharacterCountAggregateOutputType | null
+    _min: CharacterMinAggregateOutputType | null
+    _max: CharacterMaxAggregateOutputType | null
+  }
+
+  export type CharacterMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    fightingGameId: string | null
+  }
+
+  export type CharacterMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    fightingGameId: string | null
+  }
+
+  export type CharacterCountAggregateOutputType = {
+    id: number
+    name: number
+    createdAt: number
+    updatedAt: number
+    fightingGameId: number
+    _all: number
+  }
+
+
+  export type CharacterMinAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    fightingGameId?: true
+  }
+
+  export type CharacterMaxAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    fightingGameId?: true
+  }
+
+  export type CharacterCountAggregateInputType = {
+    id?: true
+    name?: true
+    createdAt?: true
+    updatedAt?: true
+    fightingGameId?: true
+    _all?: true
+  }
+
+  export type CharacterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Character to aggregate.
+     */
+    where?: CharacterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Characters to fetch.
+     */
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CharacterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Characters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Characters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Characters
+    **/
+    _count?: true | CharacterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CharacterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CharacterMaxAggregateInputType
+  }
+
+  export type GetCharacterAggregateType<T extends CharacterAggregateArgs> = {
+        [P in keyof T & keyof AggregateCharacter]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCharacter[P]>
+      : GetScalarType<T[P], AggregateCharacter[P]>
+  }
+
+
+
+
+  export type CharacterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterWhereInput
+    orderBy?: CharacterOrderByWithAggregationInput | CharacterOrderByWithAggregationInput[]
+    by: CharacterScalarFieldEnum[] | CharacterScalarFieldEnum
+    having?: CharacterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CharacterCountAggregateInputType | true
+    _min?: CharacterMinAggregateInputType
+    _max?: CharacterMaxAggregateInputType
+  }
+
+  export type CharacterGroupByOutputType = {
+    id: string
+    name: string
+    createdAt: Date
+    updatedAt: Date
+    fightingGameId: string
+    _count: CharacterCountAggregateOutputType | null
+    _min: CharacterMinAggregateOutputType | null
+    _max: CharacterMaxAggregateOutputType | null
+  }
+
+  type GetCharacterGroupByPayload<T extends CharacterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CharacterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CharacterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CharacterGroupByOutputType[P]>
+            : GetScalarType<T[P], CharacterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CharacterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    fightingGameId?: boolean
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+    CharacterOnSheet?: boolean | Character$CharacterOnSheetArgs<ExtArgs>
+    OpponentOnSheet?: boolean | Character$OpponentOnSheetArgs<ExtArgs>
+    _count?: boolean | CharacterCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["character"]>
+
+  export type CharacterSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    fightingGameId?: boolean
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["character"]>
+
+  export type CharacterSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    fightingGameId?: boolean
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["character"]>
+
+  export type CharacterSelectScalar = {
+    id?: boolean
+    name?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    fightingGameId?: boolean
+  }
+
+  export type CharacterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt" | "fightingGameId", ExtArgs["result"]["character"]>
+  export type CharacterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+    CharacterOnSheet?: boolean | Character$CharacterOnSheetArgs<ExtArgs>
+    OpponentOnSheet?: boolean | Character$OpponentOnSheetArgs<ExtArgs>
+    _count?: boolean | CharacterCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CharacterIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }
+  export type CharacterIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }
+
+  export type $CharacterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Character"
+    objects: {
+      fightingGame: Prisma.$FightingGamePayload<ExtArgs>
+      CharacterOnSheet: Prisma.$CharacterOnSheetPayload<ExtArgs>[]
+      OpponentOnSheet: Prisma.$OpponentOnSheetPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      createdAt: Date
+      updatedAt: Date
+      fightingGameId: string
+    }, ExtArgs["result"]["character"]>
+    composites: {}
+  }
+
+  type CharacterGetPayload<S extends boolean | null | undefined | CharacterDefaultArgs> = $Result.GetResult<Prisma.$CharacterPayload, S>
+
+  type CharacterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CharacterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CharacterCountAggregateInputType | true
+    }
+
+  export interface CharacterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Character'], meta: { name: 'Character' } }
+    /**
+     * Find zero or one Character that matches the filter.
+     * @param {CharacterFindUniqueArgs} args - Arguments to find a Character
+     * @example
+     * // Get one Character
+     * const character = await prisma.character.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CharacterFindUniqueArgs>(args: SelectSubset<T, CharacterFindUniqueArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Character that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CharacterFindUniqueOrThrowArgs} args - Arguments to find a Character
+     * @example
+     * // Get one Character
+     * const character = await prisma.character.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CharacterFindUniqueOrThrowArgs>(args: SelectSubset<T, CharacterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Character that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterFindFirstArgs} args - Arguments to find a Character
+     * @example
+     * // Get one Character
+     * const character = await prisma.character.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CharacterFindFirstArgs>(args?: SelectSubset<T, CharacterFindFirstArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Character that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterFindFirstOrThrowArgs} args - Arguments to find a Character
+     * @example
+     * // Get one Character
+     * const character = await prisma.character.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CharacterFindFirstOrThrowArgs>(args?: SelectSubset<T, CharacterFindFirstOrThrowArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Characters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Characters
+     * const characters = await prisma.character.findMany()
+     * 
+     * // Get first 10 Characters
+     * const characters = await prisma.character.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const characterWithIdOnly = await prisma.character.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CharacterFindManyArgs>(args?: SelectSubset<T, CharacterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Character.
+     * @param {CharacterCreateArgs} args - Arguments to create a Character.
+     * @example
+     * // Create one Character
+     * const Character = await prisma.character.create({
+     *   data: {
+     *     // ... data to create a Character
+     *   }
+     * })
+     * 
+     */
+    create<T extends CharacterCreateArgs>(args: SelectSubset<T, CharacterCreateArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Characters.
+     * @param {CharacterCreateManyArgs} args - Arguments to create many Characters.
+     * @example
+     * // Create many Characters
+     * const character = await prisma.character.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CharacterCreateManyArgs>(args?: SelectSubset<T, CharacterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Characters and returns the data saved in the database.
+     * @param {CharacterCreateManyAndReturnArgs} args - Arguments to create many Characters.
+     * @example
+     * // Create many Characters
+     * const character = await prisma.character.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Characters and only return the `id`
+     * const characterWithIdOnly = await prisma.character.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CharacterCreateManyAndReturnArgs>(args?: SelectSubset<T, CharacterCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Character.
+     * @param {CharacterDeleteArgs} args - Arguments to delete one Character.
+     * @example
+     * // Delete one Character
+     * const Character = await prisma.character.delete({
+     *   where: {
+     *     // ... filter to delete one Character
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CharacterDeleteArgs>(args: SelectSubset<T, CharacterDeleteArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Character.
+     * @param {CharacterUpdateArgs} args - Arguments to update one Character.
+     * @example
+     * // Update one Character
+     * const character = await prisma.character.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CharacterUpdateArgs>(args: SelectSubset<T, CharacterUpdateArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Characters.
+     * @param {CharacterDeleteManyArgs} args - Arguments to filter Characters to delete.
+     * @example
+     * // Delete a few Characters
+     * const { count } = await prisma.character.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CharacterDeleteManyArgs>(args?: SelectSubset<T, CharacterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Characters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Characters
+     * const character = await prisma.character.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CharacterUpdateManyArgs>(args: SelectSubset<T, CharacterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Characters and returns the data updated in the database.
+     * @param {CharacterUpdateManyAndReturnArgs} args - Arguments to update many Characters.
+     * @example
+     * // Update many Characters
+     * const character = await prisma.character.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Characters and only return the `id`
+     * const characterWithIdOnly = await prisma.character.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CharacterUpdateManyAndReturnArgs>(args: SelectSubset<T, CharacterUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Character.
+     * @param {CharacterUpsertArgs} args - Arguments to update or create a Character.
+     * @example
+     * // Update or create a Character
+     * const character = await prisma.character.upsert({
+     *   create: {
+     *     // ... data to create a Character
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Character we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CharacterUpsertArgs>(args: SelectSubset<T, CharacterUpsertArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Characters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterCountArgs} args - Arguments to filter Characters to count.
+     * @example
+     * // Count the number of Characters
+     * const count = await prisma.character.count({
+     *   where: {
+     *     // ... the filter for the Characters we want to count
+     *   }
+     * })
+    **/
+    count<T extends CharacterCountArgs>(
+      args?: Subset<T, CharacterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CharacterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Character.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CharacterAggregateArgs>(args: Subset<T, CharacterAggregateArgs>): Prisma.PrismaPromise<GetCharacterAggregateType<T>>
+
+    /**
+     * Group by Character.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CharacterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CharacterGroupByArgs['orderBy'] }
+        : { orderBy?: CharacterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CharacterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCharacterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Character model
+   */
+  readonly fields: CharacterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Character.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CharacterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    fightingGame<T extends FightingGameDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FightingGameDefaultArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    CharacterOnSheet<T extends Character$CharacterOnSheetArgs<ExtArgs> = {}>(args?: Subset<T, Character$CharacterOnSheetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OpponentOnSheet<T extends Character$OpponentOnSheetArgs<ExtArgs> = {}>(args?: Subset<T, Character$OpponentOnSheetArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Character model
+   */
+  interface CharacterFieldRefs {
+    readonly id: FieldRef<"Character", 'String'>
+    readonly name: FieldRef<"Character", 'String'>
+    readonly createdAt: FieldRef<"Character", 'DateTime'>
+    readonly updatedAt: FieldRef<"Character", 'DateTime'>
+    readonly fightingGameId: FieldRef<"Character", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Character findUnique
+   */
+  export type CharacterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Character to fetch.
+     */
+    where: CharacterWhereUniqueInput
+  }
+
+  /**
+   * Character findUniqueOrThrow
+   */
+  export type CharacterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Character to fetch.
+     */
+    where: CharacterWhereUniqueInput
+  }
+
+  /**
+   * Character findFirst
+   */
+  export type CharacterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Character to fetch.
+     */
+    where?: CharacterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Characters to fetch.
+     */
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Characters.
+     */
+    cursor?: CharacterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Characters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Characters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Characters.
+     */
+    distinct?: CharacterScalarFieldEnum | CharacterScalarFieldEnum[]
+  }
+
+  /**
+   * Character findFirstOrThrow
+   */
+  export type CharacterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Character to fetch.
+     */
+    where?: CharacterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Characters to fetch.
+     */
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Characters.
+     */
+    cursor?: CharacterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Characters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Characters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Characters.
+     */
+    distinct?: CharacterScalarFieldEnum | CharacterScalarFieldEnum[]
+  }
+
+  /**
+   * Character findMany
+   */
+  export type CharacterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter, which Characters to fetch.
+     */
+    where?: CharacterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Characters to fetch.
+     */
+    orderBy?: CharacterOrderByWithRelationInput | CharacterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Characters.
+     */
+    cursor?: CharacterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Characters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Characters.
+     */
+    skip?: number
+    distinct?: CharacterScalarFieldEnum | CharacterScalarFieldEnum[]
+  }
+
+  /**
+   * Character create
+   */
+  export type CharacterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Character.
+     */
+    data: XOR<CharacterCreateInput, CharacterUncheckedCreateInput>
+  }
+
+  /**
+   * Character createMany
+   */
+  export type CharacterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Characters.
+     */
+    data: CharacterCreateManyInput | CharacterCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Character createManyAndReturn
+   */
+  export type CharacterCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * The data used to create many Characters.
+     */
+    data: CharacterCreateManyInput | CharacterCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Character update
+   */
+  export type CharacterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Character.
+     */
+    data: XOR<CharacterUpdateInput, CharacterUncheckedUpdateInput>
+    /**
+     * Choose, which Character to update.
+     */
+    where: CharacterWhereUniqueInput
+  }
+
+  /**
+   * Character updateMany
+   */
+  export type CharacterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Characters.
+     */
+    data: XOR<CharacterUpdateManyMutationInput, CharacterUncheckedUpdateManyInput>
+    /**
+     * Filter which Characters to update
+     */
+    where?: CharacterWhereInput
+    /**
+     * Limit how many Characters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Character updateManyAndReturn
+   */
+  export type CharacterUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * The data used to update Characters.
+     */
+    data: XOR<CharacterUpdateManyMutationInput, CharacterUncheckedUpdateManyInput>
+    /**
+     * Filter which Characters to update
+     */
+    where?: CharacterWhereInput
+    /**
+     * Limit how many Characters to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Character upsert
+   */
+  export type CharacterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Character to update in case it exists.
+     */
+    where: CharacterWhereUniqueInput
+    /**
+     * In case the Character found by the `where` argument doesn't exist, create a new Character with this data.
+     */
+    create: XOR<CharacterCreateInput, CharacterUncheckedCreateInput>
+    /**
+     * In case the Character was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CharacterUpdateInput, CharacterUncheckedUpdateInput>
+  }
+
+  /**
+   * Character delete
+   */
+  export type CharacterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+    /**
+     * Filter which Character to delete.
+     */
+    where: CharacterWhereUniqueInput
+  }
+
+  /**
+   * Character deleteMany
+   */
+  export type CharacterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Characters to delete
+     */
+    where?: CharacterWhereInput
+    /**
+     * Limit how many Characters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Character.CharacterOnSheet
+   */
+  export type Character$CharacterOnSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    where?: CharacterOnSheetWhereInput
+    orderBy?: CharacterOnSheetOrderByWithRelationInput | CharacterOnSheetOrderByWithRelationInput[]
+    cursor?: CharacterOnSheetWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CharacterOnSheetScalarFieldEnum | CharacterOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * Character.OpponentOnSheet
+   */
+  export type Character$OpponentOnSheetArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    where?: OpponentOnSheetWhereInput
+    orderBy?: OpponentOnSheetOrderByWithRelationInput | OpponentOnSheetOrderByWithRelationInput[]
+    cursor?: OpponentOnSheetWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OpponentOnSheetScalarFieldEnum | OpponentOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * Character without action
+   */
+  export type CharacterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Character
+     */
+    select?: CharacterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Character
+     */
+    omit?: CharacterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CharacterOnSheet
+   */
+
+  export type AggregateCharacterOnSheet = {
+    _count: CharacterOnSheetCountAggregateOutputType | null
+    _min: CharacterOnSheetMinAggregateOutputType | null
+    _max: CharacterOnSheetMaxAggregateOutputType | null
+  }
+
+  export type CharacterOnSheetMinAggregateOutputType = {
+    id: string | null
+    characterId: string | null
+    sheetId: string | null
+  }
+
+  export type CharacterOnSheetMaxAggregateOutputType = {
+    id: string | null
+    characterId: string | null
+    sheetId: string | null
+  }
+
+  export type CharacterOnSheetCountAggregateOutputType = {
+    id: number
+    characterId: number
+    sheetId: number
+    _all: number
+  }
+
+
+  export type CharacterOnSheetMinAggregateInputType = {
+    id?: true
+    characterId?: true
+    sheetId?: true
+  }
+
+  export type CharacterOnSheetMaxAggregateInputType = {
+    id?: true
+    characterId?: true
+    sheetId?: true
+  }
+
+  export type CharacterOnSheetCountAggregateInputType = {
+    id?: true
+    characterId?: true
+    sheetId?: true
+    _all?: true
+  }
+
+  export type CharacterOnSheetAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CharacterOnSheet to aggregate.
+     */
+    where?: CharacterOnSheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CharacterOnSheets to fetch.
+     */
+    orderBy?: CharacterOnSheetOrderByWithRelationInput | CharacterOnSheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CharacterOnSheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CharacterOnSheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CharacterOnSheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CharacterOnSheets
+    **/
+    _count?: true | CharacterOnSheetCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CharacterOnSheetMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CharacterOnSheetMaxAggregateInputType
+  }
+
+  export type GetCharacterOnSheetAggregateType<T extends CharacterOnSheetAggregateArgs> = {
+        [P in keyof T & keyof AggregateCharacterOnSheet]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCharacterOnSheet[P]>
+      : GetScalarType<T[P], AggregateCharacterOnSheet[P]>
+  }
+
+
+
+
+  export type CharacterOnSheetGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CharacterOnSheetWhereInput
+    orderBy?: CharacterOnSheetOrderByWithAggregationInput | CharacterOnSheetOrderByWithAggregationInput[]
+    by: CharacterOnSheetScalarFieldEnum[] | CharacterOnSheetScalarFieldEnum
+    having?: CharacterOnSheetScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CharacterOnSheetCountAggregateInputType | true
+    _min?: CharacterOnSheetMinAggregateInputType
+    _max?: CharacterOnSheetMaxAggregateInputType
+  }
+
+  export type CharacterOnSheetGroupByOutputType = {
+    id: string
+    characterId: string
+    sheetId: string
+    _count: CharacterOnSheetCountAggregateOutputType | null
+    _min: CharacterOnSheetMinAggregateOutputType | null
+    _max: CharacterOnSheetMaxAggregateOutputType | null
+  }
+
+  type GetCharacterOnSheetGroupByPayload<T extends CharacterOnSheetGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CharacterOnSheetGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CharacterOnSheetGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CharacterOnSheetGroupByOutputType[P]>
+            : GetScalarType<T[P], CharacterOnSheetGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CharacterOnSheetSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    sheetId?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["characterOnSheet"]>
+
+  export type CharacterOnSheetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    sheetId?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["characterOnSheet"]>
+
+  export type CharacterOnSheetSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    characterId?: boolean
+    sheetId?: boolean
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["characterOnSheet"]>
+
+  export type CharacterOnSheetSelectScalar = {
+    id?: boolean
+    characterId?: boolean
+    sheetId?: boolean
+  }
+
+  export type CharacterOnSheetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "characterId" | "sheetId", ExtArgs["result"]["characterOnSheet"]>
+  export type CharacterOnSheetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }
+  export type CharacterOnSheetIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }
+  export type CharacterOnSheetIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    character?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }
+
+  export type $CharacterOnSheetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CharacterOnSheet"
+    objects: {
+      character: Prisma.$CharacterPayload<ExtArgs>
+      sheet: Prisma.$SheetPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      characterId: string
+      sheetId: string
+    }, ExtArgs["result"]["characterOnSheet"]>
+    composites: {}
+  }
+
+  type CharacterOnSheetGetPayload<S extends boolean | null | undefined | CharacterOnSheetDefaultArgs> = $Result.GetResult<Prisma.$CharacterOnSheetPayload, S>
+
+  type CharacterOnSheetCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CharacterOnSheetFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CharacterOnSheetCountAggregateInputType | true
+    }
+
+  export interface CharacterOnSheetDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CharacterOnSheet'], meta: { name: 'CharacterOnSheet' } }
+    /**
+     * Find zero or one CharacterOnSheet that matches the filter.
+     * @param {CharacterOnSheetFindUniqueArgs} args - Arguments to find a CharacterOnSheet
+     * @example
+     * // Get one CharacterOnSheet
+     * const characterOnSheet = await prisma.characterOnSheet.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CharacterOnSheetFindUniqueArgs>(args: SelectSubset<T, CharacterOnSheetFindUniqueArgs<ExtArgs>>): Prisma__CharacterOnSheetClient<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CharacterOnSheet that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CharacterOnSheetFindUniqueOrThrowArgs} args - Arguments to find a CharacterOnSheet
+     * @example
+     * // Get one CharacterOnSheet
+     * const characterOnSheet = await prisma.characterOnSheet.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CharacterOnSheetFindUniqueOrThrowArgs>(args: SelectSubset<T, CharacterOnSheetFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CharacterOnSheetClient<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CharacterOnSheet that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterOnSheetFindFirstArgs} args - Arguments to find a CharacterOnSheet
+     * @example
+     * // Get one CharacterOnSheet
+     * const characterOnSheet = await prisma.characterOnSheet.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CharacterOnSheetFindFirstArgs>(args?: SelectSubset<T, CharacterOnSheetFindFirstArgs<ExtArgs>>): Prisma__CharacterOnSheetClient<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CharacterOnSheet that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterOnSheetFindFirstOrThrowArgs} args - Arguments to find a CharacterOnSheet
+     * @example
+     * // Get one CharacterOnSheet
+     * const characterOnSheet = await prisma.characterOnSheet.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CharacterOnSheetFindFirstOrThrowArgs>(args?: SelectSubset<T, CharacterOnSheetFindFirstOrThrowArgs<ExtArgs>>): Prisma__CharacterOnSheetClient<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CharacterOnSheets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterOnSheetFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CharacterOnSheets
+     * const characterOnSheets = await prisma.characterOnSheet.findMany()
+     * 
+     * // Get first 10 CharacterOnSheets
+     * const characterOnSheets = await prisma.characterOnSheet.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const characterOnSheetWithIdOnly = await prisma.characterOnSheet.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CharacterOnSheetFindManyArgs>(args?: SelectSubset<T, CharacterOnSheetFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CharacterOnSheet.
+     * @param {CharacterOnSheetCreateArgs} args - Arguments to create a CharacterOnSheet.
+     * @example
+     * // Create one CharacterOnSheet
+     * const CharacterOnSheet = await prisma.characterOnSheet.create({
+     *   data: {
+     *     // ... data to create a CharacterOnSheet
+     *   }
+     * })
+     * 
+     */
+    create<T extends CharacterOnSheetCreateArgs>(args: SelectSubset<T, CharacterOnSheetCreateArgs<ExtArgs>>): Prisma__CharacterOnSheetClient<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CharacterOnSheets.
+     * @param {CharacterOnSheetCreateManyArgs} args - Arguments to create many CharacterOnSheets.
+     * @example
+     * // Create many CharacterOnSheets
+     * const characterOnSheet = await prisma.characterOnSheet.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CharacterOnSheetCreateManyArgs>(args?: SelectSubset<T, CharacterOnSheetCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CharacterOnSheets and returns the data saved in the database.
+     * @param {CharacterOnSheetCreateManyAndReturnArgs} args - Arguments to create many CharacterOnSheets.
+     * @example
+     * // Create many CharacterOnSheets
+     * const characterOnSheet = await prisma.characterOnSheet.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CharacterOnSheets and only return the `id`
+     * const characterOnSheetWithIdOnly = await prisma.characterOnSheet.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CharacterOnSheetCreateManyAndReturnArgs>(args?: SelectSubset<T, CharacterOnSheetCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CharacterOnSheet.
+     * @param {CharacterOnSheetDeleteArgs} args - Arguments to delete one CharacterOnSheet.
+     * @example
+     * // Delete one CharacterOnSheet
+     * const CharacterOnSheet = await prisma.characterOnSheet.delete({
+     *   where: {
+     *     // ... filter to delete one CharacterOnSheet
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CharacterOnSheetDeleteArgs>(args: SelectSubset<T, CharacterOnSheetDeleteArgs<ExtArgs>>): Prisma__CharacterOnSheetClient<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CharacterOnSheet.
+     * @param {CharacterOnSheetUpdateArgs} args - Arguments to update one CharacterOnSheet.
+     * @example
+     * // Update one CharacterOnSheet
+     * const characterOnSheet = await prisma.characterOnSheet.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CharacterOnSheetUpdateArgs>(args: SelectSubset<T, CharacterOnSheetUpdateArgs<ExtArgs>>): Prisma__CharacterOnSheetClient<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CharacterOnSheets.
+     * @param {CharacterOnSheetDeleteManyArgs} args - Arguments to filter CharacterOnSheets to delete.
+     * @example
+     * // Delete a few CharacterOnSheets
+     * const { count } = await prisma.characterOnSheet.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CharacterOnSheetDeleteManyArgs>(args?: SelectSubset<T, CharacterOnSheetDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CharacterOnSheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterOnSheetUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CharacterOnSheets
+     * const characterOnSheet = await prisma.characterOnSheet.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CharacterOnSheetUpdateManyArgs>(args: SelectSubset<T, CharacterOnSheetUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CharacterOnSheets and returns the data updated in the database.
+     * @param {CharacterOnSheetUpdateManyAndReturnArgs} args - Arguments to update many CharacterOnSheets.
+     * @example
+     * // Update many CharacterOnSheets
+     * const characterOnSheet = await prisma.characterOnSheet.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CharacterOnSheets and only return the `id`
+     * const characterOnSheetWithIdOnly = await prisma.characterOnSheet.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CharacterOnSheetUpdateManyAndReturnArgs>(args: SelectSubset<T, CharacterOnSheetUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CharacterOnSheet.
+     * @param {CharacterOnSheetUpsertArgs} args - Arguments to update or create a CharacterOnSheet.
+     * @example
+     * // Update or create a CharacterOnSheet
+     * const characterOnSheet = await prisma.characterOnSheet.upsert({
+     *   create: {
+     *     // ... data to create a CharacterOnSheet
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CharacterOnSheet we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CharacterOnSheetUpsertArgs>(args: SelectSubset<T, CharacterOnSheetUpsertArgs<ExtArgs>>): Prisma__CharacterOnSheetClient<$Result.GetResult<Prisma.$CharacterOnSheetPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CharacterOnSheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterOnSheetCountArgs} args - Arguments to filter CharacterOnSheets to count.
+     * @example
+     * // Count the number of CharacterOnSheets
+     * const count = await prisma.characterOnSheet.count({
+     *   where: {
+     *     // ... the filter for the CharacterOnSheets we want to count
+     *   }
+     * })
+    **/
+    count<T extends CharacterOnSheetCountArgs>(
+      args?: Subset<T, CharacterOnSheetCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CharacterOnSheetCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CharacterOnSheet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterOnSheetAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CharacterOnSheetAggregateArgs>(args: Subset<T, CharacterOnSheetAggregateArgs>): Prisma.PrismaPromise<GetCharacterOnSheetAggregateType<T>>
+
+    /**
+     * Group by CharacterOnSheet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CharacterOnSheetGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CharacterOnSheetGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CharacterOnSheetGroupByArgs['orderBy'] }
+        : { orderBy?: CharacterOnSheetGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CharacterOnSheetGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCharacterOnSheetGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CharacterOnSheet model
+   */
+  readonly fields: CharacterOnSheetFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CharacterOnSheet.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CharacterOnSheetClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    character<T extends CharacterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CharacterDefaultArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    sheet<T extends SheetDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SheetDefaultArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CharacterOnSheet model
+   */
+  interface CharacterOnSheetFieldRefs {
+    readonly id: FieldRef<"CharacterOnSheet", 'String'>
+    readonly characterId: FieldRef<"CharacterOnSheet", 'String'>
+    readonly sheetId: FieldRef<"CharacterOnSheet", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CharacterOnSheet findUnique
+   */
+  export type CharacterOnSheetFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterOnSheet to fetch.
+     */
+    where: CharacterOnSheetWhereUniqueInput
+  }
+
+  /**
+   * CharacterOnSheet findUniqueOrThrow
+   */
+  export type CharacterOnSheetFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterOnSheet to fetch.
+     */
+    where: CharacterOnSheetWhereUniqueInput
+  }
+
+  /**
+   * CharacterOnSheet findFirst
+   */
+  export type CharacterOnSheetFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterOnSheet to fetch.
+     */
+    where?: CharacterOnSheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CharacterOnSheets to fetch.
+     */
+    orderBy?: CharacterOnSheetOrderByWithRelationInput | CharacterOnSheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CharacterOnSheets.
+     */
+    cursor?: CharacterOnSheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CharacterOnSheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CharacterOnSheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CharacterOnSheets.
+     */
+    distinct?: CharacterOnSheetScalarFieldEnum | CharacterOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * CharacterOnSheet findFirstOrThrow
+   */
+  export type CharacterOnSheetFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterOnSheet to fetch.
+     */
+    where?: CharacterOnSheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CharacterOnSheets to fetch.
+     */
+    orderBy?: CharacterOnSheetOrderByWithRelationInput | CharacterOnSheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CharacterOnSheets.
+     */
+    cursor?: CharacterOnSheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CharacterOnSheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CharacterOnSheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CharacterOnSheets.
+     */
+    distinct?: CharacterOnSheetScalarFieldEnum | CharacterOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * CharacterOnSheet findMany
+   */
+  export type CharacterOnSheetFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which CharacterOnSheets to fetch.
+     */
+    where?: CharacterOnSheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CharacterOnSheets to fetch.
+     */
+    orderBy?: CharacterOnSheetOrderByWithRelationInput | CharacterOnSheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CharacterOnSheets.
+     */
+    cursor?: CharacterOnSheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CharacterOnSheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CharacterOnSheets.
+     */
+    skip?: number
+    distinct?: CharacterOnSheetScalarFieldEnum | CharacterOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * CharacterOnSheet create
+   */
+  export type CharacterOnSheetCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CharacterOnSheet.
+     */
+    data: XOR<CharacterOnSheetCreateInput, CharacterOnSheetUncheckedCreateInput>
+  }
+
+  /**
+   * CharacterOnSheet createMany
+   */
+  export type CharacterOnSheetCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CharacterOnSheets.
+     */
+    data: CharacterOnSheetCreateManyInput | CharacterOnSheetCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CharacterOnSheet createManyAndReturn
+   */
+  export type CharacterOnSheetCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * The data used to create many CharacterOnSheets.
+     */
+    data: CharacterOnSheetCreateManyInput | CharacterOnSheetCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CharacterOnSheet update
+   */
+  export type CharacterOnSheetUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CharacterOnSheet.
+     */
+    data: XOR<CharacterOnSheetUpdateInput, CharacterOnSheetUncheckedUpdateInput>
+    /**
+     * Choose, which CharacterOnSheet to update.
+     */
+    where: CharacterOnSheetWhereUniqueInput
+  }
+
+  /**
+   * CharacterOnSheet updateMany
+   */
+  export type CharacterOnSheetUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CharacterOnSheets.
+     */
+    data: XOR<CharacterOnSheetUpdateManyMutationInput, CharacterOnSheetUncheckedUpdateManyInput>
+    /**
+     * Filter which CharacterOnSheets to update
+     */
+    where?: CharacterOnSheetWhereInput
+    /**
+     * Limit how many CharacterOnSheets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CharacterOnSheet updateManyAndReturn
+   */
+  export type CharacterOnSheetUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * The data used to update CharacterOnSheets.
+     */
+    data: XOR<CharacterOnSheetUpdateManyMutationInput, CharacterOnSheetUncheckedUpdateManyInput>
+    /**
+     * Filter which CharacterOnSheets to update
+     */
+    where?: CharacterOnSheetWhereInput
+    /**
+     * Limit how many CharacterOnSheets to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CharacterOnSheet upsert
+   */
+  export type CharacterOnSheetUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CharacterOnSheet to update in case it exists.
+     */
+    where: CharacterOnSheetWhereUniqueInput
+    /**
+     * In case the CharacterOnSheet found by the `where` argument doesn't exist, create a new CharacterOnSheet with this data.
+     */
+    create: XOR<CharacterOnSheetCreateInput, CharacterOnSheetUncheckedCreateInput>
+    /**
+     * In case the CharacterOnSheet was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CharacterOnSheetUpdateInput, CharacterOnSheetUncheckedUpdateInput>
+  }
+
+  /**
+   * CharacterOnSheet delete
+   */
+  export type CharacterOnSheetDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter which CharacterOnSheet to delete.
+     */
+    where: CharacterOnSheetWhereUniqueInput
+  }
+
+  /**
+   * CharacterOnSheet deleteMany
+   */
+  export type CharacterOnSheetDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CharacterOnSheets to delete
+     */
+    where?: CharacterOnSheetWhereInput
+    /**
+     * Limit how many CharacterOnSheets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CharacterOnSheet without action
+   */
+  export type CharacterOnSheetDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CharacterOnSheet
+     */
+    select?: CharacterOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CharacterOnSheet
+     */
+    omit?: CharacterOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CharacterOnSheetInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model OpponentOnSheet
+   */
+
+  export type AggregateOpponentOnSheet = {
+    _count: OpponentOnSheetCountAggregateOutputType | null
+    _min: OpponentOnSheetMinAggregateOutputType | null
+    _max: OpponentOnSheetMaxAggregateOutputType | null
+  }
+
+  export type OpponentOnSheetMinAggregateOutputType = {
+    id: string | null
+    opponentId: string | null
+    sheetId: string | null
+  }
+
+  export type OpponentOnSheetMaxAggregateOutputType = {
+    id: string | null
+    opponentId: string | null
+    sheetId: string | null
+  }
+
+  export type OpponentOnSheetCountAggregateOutputType = {
+    id: number
+    opponentId: number
+    sheetId: number
+    _all: number
+  }
+
+
+  export type OpponentOnSheetMinAggregateInputType = {
+    id?: true
+    opponentId?: true
+    sheetId?: true
+  }
+
+  export type OpponentOnSheetMaxAggregateInputType = {
+    id?: true
+    opponentId?: true
+    sheetId?: true
+  }
+
+  export type OpponentOnSheetCountAggregateInputType = {
+    id?: true
+    opponentId?: true
+    sheetId?: true
+    _all?: true
+  }
+
+  export type OpponentOnSheetAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OpponentOnSheet to aggregate.
+     */
+    where?: OpponentOnSheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OpponentOnSheets to fetch.
+     */
+    orderBy?: OpponentOnSheetOrderByWithRelationInput | OpponentOnSheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OpponentOnSheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OpponentOnSheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OpponentOnSheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned OpponentOnSheets
+    **/
+    _count?: true | OpponentOnSheetCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OpponentOnSheetMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OpponentOnSheetMaxAggregateInputType
+  }
+
+  export type GetOpponentOnSheetAggregateType<T extends OpponentOnSheetAggregateArgs> = {
+        [P in keyof T & keyof AggregateOpponentOnSheet]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOpponentOnSheet[P]>
+      : GetScalarType<T[P], AggregateOpponentOnSheet[P]>
+  }
+
+
+
+
+  export type OpponentOnSheetGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OpponentOnSheetWhereInput
+    orderBy?: OpponentOnSheetOrderByWithAggregationInput | OpponentOnSheetOrderByWithAggregationInput[]
+    by: OpponentOnSheetScalarFieldEnum[] | OpponentOnSheetScalarFieldEnum
+    having?: OpponentOnSheetScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OpponentOnSheetCountAggregateInputType | true
+    _min?: OpponentOnSheetMinAggregateInputType
+    _max?: OpponentOnSheetMaxAggregateInputType
+  }
+
+  export type OpponentOnSheetGroupByOutputType = {
+    id: string
+    opponentId: string
+    sheetId: string
+    _count: OpponentOnSheetCountAggregateOutputType | null
+    _min: OpponentOnSheetMinAggregateOutputType | null
+    _max: OpponentOnSheetMaxAggregateOutputType | null
+  }
+
+  type GetOpponentOnSheetGroupByPayload<T extends OpponentOnSheetGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OpponentOnSheetGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OpponentOnSheetGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OpponentOnSheetGroupByOutputType[P]>
+            : GetScalarType<T[P], OpponentOnSheetGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OpponentOnSheetSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    opponentId?: boolean
+    sheetId?: boolean
+    opponent?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["opponentOnSheet"]>
+
+  export type OpponentOnSheetSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    opponentId?: boolean
+    sheetId?: boolean
+    opponent?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["opponentOnSheet"]>
+
+  export type OpponentOnSheetSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    opponentId?: boolean
+    sheetId?: boolean
+    opponent?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["opponentOnSheet"]>
+
+  export type OpponentOnSheetSelectScalar = {
+    id?: boolean
+    opponentId?: boolean
+    sheetId?: boolean
+  }
+
+  export type OpponentOnSheetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "opponentId" | "sheetId", ExtArgs["result"]["opponentOnSheet"]>
+  export type OpponentOnSheetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    opponent?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }
+  export type OpponentOnSheetIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    opponent?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }
+  export type OpponentOnSheetIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    opponent?: boolean | CharacterDefaultArgs<ExtArgs>
+    sheet?: boolean | SheetDefaultArgs<ExtArgs>
+  }
+
+  export type $OpponentOnSheetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "OpponentOnSheet"
+    objects: {
+      opponent: Prisma.$CharacterPayload<ExtArgs>
+      sheet: Prisma.$SheetPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      opponentId: string
+      sheetId: string
+    }, ExtArgs["result"]["opponentOnSheet"]>
+    composites: {}
+  }
+
+  type OpponentOnSheetGetPayload<S extends boolean | null | undefined | OpponentOnSheetDefaultArgs> = $Result.GetResult<Prisma.$OpponentOnSheetPayload, S>
+
+  type OpponentOnSheetCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OpponentOnSheetFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OpponentOnSheetCountAggregateInputType | true
+    }
+
+  export interface OpponentOnSheetDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OpponentOnSheet'], meta: { name: 'OpponentOnSheet' } }
+    /**
+     * Find zero or one OpponentOnSheet that matches the filter.
+     * @param {OpponentOnSheetFindUniqueArgs} args - Arguments to find a OpponentOnSheet
+     * @example
+     * // Get one OpponentOnSheet
+     * const opponentOnSheet = await prisma.opponentOnSheet.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OpponentOnSheetFindUniqueArgs>(args: SelectSubset<T, OpponentOnSheetFindUniqueArgs<ExtArgs>>): Prisma__OpponentOnSheetClient<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one OpponentOnSheet that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OpponentOnSheetFindUniqueOrThrowArgs} args - Arguments to find a OpponentOnSheet
+     * @example
+     * // Get one OpponentOnSheet
+     * const opponentOnSheet = await prisma.opponentOnSheet.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OpponentOnSheetFindUniqueOrThrowArgs>(args: SelectSubset<T, OpponentOnSheetFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OpponentOnSheetClient<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OpponentOnSheet that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OpponentOnSheetFindFirstArgs} args - Arguments to find a OpponentOnSheet
+     * @example
+     * // Get one OpponentOnSheet
+     * const opponentOnSheet = await prisma.opponentOnSheet.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OpponentOnSheetFindFirstArgs>(args?: SelectSubset<T, OpponentOnSheetFindFirstArgs<ExtArgs>>): Prisma__OpponentOnSheetClient<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OpponentOnSheet that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OpponentOnSheetFindFirstOrThrowArgs} args - Arguments to find a OpponentOnSheet
+     * @example
+     * // Get one OpponentOnSheet
+     * const opponentOnSheet = await prisma.opponentOnSheet.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OpponentOnSheetFindFirstOrThrowArgs>(args?: SelectSubset<T, OpponentOnSheetFindFirstOrThrowArgs<ExtArgs>>): Prisma__OpponentOnSheetClient<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more OpponentOnSheets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OpponentOnSheetFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all OpponentOnSheets
+     * const opponentOnSheets = await prisma.opponentOnSheet.findMany()
+     * 
+     * // Get first 10 OpponentOnSheets
+     * const opponentOnSheets = await prisma.opponentOnSheet.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const opponentOnSheetWithIdOnly = await prisma.opponentOnSheet.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OpponentOnSheetFindManyArgs>(args?: SelectSubset<T, OpponentOnSheetFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a OpponentOnSheet.
+     * @param {OpponentOnSheetCreateArgs} args - Arguments to create a OpponentOnSheet.
+     * @example
+     * // Create one OpponentOnSheet
+     * const OpponentOnSheet = await prisma.opponentOnSheet.create({
+     *   data: {
+     *     // ... data to create a OpponentOnSheet
+     *   }
+     * })
+     * 
+     */
+    create<T extends OpponentOnSheetCreateArgs>(args: SelectSubset<T, OpponentOnSheetCreateArgs<ExtArgs>>): Prisma__OpponentOnSheetClient<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many OpponentOnSheets.
+     * @param {OpponentOnSheetCreateManyArgs} args - Arguments to create many OpponentOnSheets.
+     * @example
+     * // Create many OpponentOnSheets
+     * const opponentOnSheet = await prisma.opponentOnSheet.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OpponentOnSheetCreateManyArgs>(args?: SelectSubset<T, OpponentOnSheetCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many OpponentOnSheets and returns the data saved in the database.
+     * @param {OpponentOnSheetCreateManyAndReturnArgs} args - Arguments to create many OpponentOnSheets.
+     * @example
+     * // Create many OpponentOnSheets
+     * const opponentOnSheet = await prisma.opponentOnSheet.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many OpponentOnSheets and only return the `id`
+     * const opponentOnSheetWithIdOnly = await prisma.opponentOnSheet.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OpponentOnSheetCreateManyAndReturnArgs>(args?: SelectSubset<T, OpponentOnSheetCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a OpponentOnSheet.
+     * @param {OpponentOnSheetDeleteArgs} args - Arguments to delete one OpponentOnSheet.
+     * @example
+     * // Delete one OpponentOnSheet
+     * const OpponentOnSheet = await prisma.opponentOnSheet.delete({
+     *   where: {
+     *     // ... filter to delete one OpponentOnSheet
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OpponentOnSheetDeleteArgs>(args: SelectSubset<T, OpponentOnSheetDeleteArgs<ExtArgs>>): Prisma__OpponentOnSheetClient<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one OpponentOnSheet.
+     * @param {OpponentOnSheetUpdateArgs} args - Arguments to update one OpponentOnSheet.
+     * @example
+     * // Update one OpponentOnSheet
+     * const opponentOnSheet = await prisma.opponentOnSheet.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OpponentOnSheetUpdateArgs>(args: SelectSubset<T, OpponentOnSheetUpdateArgs<ExtArgs>>): Prisma__OpponentOnSheetClient<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more OpponentOnSheets.
+     * @param {OpponentOnSheetDeleteManyArgs} args - Arguments to filter OpponentOnSheets to delete.
+     * @example
+     * // Delete a few OpponentOnSheets
+     * const { count } = await prisma.opponentOnSheet.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OpponentOnSheetDeleteManyArgs>(args?: SelectSubset<T, OpponentOnSheetDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OpponentOnSheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OpponentOnSheetUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many OpponentOnSheets
+     * const opponentOnSheet = await prisma.opponentOnSheet.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OpponentOnSheetUpdateManyArgs>(args: SelectSubset<T, OpponentOnSheetUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OpponentOnSheets and returns the data updated in the database.
+     * @param {OpponentOnSheetUpdateManyAndReturnArgs} args - Arguments to update many OpponentOnSheets.
+     * @example
+     * // Update many OpponentOnSheets
+     * const opponentOnSheet = await prisma.opponentOnSheet.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more OpponentOnSheets and only return the `id`
+     * const opponentOnSheetWithIdOnly = await prisma.opponentOnSheet.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OpponentOnSheetUpdateManyAndReturnArgs>(args: SelectSubset<T, OpponentOnSheetUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one OpponentOnSheet.
+     * @param {OpponentOnSheetUpsertArgs} args - Arguments to update or create a OpponentOnSheet.
+     * @example
+     * // Update or create a OpponentOnSheet
+     * const opponentOnSheet = await prisma.opponentOnSheet.upsert({
+     *   create: {
+     *     // ... data to create a OpponentOnSheet
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the OpponentOnSheet we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OpponentOnSheetUpsertArgs>(args: SelectSubset<T, OpponentOnSheetUpsertArgs<ExtArgs>>): Prisma__OpponentOnSheetClient<$Result.GetResult<Prisma.$OpponentOnSheetPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of OpponentOnSheets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OpponentOnSheetCountArgs} args - Arguments to filter OpponentOnSheets to count.
+     * @example
+     * // Count the number of OpponentOnSheets
+     * const count = await prisma.opponentOnSheet.count({
+     *   where: {
+     *     // ... the filter for the OpponentOnSheets we want to count
+     *   }
+     * })
+    **/
+    count<T extends OpponentOnSheetCountArgs>(
+      args?: Subset<T, OpponentOnSheetCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OpponentOnSheetCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a OpponentOnSheet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OpponentOnSheetAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OpponentOnSheetAggregateArgs>(args: Subset<T, OpponentOnSheetAggregateArgs>): Prisma.PrismaPromise<GetOpponentOnSheetAggregateType<T>>
+
+    /**
+     * Group by OpponentOnSheet.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OpponentOnSheetGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OpponentOnSheetGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OpponentOnSheetGroupByArgs['orderBy'] }
+        : { orderBy?: OpponentOnSheetGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OpponentOnSheetGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOpponentOnSheetGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the OpponentOnSheet model
+   */
+  readonly fields: OpponentOnSheetFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for OpponentOnSheet.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OpponentOnSheetClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    opponent<T extends CharacterDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CharacterDefaultArgs<ExtArgs>>): Prisma__CharacterClient<$Result.GetResult<Prisma.$CharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    sheet<T extends SheetDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SheetDefaultArgs<ExtArgs>>): Prisma__SheetClient<$Result.GetResult<Prisma.$SheetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the OpponentOnSheet model
+   */
+  interface OpponentOnSheetFieldRefs {
+    readonly id: FieldRef<"OpponentOnSheet", 'String'>
+    readonly opponentId: FieldRef<"OpponentOnSheet", 'String'>
+    readonly sheetId: FieldRef<"OpponentOnSheet", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * OpponentOnSheet findUnique
+   */
+  export type OpponentOnSheetFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which OpponentOnSheet to fetch.
+     */
+    where: OpponentOnSheetWhereUniqueInput
+  }
+
+  /**
+   * OpponentOnSheet findUniqueOrThrow
+   */
+  export type OpponentOnSheetFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which OpponentOnSheet to fetch.
+     */
+    where: OpponentOnSheetWhereUniqueInput
+  }
+
+  /**
+   * OpponentOnSheet findFirst
+   */
+  export type OpponentOnSheetFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which OpponentOnSheet to fetch.
+     */
+    where?: OpponentOnSheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OpponentOnSheets to fetch.
+     */
+    orderBy?: OpponentOnSheetOrderByWithRelationInput | OpponentOnSheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OpponentOnSheets.
+     */
+    cursor?: OpponentOnSheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OpponentOnSheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OpponentOnSheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OpponentOnSheets.
+     */
+    distinct?: OpponentOnSheetScalarFieldEnum | OpponentOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * OpponentOnSheet findFirstOrThrow
+   */
+  export type OpponentOnSheetFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which OpponentOnSheet to fetch.
+     */
+    where?: OpponentOnSheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OpponentOnSheets to fetch.
+     */
+    orderBy?: OpponentOnSheetOrderByWithRelationInput | OpponentOnSheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OpponentOnSheets.
+     */
+    cursor?: OpponentOnSheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OpponentOnSheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OpponentOnSheets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OpponentOnSheets.
+     */
+    distinct?: OpponentOnSheetScalarFieldEnum | OpponentOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * OpponentOnSheet findMany
+   */
+  export type OpponentOnSheetFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter, which OpponentOnSheets to fetch.
+     */
+    where?: OpponentOnSheetWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OpponentOnSheets to fetch.
+     */
+    orderBy?: OpponentOnSheetOrderByWithRelationInput | OpponentOnSheetOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing OpponentOnSheets.
+     */
+    cursor?: OpponentOnSheetWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OpponentOnSheets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OpponentOnSheets.
+     */
+    skip?: number
+    distinct?: OpponentOnSheetScalarFieldEnum | OpponentOnSheetScalarFieldEnum[]
+  }
+
+  /**
+   * OpponentOnSheet create
+   */
+  export type OpponentOnSheetCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * The data needed to create a OpponentOnSheet.
+     */
+    data: XOR<OpponentOnSheetCreateInput, OpponentOnSheetUncheckedCreateInput>
+  }
+
+  /**
+   * OpponentOnSheet createMany
+   */
+  export type OpponentOnSheetCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many OpponentOnSheets.
+     */
+    data: OpponentOnSheetCreateManyInput | OpponentOnSheetCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * OpponentOnSheet createManyAndReturn
+   */
+  export type OpponentOnSheetCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * The data used to create many OpponentOnSheets.
+     */
+    data: OpponentOnSheetCreateManyInput | OpponentOnSheetCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OpponentOnSheet update
+   */
+  export type OpponentOnSheetUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * The data needed to update a OpponentOnSheet.
+     */
+    data: XOR<OpponentOnSheetUpdateInput, OpponentOnSheetUncheckedUpdateInput>
+    /**
+     * Choose, which OpponentOnSheet to update.
+     */
+    where: OpponentOnSheetWhereUniqueInput
+  }
+
+  /**
+   * OpponentOnSheet updateMany
+   */
+  export type OpponentOnSheetUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update OpponentOnSheets.
+     */
+    data: XOR<OpponentOnSheetUpdateManyMutationInput, OpponentOnSheetUncheckedUpdateManyInput>
+    /**
+     * Filter which OpponentOnSheets to update
+     */
+    where?: OpponentOnSheetWhereInput
+    /**
+     * Limit how many OpponentOnSheets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * OpponentOnSheet updateManyAndReturn
+   */
+  export type OpponentOnSheetUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * The data used to update OpponentOnSheets.
+     */
+    data: XOR<OpponentOnSheetUpdateManyMutationInput, OpponentOnSheetUncheckedUpdateManyInput>
+    /**
+     * Filter which OpponentOnSheets to update
+     */
+    where?: OpponentOnSheetWhereInput
+    /**
+     * Limit how many OpponentOnSheets to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OpponentOnSheet upsert
+   */
+  export type OpponentOnSheetUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * The filter to search for the OpponentOnSheet to update in case it exists.
+     */
+    where: OpponentOnSheetWhereUniqueInput
+    /**
+     * In case the OpponentOnSheet found by the `where` argument doesn't exist, create a new OpponentOnSheet with this data.
+     */
+    create: XOR<OpponentOnSheetCreateInput, OpponentOnSheetUncheckedCreateInput>
+    /**
+     * In case the OpponentOnSheet was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OpponentOnSheetUpdateInput, OpponentOnSheetUncheckedUpdateInput>
+  }
+
+  /**
+   * OpponentOnSheet delete
+   */
+  export type OpponentOnSheetDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+    /**
+     * Filter which OpponentOnSheet to delete.
+     */
+    where: OpponentOnSheetWhereUniqueInput
+  }
+
+  /**
+   * OpponentOnSheet deleteMany
+   */
+  export type OpponentOnSheetDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OpponentOnSheets to delete
+     */
+    where?: OpponentOnSheetWhereInput
+    /**
+     * Limit how many OpponentOnSheets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * OpponentOnSheet without action
+   */
+  export type OpponentOnSheetDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OpponentOnSheet
+     */
+    select?: OpponentOnSheetSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OpponentOnSheet
+     */
+    omit?: OpponentOnSheetOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OpponentOnSheetInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FightingGameOnUser
+   */
+
+  export type AggregateFightingGameOnUser = {
+    _count: FightingGameOnUserCountAggregateOutputType | null
+    _min: FightingGameOnUserMinAggregateOutputType | null
+    _max: FightingGameOnUserMaxAggregateOutputType | null
+  }
+
+  export type FightingGameOnUserMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    fightingGameId: string | null
+  }
+
+  export type FightingGameOnUserMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    fightingGameId: string | null
+  }
+
+  export type FightingGameOnUserCountAggregateOutputType = {
+    id: number
+    userId: number
+    fightingGameId: number
+    _all: number
+  }
+
+
+  export type FightingGameOnUserMinAggregateInputType = {
+    id?: true
+    userId?: true
+    fightingGameId?: true
+  }
+
+  export type FightingGameOnUserMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    fightingGameId?: true
+  }
+
+  export type FightingGameOnUserCountAggregateInputType = {
+    id?: true
+    userId?: true
+    fightingGameId?: true
+    _all?: true
+  }
+
+  export type FightingGameOnUserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FightingGameOnUser to aggregate.
+     */
+    where?: FightingGameOnUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FightingGameOnUsers to fetch.
+     */
+    orderBy?: FightingGameOnUserOrderByWithRelationInput | FightingGameOnUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FightingGameOnUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FightingGameOnUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FightingGameOnUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FightingGameOnUsers
+    **/
+    _count?: true | FightingGameOnUserCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FightingGameOnUserMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FightingGameOnUserMaxAggregateInputType
+  }
+
+  export type GetFightingGameOnUserAggregateType<T extends FightingGameOnUserAggregateArgs> = {
+        [P in keyof T & keyof AggregateFightingGameOnUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFightingGameOnUser[P]>
+      : GetScalarType<T[P], AggregateFightingGameOnUser[P]>
+  }
+
+
+
+
+  export type FightingGameOnUserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FightingGameOnUserWhereInput
+    orderBy?: FightingGameOnUserOrderByWithAggregationInput | FightingGameOnUserOrderByWithAggregationInput[]
+    by: FightingGameOnUserScalarFieldEnum[] | FightingGameOnUserScalarFieldEnum
+    having?: FightingGameOnUserScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FightingGameOnUserCountAggregateInputType | true
+    _min?: FightingGameOnUserMinAggregateInputType
+    _max?: FightingGameOnUserMaxAggregateInputType
+  }
+
+  export type FightingGameOnUserGroupByOutputType = {
+    id: string
+    userId: string
+    fightingGameId: string
+    _count: FightingGameOnUserCountAggregateOutputType | null
+    _min: FightingGameOnUserMinAggregateOutputType | null
+    _max: FightingGameOnUserMaxAggregateOutputType | null
+  }
+
+  type GetFightingGameOnUserGroupByPayload<T extends FightingGameOnUserGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FightingGameOnUserGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FightingGameOnUserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FightingGameOnUserGroupByOutputType[P]>
+            : GetScalarType<T[P], FightingGameOnUserGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FightingGameOnUserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    fightingGameId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fightingGameOnUser"]>
+
+  export type FightingGameOnUserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    fightingGameId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fightingGameOnUser"]>
+
+  export type FightingGameOnUserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    fightingGameId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fightingGameOnUser"]>
+
+  export type FightingGameOnUserSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    fightingGameId?: boolean
+  }
+
+  export type FightingGameOnUserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "fightingGameId", ExtArgs["result"]["fightingGameOnUser"]>
+  export type FightingGameOnUserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }
+  export type FightingGameOnUserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }
+  export type FightingGameOnUserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    fightingGame?: boolean | FightingGameDefaultArgs<ExtArgs>
+  }
+
+  export type $FightingGameOnUserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FightingGameOnUser"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      fightingGame: Prisma.$FightingGamePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      fightingGameId: string
+    }, ExtArgs["result"]["fightingGameOnUser"]>
+    composites: {}
+  }
+
+  type FightingGameOnUserGetPayload<S extends boolean | null | undefined | FightingGameOnUserDefaultArgs> = $Result.GetResult<Prisma.$FightingGameOnUserPayload, S>
+
+  type FightingGameOnUserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FightingGameOnUserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FightingGameOnUserCountAggregateInputType | true
+    }
+
+  export interface FightingGameOnUserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FightingGameOnUser'], meta: { name: 'FightingGameOnUser' } }
+    /**
+     * Find zero or one FightingGameOnUser that matches the filter.
+     * @param {FightingGameOnUserFindUniqueArgs} args - Arguments to find a FightingGameOnUser
+     * @example
+     * // Get one FightingGameOnUser
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FightingGameOnUserFindUniqueArgs>(args: SelectSubset<T, FightingGameOnUserFindUniqueArgs<ExtArgs>>): Prisma__FightingGameOnUserClient<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one FightingGameOnUser that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FightingGameOnUserFindUniqueOrThrowArgs} args - Arguments to find a FightingGameOnUser
+     * @example
+     * // Get one FightingGameOnUser
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FightingGameOnUserFindUniqueOrThrowArgs>(args: SelectSubset<T, FightingGameOnUserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FightingGameOnUserClient<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FightingGameOnUser that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameOnUserFindFirstArgs} args - Arguments to find a FightingGameOnUser
+     * @example
+     * // Get one FightingGameOnUser
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FightingGameOnUserFindFirstArgs>(args?: SelectSubset<T, FightingGameOnUserFindFirstArgs<ExtArgs>>): Prisma__FightingGameOnUserClient<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first FightingGameOnUser that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameOnUserFindFirstOrThrowArgs} args - Arguments to find a FightingGameOnUser
+     * @example
+     * // Get one FightingGameOnUser
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FightingGameOnUserFindFirstOrThrowArgs>(args?: SelectSubset<T, FightingGameOnUserFindFirstOrThrowArgs<ExtArgs>>): Prisma__FightingGameOnUserClient<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more FightingGameOnUsers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameOnUserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FightingGameOnUsers
+     * const fightingGameOnUsers = await prisma.fightingGameOnUser.findMany()
+     * 
+     * // Get first 10 FightingGameOnUsers
+     * const fightingGameOnUsers = await prisma.fightingGameOnUser.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fightingGameOnUserWithIdOnly = await prisma.fightingGameOnUser.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FightingGameOnUserFindManyArgs>(args?: SelectSubset<T, FightingGameOnUserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a FightingGameOnUser.
+     * @param {FightingGameOnUserCreateArgs} args - Arguments to create a FightingGameOnUser.
+     * @example
+     * // Create one FightingGameOnUser
+     * const FightingGameOnUser = await prisma.fightingGameOnUser.create({
+     *   data: {
+     *     // ... data to create a FightingGameOnUser
+     *   }
+     * })
+     * 
+     */
+    create<T extends FightingGameOnUserCreateArgs>(args: SelectSubset<T, FightingGameOnUserCreateArgs<ExtArgs>>): Prisma__FightingGameOnUserClient<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many FightingGameOnUsers.
+     * @param {FightingGameOnUserCreateManyArgs} args - Arguments to create many FightingGameOnUsers.
+     * @example
+     * // Create many FightingGameOnUsers
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FightingGameOnUserCreateManyArgs>(args?: SelectSubset<T, FightingGameOnUserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FightingGameOnUsers and returns the data saved in the database.
+     * @param {FightingGameOnUserCreateManyAndReturnArgs} args - Arguments to create many FightingGameOnUsers.
+     * @example
+     * // Create many FightingGameOnUsers
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FightingGameOnUsers and only return the `id`
+     * const fightingGameOnUserWithIdOnly = await prisma.fightingGameOnUser.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FightingGameOnUserCreateManyAndReturnArgs>(args?: SelectSubset<T, FightingGameOnUserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a FightingGameOnUser.
+     * @param {FightingGameOnUserDeleteArgs} args - Arguments to delete one FightingGameOnUser.
+     * @example
+     * // Delete one FightingGameOnUser
+     * const FightingGameOnUser = await prisma.fightingGameOnUser.delete({
+     *   where: {
+     *     // ... filter to delete one FightingGameOnUser
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FightingGameOnUserDeleteArgs>(args: SelectSubset<T, FightingGameOnUserDeleteArgs<ExtArgs>>): Prisma__FightingGameOnUserClient<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one FightingGameOnUser.
+     * @param {FightingGameOnUserUpdateArgs} args - Arguments to update one FightingGameOnUser.
+     * @example
+     * // Update one FightingGameOnUser
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FightingGameOnUserUpdateArgs>(args: SelectSubset<T, FightingGameOnUserUpdateArgs<ExtArgs>>): Prisma__FightingGameOnUserClient<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more FightingGameOnUsers.
+     * @param {FightingGameOnUserDeleteManyArgs} args - Arguments to filter FightingGameOnUsers to delete.
+     * @example
+     * // Delete a few FightingGameOnUsers
+     * const { count } = await prisma.fightingGameOnUser.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FightingGameOnUserDeleteManyArgs>(args?: SelectSubset<T, FightingGameOnUserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FightingGameOnUsers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameOnUserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FightingGameOnUsers
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FightingGameOnUserUpdateManyArgs>(args: SelectSubset<T, FightingGameOnUserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FightingGameOnUsers and returns the data updated in the database.
+     * @param {FightingGameOnUserUpdateManyAndReturnArgs} args - Arguments to update many FightingGameOnUsers.
+     * @example
+     * // Update many FightingGameOnUsers
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more FightingGameOnUsers and only return the `id`
+     * const fightingGameOnUserWithIdOnly = await prisma.fightingGameOnUser.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FightingGameOnUserUpdateManyAndReturnArgs>(args: SelectSubset<T, FightingGameOnUserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one FightingGameOnUser.
+     * @param {FightingGameOnUserUpsertArgs} args - Arguments to update or create a FightingGameOnUser.
+     * @example
+     * // Update or create a FightingGameOnUser
+     * const fightingGameOnUser = await prisma.fightingGameOnUser.upsert({
+     *   create: {
+     *     // ... data to create a FightingGameOnUser
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FightingGameOnUser we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FightingGameOnUserUpsertArgs>(args: SelectSubset<T, FightingGameOnUserUpsertArgs<ExtArgs>>): Prisma__FightingGameOnUserClient<$Result.GetResult<Prisma.$FightingGameOnUserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of FightingGameOnUsers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameOnUserCountArgs} args - Arguments to filter FightingGameOnUsers to count.
+     * @example
+     * // Count the number of FightingGameOnUsers
+     * const count = await prisma.fightingGameOnUser.count({
+     *   where: {
+     *     // ... the filter for the FightingGameOnUsers we want to count
+     *   }
+     * })
+    **/
+    count<T extends FightingGameOnUserCountArgs>(
+      args?: Subset<T, FightingGameOnUserCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FightingGameOnUserCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FightingGameOnUser.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameOnUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FightingGameOnUserAggregateArgs>(args: Subset<T, FightingGameOnUserAggregateArgs>): Prisma.PrismaPromise<GetFightingGameOnUserAggregateType<T>>
+
+    /**
+     * Group by FightingGameOnUser.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FightingGameOnUserGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FightingGameOnUserGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FightingGameOnUserGroupByArgs['orderBy'] }
+        : { orderBy?: FightingGameOnUserGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FightingGameOnUserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFightingGameOnUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FightingGameOnUser model
+   */
+  readonly fields: FightingGameOnUserFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FightingGameOnUser.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FightingGameOnUserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    fightingGame<T extends FightingGameDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FightingGameDefaultArgs<ExtArgs>>): Prisma__FightingGameClient<$Result.GetResult<Prisma.$FightingGamePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FightingGameOnUser model
+   */
+  interface FightingGameOnUserFieldRefs {
+    readonly id: FieldRef<"FightingGameOnUser", 'String'>
+    readonly userId: FieldRef<"FightingGameOnUser", 'String'>
+    readonly fightingGameId: FieldRef<"FightingGameOnUser", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FightingGameOnUser findUnique
+   */
+  export type FightingGameOnUserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGameOnUser to fetch.
+     */
+    where: FightingGameOnUserWhereUniqueInput
+  }
+
+  /**
+   * FightingGameOnUser findUniqueOrThrow
+   */
+  export type FightingGameOnUserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGameOnUser to fetch.
+     */
+    where: FightingGameOnUserWhereUniqueInput
+  }
+
+  /**
+   * FightingGameOnUser findFirst
+   */
+  export type FightingGameOnUserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGameOnUser to fetch.
+     */
+    where?: FightingGameOnUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FightingGameOnUsers to fetch.
+     */
+    orderBy?: FightingGameOnUserOrderByWithRelationInput | FightingGameOnUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FightingGameOnUsers.
+     */
+    cursor?: FightingGameOnUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FightingGameOnUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FightingGameOnUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FightingGameOnUsers.
+     */
+    distinct?: FightingGameOnUserScalarFieldEnum | FightingGameOnUserScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGameOnUser findFirstOrThrow
+   */
+  export type FightingGameOnUserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGameOnUser to fetch.
+     */
+    where?: FightingGameOnUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FightingGameOnUsers to fetch.
+     */
+    orderBy?: FightingGameOnUserOrderByWithRelationInput | FightingGameOnUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FightingGameOnUsers.
+     */
+    cursor?: FightingGameOnUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FightingGameOnUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FightingGameOnUsers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FightingGameOnUsers.
+     */
+    distinct?: FightingGameOnUserScalarFieldEnum | FightingGameOnUserScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGameOnUser findMany
+   */
+  export type FightingGameOnUserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * Filter, which FightingGameOnUsers to fetch.
+     */
+    where?: FightingGameOnUserWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FightingGameOnUsers to fetch.
+     */
+    orderBy?: FightingGameOnUserOrderByWithRelationInput | FightingGameOnUserOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FightingGameOnUsers.
+     */
+    cursor?: FightingGameOnUserWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FightingGameOnUsers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FightingGameOnUsers.
+     */
+    skip?: number
+    distinct?: FightingGameOnUserScalarFieldEnum | FightingGameOnUserScalarFieldEnum[]
+  }
+
+  /**
+   * FightingGameOnUser create
+   */
+  export type FightingGameOnUserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FightingGameOnUser.
+     */
+    data: XOR<FightingGameOnUserCreateInput, FightingGameOnUserUncheckedCreateInput>
+  }
+
+  /**
+   * FightingGameOnUser createMany
+   */
+  export type FightingGameOnUserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FightingGameOnUsers.
+     */
+    data: FightingGameOnUserCreateManyInput | FightingGameOnUserCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FightingGameOnUser createManyAndReturn
+   */
+  export type FightingGameOnUserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * The data used to create many FightingGameOnUsers.
+     */
+    data: FightingGameOnUserCreateManyInput | FightingGameOnUserCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FightingGameOnUser update
+   */
+  export type FightingGameOnUserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FightingGameOnUser.
+     */
+    data: XOR<FightingGameOnUserUpdateInput, FightingGameOnUserUncheckedUpdateInput>
+    /**
+     * Choose, which FightingGameOnUser to update.
+     */
+    where: FightingGameOnUserWhereUniqueInput
+  }
+
+  /**
+   * FightingGameOnUser updateMany
+   */
+  export type FightingGameOnUserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FightingGameOnUsers.
+     */
+    data: XOR<FightingGameOnUserUpdateManyMutationInput, FightingGameOnUserUncheckedUpdateManyInput>
+    /**
+     * Filter which FightingGameOnUsers to update
+     */
+    where?: FightingGameOnUserWhereInput
+    /**
+     * Limit how many FightingGameOnUsers to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * FightingGameOnUser updateManyAndReturn
+   */
+  export type FightingGameOnUserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * The data used to update FightingGameOnUsers.
+     */
+    data: XOR<FightingGameOnUserUpdateManyMutationInput, FightingGameOnUserUncheckedUpdateManyInput>
+    /**
+     * Filter which FightingGameOnUsers to update
+     */
+    where?: FightingGameOnUserWhereInput
+    /**
+     * Limit how many FightingGameOnUsers to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FightingGameOnUser upsert
+   */
+  export type FightingGameOnUserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FightingGameOnUser to update in case it exists.
+     */
+    where: FightingGameOnUserWhereUniqueInput
+    /**
+     * In case the FightingGameOnUser found by the `where` argument doesn't exist, create a new FightingGameOnUser with this data.
+     */
+    create: XOR<FightingGameOnUserCreateInput, FightingGameOnUserUncheckedCreateInput>
+    /**
+     * In case the FightingGameOnUser was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FightingGameOnUserUpdateInput, FightingGameOnUserUncheckedUpdateInput>
+  }
+
+  /**
+   * FightingGameOnUser delete
+   */
+  export type FightingGameOnUserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+    /**
+     * Filter which FightingGameOnUser to delete.
+     */
+    where: FightingGameOnUserWhereUniqueInput
+  }
+
+  /**
+   * FightingGameOnUser deleteMany
+   */
+  export type FightingGameOnUserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FightingGameOnUsers to delete
+     */
+    where?: FightingGameOnUserWhereInput
+    /**
+     * Limit how many FightingGameOnUsers to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * FightingGameOnUser without action
+   */
+  export type FightingGameOnUserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FightingGameOnUser
+     */
+    select?: FightingGameOnUserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the FightingGameOnUser
+     */
+    omit?: FightingGameOnUserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FightingGameOnUserInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5642,6 +14153,79 @@ export namespace Prisma {
   };
 
   export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
+
+
+  export const SheetScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    content: 'content',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    userId: 'userId',
+    fightingGameId: 'fightingGameId'
+  };
+
+  export type SheetScalarFieldEnum = (typeof SheetScalarFieldEnum)[keyof typeof SheetScalarFieldEnum]
+
+
+  export const FilterScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    userId: 'userId',
+    sheetId: 'sheetId'
+  };
+
+  export type FilterScalarFieldEnum = (typeof FilterScalarFieldEnum)[keyof typeof FilterScalarFieldEnum]
+
+
+  export const FightingGameScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FightingGameScalarFieldEnum = (typeof FightingGameScalarFieldEnum)[keyof typeof FightingGameScalarFieldEnum]
+
+
+  export const CharacterScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    fightingGameId: 'fightingGameId'
+  };
+
+  export type CharacterScalarFieldEnum = (typeof CharacterScalarFieldEnum)[keyof typeof CharacterScalarFieldEnum]
+
+
+  export const CharacterOnSheetScalarFieldEnum: {
+    id: 'id',
+    characterId: 'characterId',
+    sheetId: 'sheetId'
+  };
+
+  export type CharacterOnSheetScalarFieldEnum = (typeof CharacterOnSheetScalarFieldEnum)[keyof typeof CharacterOnSheetScalarFieldEnum]
+
+
+  export const OpponentOnSheetScalarFieldEnum: {
+    id: 'id',
+    opponentId: 'opponentId',
+    sheetId: 'sheetId'
+  };
+
+  export type OpponentOnSheetScalarFieldEnum = (typeof OpponentOnSheetScalarFieldEnum)[keyof typeof OpponentOnSheetScalarFieldEnum]
+
+
+  export const FightingGameOnUserScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    fightingGameId: 'fightingGameId'
+  };
+
+  export type FightingGameOnUserScalarFieldEnum = (typeof FightingGameOnUserScalarFieldEnum)[keyof typeof FightingGameOnUserScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5738,6 +14322,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
+    Sheet?: SheetListRelationFilter
+    Filter?: FilterListRelationFilter
+    FightingGameOnUser?: FightingGameOnUserListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -5750,6 +14337,9 @@ export namespace Prisma {
     updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
+    Sheet?: SheetOrderByRelationAggregateInput
+    Filter?: FilterOrderByRelationAggregateInput
+    FightingGameOnUser?: FightingGameOnUserOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -5765,6 +14355,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
+    Sheet?: SheetListRelationFilter
+    Filter?: FilterListRelationFilter
+    FightingGameOnUser?: FightingGameOnUserListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -6015,6 +14608,409 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
   }
 
+  export type SheetWhereInput = {
+    AND?: SheetWhereInput | SheetWhereInput[]
+    OR?: SheetWhereInput[]
+    NOT?: SheetWhereInput | SheetWhereInput[]
+    id?: StringFilter<"Sheet"> | string
+    title?: StringFilter<"Sheet"> | string
+    content?: StringFilter<"Sheet"> | string
+    createdAt?: DateTimeFilter<"Sheet"> | Date | string
+    updatedAt?: DateTimeFilter<"Sheet"> | Date | string
+    userId?: StringFilter<"Sheet"> | string
+    fightingGameId?: StringFilter<"Sheet"> | string
+    fightingGame?: XOR<FightingGameScalarRelationFilter, FightingGameWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    filter?: FilterListRelationFilter
+    CharacterOnSheet?: CharacterOnSheetListRelationFilter
+    OpponentOnSheet?: OpponentOnSheetListRelationFilter
+  }
+
+  export type SheetOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+    fightingGame?: FightingGameOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+    filter?: FilterOrderByRelationAggregateInput
+    CharacterOnSheet?: CharacterOnSheetOrderByRelationAggregateInput
+    OpponentOnSheet?: OpponentOnSheetOrderByRelationAggregateInput
+  }
+
+  export type SheetWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SheetWhereInput | SheetWhereInput[]
+    OR?: SheetWhereInput[]
+    NOT?: SheetWhereInput | SheetWhereInput[]
+    title?: StringFilter<"Sheet"> | string
+    content?: StringFilter<"Sheet"> | string
+    createdAt?: DateTimeFilter<"Sheet"> | Date | string
+    updatedAt?: DateTimeFilter<"Sheet"> | Date | string
+    userId?: StringFilter<"Sheet"> | string
+    fightingGameId?: StringFilter<"Sheet"> | string
+    fightingGame?: XOR<FightingGameScalarRelationFilter, FightingGameWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    filter?: FilterListRelationFilter
+    CharacterOnSheet?: CharacterOnSheetListRelationFilter
+    OpponentOnSheet?: OpponentOnSheetListRelationFilter
+  }, "id">
+
+  export type SheetOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+    _count?: SheetCountOrderByAggregateInput
+    _max?: SheetMaxOrderByAggregateInput
+    _min?: SheetMinOrderByAggregateInput
+  }
+
+  export type SheetScalarWhereWithAggregatesInput = {
+    AND?: SheetScalarWhereWithAggregatesInput | SheetScalarWhereWithAggregatesInput[]
+    OR?: SheetScalarWhereWithAggregatesInput[]
+    NOT?: SheetScalarWhereWithAggregatesInput | SheetScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Sheet"> | string
+    title?: StringWithAggregatesFilter<"Sheet"> | string
+    content?: StringWithAggregatesFilter<"Sheet"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Sheet"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Sheet"> | Date | string
+    userId?: StringWithAggregatesFilter<"Sheet"> | string
+    fightingGameId?: StringWithAggregatesFilter<"Sheet"> | string
+  }
+
+  export type FilterWhereInput = {
+    AND?: FilterWhereInput | FilterWhereInput[]
+    OR?: FilterWhereInput[]
+    NOT?: FilterWhereInput | FilterWhereInput[]
+    id?: StringFilter<"Filter"> | string
+    name?: StringFilter<"Filter"> | string
+    createdAt?: DateTimeFilter<"Filter"> | Date | string
+    updatedAt?: DateTimeFilter<"Filter"> | Date | string
+    userId?: StringFilter<"Filter"> | string
+    sheetId?: StringNullableFilter<"Filter"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    Sheet?: XOR<SheetNullableScalarRelationFilter, SheetWhereInput> | null
+  }
+
+  export type FilterOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    sheetId?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    Sheet?: SheetOrderByWithRelationInput
+  }
+
+  export type FilterWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FilterWhereInput | FilterWhereInput[]
+    OR?: FilterWhereInput[]
+    NOT?: FilterWhereInput | FilterWhereInput[]
+    name?: StringFilter<"Filter"> | string
+    createdAt?: DateTimeFilter<"Filter"> | Date | string
+    updatedAt?: DateTimeFilter<"Filter"> | Date | string
+    userId?: StringFilter<"Filter"> | string
+    sheetId?: StringNullableFilter<"Filter"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    Sheet?: XOR<SheetNullableScalarRelationFilter, SheetWhereInput> | null
+  }, "id">
+
+  export type FilterOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    sheetId?: SortOrderInput | SortOrder
+    _count?: FilterCountOrderByAggregateInput
+    _max?: FilterMaxOrderByAggregateInput
+    _min?: FilterMinOrderByAggregateInput
+  }
+
+  export type FilterScalarWhereWithAggregatesInput = {
+    AND?: FilterScalarWhereWithAggregatesInput | FilterScalarWhereWithAggregatesInput[]
+    OR?: FilterScalarWhereWithAggregatesInput[]
+    NOT?: FilterScalarWhereWithAggregatesInput | FilterScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Filter"> | string
+    name?: StringWithAggregatesFilter<"Filter"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Filter"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Filter"> | Date | string
+    userId?: StringWithAggregatesFilter<"Filter"> | string
+    sheetId?: StringNullableWithAggregatesFilter<"Filter"> | string | null
+  }
+
+  export type FightingGameWhereInput = {
+    AND?: FightingGameWhereInput | FightingGameWhereInput[]
+    OR?: FightingGameWhereInput[]
+    NOT?: FightingGameWhereInput | FightingGameWhereInput[]
+    id?: StringFilter<"FightingGame"> | string
+    name?: StringFilter<"FightingGame"> | string
+    createdAt?: DateTimeFilter<"FightingGame"> | Date | string
+    updatedAt?: DateTimeFilter<"FightingGame"> | Date | string
+    characters?: CharacterListRelationFilter
+    Sheet?: SheetListRelationFilter
+    FightingGameOnUser?: FightingGameOnUserListRelationFilter
+  }
+
+  export type FightingGameOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    characters?: CharacterOrderByRelationAggregateInput
+    Sheet?: SheetOrderByRelationAggregateInput
+    FightingGameOnUser?: FightingGameOnUserOrderByRelationAggregateInput
+  }
+
+  export type FightingGameWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FightingGameWhereInput | FightingGameWhereInput[]
+    OR?: FightingGameWhereInput[]
+    NOT?: FightingGameWhereInput | FightingGameWhereInput[]
+    name?: StringFilter<"FightingGame"> | string
+    createdAt?: DateTimeFilter<"FightingGame"> | Date | string
+    updatedAt?: DateTimeFilter<"FightingGame"> | Date | string
+    characters?: CharacterListRelationFilter
+    Sheet?: SheetListRelationFilter
+    FightingGameOnUser?: FightingGameOnUserListRelationFilter
+  }, "id">
+
+  export type FightingGameOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FightingGameCountOrderByAggregateInput
+    _max?: FightingGameMaxOrderByAggregateInput
+    _min?: FightingGameMinOrderByAggregateInput
+  }
+
+  export type FightingGameScalarWhereWithAggregatesInput = {
+    AND?: FightingGameScalarWhereWithAggregatesInput | FightingGameScalarWhereWithAggregatesInput[]
+    OR?: FightingGameScalarWhereWithAggregatesInput[]
+    NOT?: FightingGameScalarWhereWithAggregatesInput | FightingGameScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FightingGame"> | string
+    name?: StringWithAggregatesFilter<"FightingGame"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"FightingGame"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FightingGame"> | Date | string
+  }
+
+  export type CharacterWhereInput = {
+    AND?: CharacterWhereInput | CharacterWhereInput[]
+    OR?: CharacterWhereInput[]
+    NOT?: CharacterWhereInput | CharacterWhereInput[]
+    id?: StringFilter<"Character"> | string
+    name?: StringFilter<"Character"> | string
+    createdAt?: DateTimeFilter<"Character"> | Date | string
+    updatedAt?: DateTimeFilter<"Character"> | Date | string
+    fightingGameId?: StringFilter<"Character"> | string
+    fightingGame?: XOR<FightingGameScalarRelationFilter, FightingGameWhereInput>
+    CharacterOnSheet?: CharacterOnSheetListRelationFilter
+    OpponentOnSheet?: OpponentOnSheetListRelationFilter
+  }
+
+  export type CharacterOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fightingGameId?: SortOrder
+    fightingGame?: FightingGameOrderByWithRelationInput
+    CharacterOnSheet?: CharacterOnSheetOrderByRelationAggregateInput
+    OpponentOnSheet?: OpponentOnSheetOrderByRelationAggregateInput
+  }
+
+  export type CharacterWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CharacterWhereInput | CharacterWhereInput[]
+    OR?: CharacterWhereInput[]
+    NOT?: CharacterWhereInput | CharacterWhereInput[]
+    name?: StringFilter<"Character"> | string
+    createdAt?: DateTimeFilter<"Character"> | Date | string
+    updatedAt?: DateTimeFilter<"Character"> | Date | string
+    fightingGameId?: StringFilter<"Character"> | string
+    fightingGame?: XOR<FightingGameScalarRelationFilter, FightingGameWhereInput>
+    CharacterOnSheet?: CharacterOnSheetListRelationFilter
+    OpponentOnSheet?: OpponentOnSheetListRelationFilter
+  }, "id">
+
+  export type CharacterOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fightingGameId?: SortOrder
+    _count?: CharacterCountOrderByAggregateInput
+    _max?: CharacterMaxOrderByAggregateInput
+    _min?: CharacterMinOrderByAggregateInput
+  }
+
+  export type CharacterScalarWhereWithAggregatesInput = {
+    AND?: CharacterScalarWhereWithAggregatesInput | CharacterScalarWhereWithAggregatesInput[]
+    OR?: CharacterScalarWhereWithAggregatesInput[]
+    NOT?: CharacterScalarWhereWithAggregatesInput | CharacterScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Character"> | string
+    name?: StringWithAggregatesFilter<"Character"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Character"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Character"> | Date | string
+    fightingGameId?: StringWithAggregatesFilter<"Character"> | string
+  }
+
+  export type CharacterOnSheetWhereInput = {
+    AND?: CharacterOnSheetWhereInput | CharacterOnSheetWhereInput[]
+    OR?: CharacterOnSheetWhereInput[]
+    NOT?: CharacterOnSheetWhereInput | CharacterOnSheetWhereInput[]
+    id?: StringFilter<"CharacterOnSheet"> | string
+    characterId?: StringFilter<"CharacterOnSheet"> | string
+    sheetId?: StringFilter<"CharacterOnSheet"> | string
+    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
+    sheet?: XOR<SheetScalarRelationFilter, SheetWhereInput>
+  }
+
+  export type CharacterOnSheetOrderByWithRelationInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    sheetId?: SortOrder
+    character?: CharacterOrderByWithRelationInput
+    sheet?: SheetOrderByWithRelationInput
+  }
+
+  export type CharacterOnSheetWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    sheetId_characterId?: CharacterOnSheetSheetIdCharacterIdCompoundUniqueInput
+    AND?: CharacterOnSheetWhereInput | CharacterOnSheetWhereInput[]
+    OR?: CharacterOnSheetWhereInput[]
+    NOT?: CharacterOnSheetWhereInput | CharacterOnSheetWhereInput[]
+    characterId?: StringFilter<"CharacterOnSheet"> | string
+    sheetId?: StringFilter<"CharacterOnSheet"> | string
+    character?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
+    sheet?: XOR<SheetScalarRelationFilter, SheetWhereInput>
+  }, "id" | "sheetId_characterId">
+
+  export type CharacterOnSheetOrderByWithAggregationInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    sheetId?: SortOrder
+    _count?: CharacterOnSheetCountOrderByAggregateInput
+    _max?: CharacterOnSheetMaxOrderByAggregateInput
+    _min?: CharacterOnSheetMinOrderByAggregateInput
+  }
+
+  export type CharacterOnSheetScalarWhereWithAggregatesInput = {
+    AND?: CharacterOnSheetScalarWhereWithAggregatesInput | CharacterOnSheetScalarWhereWithAggregatesInput[]
+    OR?: CharacterOnSheetScalarWhereWithAggregatesInput[]
+    NOT?: CharacterOnSheetScalarWhereWithAggregatesInput | CharacterOnSheetScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CharacterOnSheet"> | string
+    characterId?: StringWithAggregatesFilter<"CharacterOnSheet"> | string
+    sheetId?: StringWithAggregatesFilter<"CharacterOnSheet"> | string
+  }
+
+  export type OpponentOnSheetWhereInput = {
+    AND?: OpponentOnSheetWhereInput | OpponentOnSheetWhereInput[]
+    OR?: OpponentOnSheetWhereInput[]
+    NOT?: OpponentOnSheetWhereInput | OpponentOnSheetWhereInput[]
+    id?: StringFilter<"OpponentOnSheet"> | string
+    opponentId?: StringFilter<"OpponentOnSheet"> | string
+    sheetId?: StringFilter<"OpponentOnSheet"> | string
+    opponent?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
+    sheet?: XOR<SheetScalarRelationFilter, SheetWhereInput>
+  }
+
+  export type OpponentOnSheetOrderByWithRelationInput = {
+    id?: SortOrder
+    opponentId?: SortOrder
+    sheetId?: SortOrder
+    opponent?: CharacterOrderByWithRelationInput
+    sheet?: SheetOrderByWithRelationInput
+  }
+
+  export type OpponentOnSheetWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    sheetId_opponentId?: OpponentOnSheetSheetIdOpponentIdCompoundUniqueInput
+    AND?: OpponentOnSheetWhereInput | OpponentOnSheetWhereInput[]
+    OR?: OpponentOnSheetWhereInput[]
+    NOT?: OpponentOnSheetWhereInput | OpponentOnSheetWhereInput[]
+    opponentId?: StringFilter<"OpponentOnSheet"> | string
+    sheetId?: StringFilter<"OpponentOnSheet"> | string
+    opponent?: XOR<CharacterScalarRelationFilter, CharacterWhereInput>
+    sheet?: XOR<SheetScalarRelationFilter, SheetWhereInput>
+  }, "id" | "sheetId_opponentId">
+
+  export type OpponentOnSheetOrderByWithAggregationInput = {
+    id?: SortOrder
+    opponentId?: SortOrder
+    sheetId?: SortOrder
+    _count?: OpponentOnSheetCountOrderByAggregateInput
+    _max?: OpponentOnSheetMaxOrderByAggregateInput
+    _min?: OpponentOnSheetMinOrderByAggregateInput
+  }
+
+  export type OpponentOnSheetScalarWhereWithAggregatesInput = {
+    AND?: OpponentOnSheetScalarWhereWithAggregatesInput | OpponentOnSheetScalarWhereWithAggregatesInput[]
+    OR?: OpponentOnSheetScalarWhereWithAggregatesInput[]
+    NOT?: OpponentOnSheetScalarWhereWithAggregatesInput | OpponentOnSheetScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"OpponentOnSheet"> | string
+    opponentId?: StringWithAggregatesFilter<"OpponentOnSheet"> | string
+    sheetId?: StringWithAggregatesFilter<"OpponentOnSheet"> | string
+  }
+
+  export type FightingGameOnUserWhereInput = {
+    AND?: FightingGameOnUserWhereInput | FightingGameOnUserWhereInput[]
+    OR?: FightingGameOnUserWhereInput[]
+    NOT?: FightingGameOnUserWhereInput | FightingGameOnUserWhereInput[]
+    id?: StringFilter<"FightingGameOnUser"> | string
+    userId?: StringFilter<"FightingGameOnUser"> | string
+    fightingGameId?: StringFilter<"FightingGameOnUser"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    fightingGame?: XOR<FightingGameScalarRelationFilter, FightingGameWhereInput>
+  }
+
+  export type FightingGameOnUserOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    fightingGame?: FightingGameOrderByWithRelationInput
+  }
+
+  export type FightingGameOnUserWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FightingGameOnUserWhereInput | FightingGameOnUserWhereInput[]
+    OR?: FightingGameOnUserWhereInput[]
+    NOT?: FightingGameOnUserWhereInput | FightingGameOnUserWhereInput[]
+    userId?: StringFilter<"FightingGameOnUser"> | string
+    fightingGameId?: StringFilter<"FightingGameOnUser"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    fightingGame?: XOR<FightingGameScalarRelationFilter, FightingGameWhereInput>
+  }, "id">
+
+  export type FightingGameOnUserOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+    _count?: FightingGameOnUserCountOrderByAggregateInput
+    _max?: FightingGameOnUserMaxOrderByAggregateInput
+    _min?: FightingGameOnUserMinOrderByAggregateInput
+  }
+
+  export type FightingGameOnUserScalarWhereWithAggregatesInput = {
+    AND?: FightingGameOnUserScalarWhereWithAggregatesInput | FightingGameOnUserScalarWhereWithAggregatesInput[]
+    OR?: FightingGameOnUserScalarWhereWithAggregatesInput[]
+    NOT?: FightingGameOnUserScalarWhereWithAggregatesInput | FightingGameOnUserScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FightingGameOnUser"> | string
+    userId?: StringWithAggregatesFilter<"FightingGameOnUser"> | string
+    fightingGameId?: StringWithAggregatesFilter<"FightingGameOnUser"> | string
+  }
+
   export type UserCreateInput = {
     id: string
     name: string
@@ -6025,6 +15021,9 @@ export namespace Prisma {
     updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
+    Sheet?: SheetCreateNestedManyWithoutUserInput
+    Filter?: FilterCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6037,6 +15036,9 @@ export namespace Prisma {
     updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    Sheet?: SheetUncheckedCreateNestedManyWithoutUserInput
+    Filter?: FilterUncheckedCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -6049,6 +15051,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUpdateManyWithoutUserNestedInput
+    Filter?: FilterUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6061,6 +15066,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUncheckedUpdateManyWithoutUserNestedInput
+    Filter?: FilterUncheckedUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -6343,6 +15351,391 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type SheetCreateInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGame: FightingGameCreateNestedOneWithoutSheetInput
+    user: UserCreateNestedOneWithoutSheetInput
+    filter?: FilterCreateNestedManyWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetUncheckedCreateInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    fightingGameId: string
+    filter?: FilterUncheckedCreateNestedManyWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetUncheckedCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutSheetNestedInput
+    user?: UserUpdateOneRequiredWithoutSheetNestedInput
+    filter?: FilterUpdateManyWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+    filter?: FilterUncheckedUpdateManyWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetCreateManyInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    fightingGameId: string
+  }
+
+  export type SheetUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SheetUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FilterCreateInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutFilterInput
+    Sheet?: SheetCreateNestedOneWithoutFilterInput
+  }
+
+  export type FilterUncheckedCreateInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    sheetId?: string | null
+  }
+
+  export type FilterUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFilterNestedInput
+    Sheet?: SheetUpdateOneWithoutFilterNestedInput
+  }
+
+  export type FilterUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sheetId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FilterCreateManyInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    sheetId?: string | null
+  }
+
+  export type FilterUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FilterUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    sheetId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FightingGameCreateInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    characters?: CharacterCreateNestedManyWithoutFightingGameInput
+    Sheet?: SheetCreateNestedManyWithoutFightingGameInput
+    FightingGameOnUser?: FightingGameOnUserCreateNestedManyWithoutFightingGameInput
+  }
+
+  export type FightingGameUncheckedCreateInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    characters?: CharacterUncheckedCreateNestedManyWithoutFightingGameInput
+    Sheet?: SheetUncheckedCreateNestedManyWithoutFightingGameInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedCreateNestedManyWithoutFightingGameInput
+  }
+
+  export type FightingGameUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    characters?: CharacterUpdateManyWithoutFightingGameNestedInput
+    Sheet?: SheetUpdateManyWithoutFightingGameNestedInput
+    FightingGameOnUser?: FightingGameOnUserUpdateManyWithoutFightingGameNestedInput
+  }
+
+  export type FightingGameUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    characters?: CharacterUncheckedUpdateManyWithoutFightingGameNestedInput
+    Sheet?: SheetUncheckedUpdateManyWithoutFightingGameNestedInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedUpdateManyWithoutFightingGameNestedInput
+  }
+
+  export type FightingGameCreateManyInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FightingGameUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FightingGameUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CharacterCreateInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGame: FightingGameCreateNestedOneWithoutCharactersInput
+    CharacterOnSheet?: CharacterOnSheetCreateNestedManyWithoutCharacterInput
+    OpponentOnSheet?: OpponentOnSheetCreateNestedManyWithoutOpponentInput
+  }
+
+  export type CharacterUncheckedCreateInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGameId: string
+    CharacterOnSheet?: CharacterOnSheetUncheckedCreateNestedManyWithoutCharacterInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedCreateNestedManyWithoutOpponentInput
+  }
+
+  export type CharacterUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutCharactersNestedInput
+    CharacterOnSheet?: CharacterOnSheetUpdateManyWithoutCharacterNestedInput
+    OpponentOnSheet?: OpponentOnSheetUpdateManyWithoutOpponentNestedInput
+  }
+
+  export type CharacterUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+    CharacterOnSheet?: CharacterOnSheetUncheckedUpdateManyWithoutCharacterNestedInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedUpdateManyWithoutOpponentNestedInput
+  }
+
+  export type CharacterCreateManyInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGameId: string
+  }
+
+  export type CharacterUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CharacterUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CharacterOnSheetCreateInput = {
+    id?: string
+    character: CharacterCreateNestedOneWithoutCharacterOnSheetInput
+    sheet: SheetCreateNestedOneWithoutCharacterOnSheetInput
+  }
+
+  export type CharacterOnSheetUncheckedCreateInput = {
+    id?: string
+    characterId: string
+    sheetId: string
+  }
+
+  export type CharacterOnSheetUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    character?: CharacterUpdateOneRequiredWithoutCharacterOnSheetNestedInput
+    sheet?: SheetUpdateOneRequiredWithoutCharacterOnSheetNestedInput
+  }
+
+  export type CharacterOnSheetUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    sheetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CharacterOnSheetCreateManyInput = {
+    id?: string
+    characterId: string
+    sheetId: string
+  }
+
+  export type CharacterOnSheetUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CharacterOnSheetUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+    sheetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OpponentOnSheetCreateInput = {
+    id?: string
+    opponent: CharacterCreateNestedOneWithoutOpponentOnSheetInput
+    sheet: SheetCreateNestedOneWithoutOpponentOnSheetInput
+  }
+
+  export type OpponentOnSheetUncheckedCreateInput = {
+    id?: string
+    opponentId: string
+    sheetId: string
+  }
+
+  export type OpponentOnSheetUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    opponent?: CharacterUpdateOneRequiredWithoutOpponentOnSheetNestedInput
+    sheet?: SheetUpdateOneRequiredWithoutOpponentOnSheetNestedInput
+  }
+
+  export type OpponentOnSheetUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    opponentId?: StringFieldUpdateOperationsInput | string
+    sheetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OpponentOnSheetCreateManyInput = {
+    id?: string
+    opponentId: string
+    sheetId: string
+  }
+
+  export type OpponentOnSheetUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OpponentOnSheetUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    opponentId?: StringFieldUpdateOperationsInput | string
+    sheetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FightingGameOnUserCreateInput = {
+    id?: string
+    user: UserCreateNestedOneWithoutFightingGameOnUserInput
+    fightingGame: FightingGameCreateNestedOneWithoutFightingGameOnUserInput
+  }
+
+  export type FightingGameOnUserUncheckedCreateInput = {
+    id?: string
+    userId: string
+    fightingGameId: string
+  }
+
+  export type FightingGameOnUserUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutFightingGameOnUserNestedInput
+    fightingGame?: FightingGameUpdateOneRequiredWithoutFightingGameOnUserNestedInput
+  }
+
+  export type FightingGameOnUserUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FightingGameOnUserCreateManyInput = {
+    id?: string
+    userId: string
+    fightingGameId: string
+  }
+
+  export type FightingGameOnUserUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FightingGameOnUserUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6401,6 +15794,24 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
+  export type SheetListRelationFilter = {
+    every?: SheetWhereInput
+    some?: SheetWhereInput
+    none?: SheetWhereInput
+  }
+
+  export type FilterListRelationFilter = {
+    every?: FilterWhereInput
+    some?: FilterWhereInput
+    none?: FilterWhereInput
+  }
+
+  export type FightingGameOnUserListRelationFilter = {
+    every?: FightingGameOnUserWhereInput
+    some?: FightingGameOnUserWhereInput
+    none?: FightingGameOnUserWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -6411,6 +15822,18 @@ export namespace Prisma {
   }
 
   export type AccountOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SheetOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FilterOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FightingGameOnUserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6640,6 +16063,222 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type FightingGameScalarRelationFilter = {
+    is?: FightingGameWhereInput
+    isNot?: FightingGameWhereInput
+  }
+
+  export type CharacterOnSheetListRelationFilter = {
+    every?: CharacterOnSheetWhereInput
+    some?: CharacterOnSheetWhereInput
+    none?: CharacterOnSheetWhereInput
+  }
+
+  export type OpponentOnSheetListRelationFilter = {
+    every?: OpponentOnSheetWhereInput
+    some?: OpponentOnSheetWhereInput
+    none?: OpponentOnSheetWhereInput
+  }
+
+  export type CharacterOnSheetOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type OpponentOnSheetOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SheetCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
+  export type SheetMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
+  export type SheetMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
+  export type SheetNullableScalarRelationFilter = {
+    is?: SheetWhereInput | null
+    isNot?: SheetWhereInput | null
+  }
+
+  export type FilterCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type FilterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type FilterMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type CharacterListRelationFilter = {
+    every?: CharacterWhereInput
+    some?: CharacterWhereInput
+    none?: CharacterWhereInput
+  }
+
+  export type CharacterOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FightingGameCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FightingGameMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FightingGameMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CharacterCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
+  export type CharacterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
+  export type CharacterMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
+  export type CharacterScalarRelationFilter = {
+    is?: CharacterWhereInput
+    isNot?: CharacterWhereInput
+  }
+
+  export type SheetScalarRelationFilter = {
+    is?: SheetWhereInput
+    isNot?: SheetWhereInput
+  }
+
+  export type CharacterOnSheetSheetIdCharacterIdCompoundUniqueInput = {
+    sheetId: string
+    characterId: string
+  }
+
+  export type CharacterOnSheetCountOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type CharacterOnSheetMaxOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type CharacterOnSheetMinOrderByAggregateInput = {
+    id?: SortOrder
+    characterId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type OpponentOnSheetSheetIdOpponentIdCompoundUniqueInput = {
+    sheetId: string
+    opponentId: string
+  }
+
+  export type OpponentOnSheetCountOrderByAggregateInput = {
+    id?: SortOrder
+    opponentId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type OpponentOnSheetMaxOrderByAggregateInput = {
+    id?: SortOrder
+    opponentId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type OpponentOnSheetMinOrderByAggregateInput = {
+    id?: SortOrder
+    opponentId?: SortOrder
+    sheetId?: SortOrder
+  }
+
+  export type FightingGameOnUserCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
+  export type FightingGameOnUserMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
+  export type FightingGameOnUserMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fightingGameId?: SortOrder
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6654,6 +16293,27 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
+  export type SheetCreateNestedManyWithoutUserInput = {
+    create?: XOR<SheetCreateWithoutUserInput, SheetUncheckedCreateWithoutUserInput> | SheetCreateWithoutUserInput[] | SheetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SheetCreateOrConnectWithoutUserInput | SheetCreateOrConnectWithoutUserInput[]
+    createMany?: SheetCreateManyUserInputEnvelope
+    connect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+  }
+
+  export type FilterCreateNestedManyWithoutUserInput = {
+    create?: XOR<FilterCreateWithoutUserInput, FilterUncheckedCreateWithoutUserInput> | FilterCreateWithoutUserInput[] | FilterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FilterCreateOrConnectWithoutUserInput | FilterCreateOrConnectWithoutUserInput[]
+    createMany?: FilterCreateManyUserInputEnvelope
+    connect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+  }
+
+  export type FightingGameOnUserCreateNestedManyWithoutUserInput = {
+    create?: XOR<FightingGameOnUserCreateWithoutUserInput, FightingGameOnUserUncheckedCreateWithoutUserInput> | FightingGameOnUserCreateWithoutUserInput[] | FightingGameOnUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FightingGameOnUserCreateOrConnectWithoutUserInput | FightingGameOnUserCreateOrConnectWithoutUserInput[]
+    createMany?: FightingGameOnUserCreateManyUserInputEnvelope
+    connect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6666,6 +16326,27 @@ export namespace Prisma {
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
     createMany?: AccountCreateManyUserInputEnvelope
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+  }
+
+  export type SheetUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SheetCreateWithoutUserInput, SheetUncheckedCreateWithoutUserInput> | SheetCreateWithoutUserInput[] | SheetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SheetCreateOrConnectWithoutUserInput | SheetCreateOrConnectWithoutUserInput[]
+    createMany?: SheetCreateManyUserInputEnvelope
+    connect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+  }
+
+  export type FilterUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FilterCreateWithoutUserInput, FilterUncheckedCreateWithoutUserInput> | FilterCreateWithoutUserInput[] | FilterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FilterCreateOrConnectWithoutUserInput | FilterCreateOrConnectWithoutUserInput[]
+    createMany?: FilterCreateManyUserInputEnvelope
+    connect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+  }
+
+  export type FightingGameOnUserUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FightingGameOnUserCreateWithoutUserInput, FightingGameOnUserUncheckedCreateWithoutUserInput> | FightingGameOnUserCreateWithoutUserInput[] | FightingGameOnUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FightingGameOnUserCreateOrConnectWithoutUserInput | FightingGameOnUserCreateOrConnectWithoutUserInput[]
+    createMany?: FightingGameOnUserCreateManyUserInputEnvelope
+    connect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6712,6 +16393,48 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
+  export type SheetUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SheetCreateWithoutUserInput, SheetUncheckedCreateWithoutUserInput> | SheetCreateWithoutUserInput[] | SheetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SheetCreateOrConnectWithoutUserInput | SheetCreateOrConnectWithoutUserInput[]
+    upsert?: SheetUpsertWithWhereUniqueWithoutUserInput | SheetUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SheetCreateManyUserInputEnvelope
+    set?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    disconnect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    delete?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    connect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    update?: SheetUpdateWithWhereUniqueWithoutUserInput | SheetUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SheetUpdateManyWithWhereWithoutUserInput | SheetUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SheetScalarWhereInput | SheetScalarWhereInput[]
+  }
+
+  export type FilterUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FilterCreateWithoutUserInput, FilterUncheckedCreateWithoutUserInput> | FilterCreateWithoutUserInput[] | FilterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FilterCreateOrConnectWithoutUserInput | FilterCreateOrConnectWithoutUserInput[]
+    upsert?: FilterUpsertWithWhereUniqueWithoutUserInput | FilterUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FilterCreateManyUserInputEnvelope
+    set?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    disconnect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    delete?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    connect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    update?: FilterUpdateWithWhereUniqueWithoutUserInput | FilterUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FilterUpdateManyWithWhereWithoutUserInput | FilterUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FilterScalarWhereInput | FilterScalarWhereInput[]
+  }
+
+  export type FightingGameOnUserUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FightingGameOnUserCreateWithoutUserInput, FightingGameOnUserUncheckedCreateWithoutUserInput> | FightingGameOnUserCreateWithoutUserInput[] | FightingGameOnUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FightingGameOnUserCreateOrConnectWithoutUserInput | FightingGameOnUserCreateOrConnectWithoutUserInput[]
+    upsert?: FightingGameOnUserUpsertWithWhereUniqueWithoutUserInput | FightingGameOnUserUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FightingGameOnUserCreateManyUserInputEnvelope
+    set?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    disconnect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    delete?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    connect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    update?: FightingGameOnUserUpdateWithWhereUniqueWithoutUserInput | FightingGameOnUserUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FightingGameOnUserUpdateManyWithWhereWithoutUserInput | FightingGameOnUserUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FightingGameOnUserScalarWhereInput | FightingGameOnUserScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6738,6 +16461,48 @@ export namespace Prisma {
     update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
+  }
+
+  export type SheetUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SheetCreateWithoutUserInput, SheetUncheckedCreateWithoutUserInput> | SheetCreateWithoutUserInput[] | SheetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SheetCreateOrConnectWithoutUserInput | SheetCreateOrConnectWithoutUserInput[]
+    upsert?: SheetUpsertWithWhereUniqueWithoutUserInput | SheetUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SheetCreateManyUserInputEnvelope
+    set?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    disconnect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    delete?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    connect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    update?: SheetUpdateWithWhereUniqueWithoutUserInput | SheetUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SheetUpdateManyWithWhereWithoutUserInput | SheetUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SheetScalarWhereInput | SheetScalarWhereInput[]
+  }
+
+  export type FilterUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FilterCreateWithoutUserInput, FilterUncheckedCreateWithoutUserInput> | FilterCreateWithoutUserInput[] | FilterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FilterCreateOrConnectWithoutUserInput | FilterCreateOrConnectWithoutUserInput[]
+    upsert?: FilterUpsertWithWhereUniqueWithoutUserInput | FilterUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FilterCreateManyUserInputEnvelope
+    set?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    disconnect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    delete?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    connect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    update?: FilterUpdateWithWhereUniqueWithoutUserInput | FilterUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FilterUpdateManyWithWhereWithoutUserInput | FilterUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FilterScalarWhereInput | FilterScalarWhereInput[]
+  }
+
+  export type FightingGameOnUserUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FightingGameOnUserCreateWithoutUserInput, FightingGameOnUserUncheckedCreateWithoutUserInput> | FightingGameOnUserCreateWithoutUserInput[] | FightingGameOnUserUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FightingGameOnUserCreateOrConnectWithoutUserInput | FightingGameOnUserCreateOrConnectWithoutUserInput[]
+    upsert?: FightingGameOnUserUpsertWithWhereUniqueWithoutUserInput | FightingGameOnUserUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FightingGameOnUserCreateManyUserInputEnvelope
+    set?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    disconnect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    delete?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    connect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    update?: FightingGameOnUserUpdateWithWhereUniqueWithoutUserInput | FightingGameOnUserUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FightingGameOnUserUpdateManyWithWhereWithoutUserInput | FightingGameOnUserUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FightingGameOnUserScalarWhereInput | FightingGameOnUserScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -6770,6 +16535,498 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutAccountsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type FightingGameCreateNestedOneWithoutSheetInput = {
+    create?: XOR<FightingGameCreateWithoutSheetInput, FightingGameUncheckedCreateWithoutSheetInput>
+    connectOrCreate?: FightingGameCreateOrConnectWithoutSheetInput
+    connect?: FightingGameWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutSheetInput = {
+    create?: XOR<UserCreateWithoutSheetInput, UserUncheckedCreateWithoutSheetInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSheetInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type FilterCreateNestedManyWithoutSheetInput = {
+    create?: XOR<FilterCreateWithoutSheetInput, FilterUncheckedCreateWithoutSheetInput> | FilterCreateWithoutSheetInput[] | FilterUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: FilterCreateOrConnectWithoutSheetInput | FilterCreateOrConnectWithoutSheetInput[]
+    createMany?: FilterCreateManySheetInputEnvelope
+    connect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+  }
+
+  export type CharacterOnSheetCreateNestedManyWithoutSheetInput = {
+    create?: XOR<CharacterOnSheetCreateWithoutSheetInput, CharacterOnSheetUncheckedCreateWithoutSheetInput> | CharacterOnSheetCreateWithoutSheetInput[] | CharacterOnSheetUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: CharacterOnSheetCreateOrConnectWithoutSheetInput | CharacterOnSheetCreateOrConnectWithoutSheetInput[]
+    createMany?: CharacterOnSheetCreateManySheetInputEnvelope
+    connect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+  }
+
+  export type OpponentOnSheetCreateNestedManyWithoutSheetInput = {
+    create?: XOR<OpponentOnSheetCreateWithoutSheetInput, OpponentOnSheetUncheckedCreateWithoutSheetInput> | OpponentOnSheetCreateWithoutSheetInput[] | OpponentOnSheetUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: OpponentOnSheetCreateOrConnectWithoutSheetInput | OpponentOnSheetCreateOrConnectWithoutSheetInput[]
+    createMany?: OpponentOnSheetCreateManySheetInputEnvelope
+    connect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+  }
+
+  export type FilterUncheckedCreateNestedManyWithoutSheetInput = {
+    create?: XOR<FilterCreateWithoutSheetInput, FilterUncheckedCreateWithoutSheetInput> | FilterCreateWithoutSheetInput[] | FilterUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: FilterCreateOrConnectWithoutSheetInput | FilterCreateOrConnectWithoutSheetInput[]
+    createMany?: FilterCreateManySheetInputEnvelope
+    connect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+  }
+
+  export type CharacterOnSheetUncheckedCreateNestedManyWithoutSheetInput = {
+    create?: XOR<CharacterOnSheetCreateWithoutSheetInput, CharacterOnSheetUncheckedCreateWithoutSheetInput> | CharacterOnSheetCreateWithoutSheetInput[] | CharacterOnSheetUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: CharacterOnSheetCreateOrConnectWithoutSheetInput | CharacterOnSheetCreateOrConnectWithoutSheetInput[]
+    createMany?: CharacterOnSheetCreateManySheetInputEnvelope
+    connect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+  }
+
+  export type OpponentOnSheetUncheckedCreateNestedManyWithoutSheetInput = {
+    create?: XOR<OpponentOnSheetCreateWithoutSheetInput, OpponentOnSheetUncheckedCreateWithoutSheetInput> | OpponentOnSheetCreateWithoutSheetInput[] | OpponentOnSheetUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: OpponentOnSheetCreateOrConnectWithoutSheetInput | OpponentOnSheetCreateOrConnectWithoutSheetInput[]
+    createMany?: OpponentOnSheetCreateManySheetInputEnvelope
+    connect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+  }
+
+  export type FightingGameUpdateOneRequiredWithoutSheetNestedInput = {
+    create?: XOR<FightingGameCreateWithoutSheetInput, FightingGameUncheckedCreateWithoutSheetInput>
+    connectOrCreate?: FightingGameCreateOrConnectWithoutSheetInput
+    upsert?: FightingGameUpsertWithoutSheetInput
+    connect?: FightingGameWhereUniqueInput
+    update?: XOR<XOR<FightingGameUpdateToOneWithWhereWithoutSheetInput, FightingGameUpdateWithoutSheetInput>, FightingGameUncheckedUpdateWithoutSheetInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutSheetNestedInput = {
+    create?: XOR<UserCreateWithoutSheetInput, UserUncheckedCreateWithoutSheetInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSheetInput
+    upsert?: UserUpsertWithoutSheetInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSheetInput, UserUpdateWithoutSheetInput>, UserUncheckedUpdateWithoutSheetInput>
+  }
+
+  export type FilterUpdateManyWithoutSheetNestedInput = {
+    create?: XOR<FilterCreateWithoutSheetInput, FilterUncheckedCreateWithoutSheetInput> | FilterCreateWithoutSheetInput[] | FilterUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: FilterCreateOrConnectWithoutSheetInput | FilterCreateOrConnectWithoutSheetInput[]
+    upsert?: FilterUpsertWithWhereUniqueWithoutSheetInput | FilterUpsertWithWhereUniqueWithoutSheetInput[]
+    createMany?: FilterCreateManySheetInputEnvelope
+    set?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    disconnect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    delete?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    connect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    update?: FilterUpdateWithWhereUniqueWithoutSheetInput | FilterUpdateWithWhereUniqueWithoutSheetInput[]
+    updateMany?: FilterUpdateManyWithWhereWithoutSheetInput | FilterUpdateManyWithWhereWithoutSheetInput[]
+    deleteMany?: FilterScalarWhereInput | FilterScalarWhereInput[]
+  }
+
+  export type CharacterOnSheetUpdateManyWithoutSheetNestedInput = {
+    create?: XOR<CharacterOnSheetCreateWithoutSheetInput, CharacterOnSheetUncheckedCreateWithoutSheetInput> | CharacterOnSheetCreateWithoutSheetInput[] | CharacterOnSheetUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: CharacterOnSheetCreateOrConnectWithoutSheetInput | CharacterOnSheetCreateOrConnectWithoutSheetInput[]
+    upsert?: CharacterOnSheetUpsertWithWhereUniqueWithoutSheetInput | CharacterOnSheetUpsertWithWhereUniqueWithoutSheetInput[]
+    createMany?: CharacterOnSheetCreateManySheetInputEnvelope
+    set?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    disconnect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    delete?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    connect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    update?: CharacterOnSheetUpdateWithWhereUniqueWithoutSheetInput | CharacterOnSheetUpdateWithWhereUniqueWithoutSheetInput[]
+    updateMany?: CharacterOnSheetUpdateManyWithWhereWithoutSheetInput | CharacterOnSheetUpdateManyWithWhereWithoutSheetInput[]
+    deleteMany?: CharacterOnSheetScalarWhereInput | CharacterOnSheetScalarWhereInput[]
+  }
+
+  export type OpponentOnSheetUpdateManyWithoutSheetNestedInput = {
+    create?: XOR<OpponentOnSheetCreateWithoutSheetInput, OpponentOnSheetUncheckedCreateWithoutSheetInput> | OpponentOnSheetCreateWithoutSheetInput[] | OpponentOnSheetUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: OpponentOnSheetCreateOrConnectWithoutSheetInput | OpponentOnSheetCreateOrConnectWithoutSheetInput[]
+    upsert?: OpponentOnSheetUpsertWithWhereUniqueWithoutSheetInput | OpponentOnSheetUpsertWithWhereUniqueWithoutSheetInput[]
+    createMany?: OpponentOnSheetCreateManySheetInputEnvelope
+    set?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    disconnect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    delete?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    connect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    update?: OpponentOnSheetUpdateWithWhereUniqueWithoutSheetInput | OpponentOnSheetUpdateWithWhereUniqueWithoutSheetInput[]
+    updateMany?: OpponentOnSheetUpdateManyWithWhereWithoutSheetInput | OpponentOnSheetUpdateManyWithWhereWithoutSheetInput[]
+    deleteMany?: OpponentOnSheetScalarWhereInput | OpponentOnSheetScalarWhereInput[]
+  }
+
+  export type FilterUncheckedUpdateManyWithoutSheetNestedInput = {
+    create?: XOR<FilterCreateWithoutSheetInput, FilterUncheckedCreateWithoutSheetInput> | FilterCreateWithoutSheetInput[] | FilterUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: FilterCreateOrConnectWithoutSheetInput | FilterCreateOrConnectWithoutSheetInput[]
+    upsert?: FilterUpsertWithWhereUniqueWithoutSheetInput | FilterUpsertWithWhereUniqueWithoutSheetInput[]
+    createMany?: FilterCreateManySheetInputEnvelope
+    set?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    disconnect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    delete?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    connect?: FilterWhereUniqueInput | FilterWhereUniqueInput[]
+    update?: FilterUpdateWithWhereUniqueWithoutSheetInput | FilterUpdateWithWhereUniqueWithoutSheetInput[]
+    updateMany?: FilterUpdateManyWithWhereWithoutSheetInput | FilterUpdateManyWithWhereWithoutSheetInput[]
+    deleteMany?: FilterScalarWhereInput | FilterScalarWhereInput[]
+  }
+
+  export type CharacterOnSheetUncheckedUpdateManyWithoutSheetNestedInput = {
+    create?: XOR<CharacterOnSheetCreateWithoutSheetInput, CharacterOnSheetUncheckedCreateWithoutSheetInput> | CharacterOnSheetCreateWithoutSheetInput[] | CharacterOnSheetUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: CharacterOnSheetCreateOrConnectWithoutSheetInput | CharacterOnSheetCreateOrConnectWithoutSheetInput[]
+    upsert?: CharacterOnSheetUpsertWithWhereUniqueWithoutSheetInput | CharacterOnSheetUpsertWithWhereUniqueWithoutSheetInput[]
+    createMany?: CharacterOnSheetCreateManySheetInputEnvelope
+    set?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    disconnect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    delete?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    connect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    update?: CharacterOnSheetUpdateWithWhereUniqueWithoutSheetInput | CharacterOnSheetUpdateWithWhereUniqueWithoutSheetInput[]
+    updateMany?: CharacterOnSheetUpdateManyWithWhereWithoutSheetInput | CharacterOnSheetUpdateManyWithWhereWithoutSheetInput[]
+    deleteMany?: CharacterOnSheetScalarWhereInput | CharacterOnSheetScalarWhereInput[]
+  }
+
+  export type OpponentOnSheetUncheckedUpdateManyWithoutSheetNestedInput = {
+    create?: XOR<OpponentOnSheetCreateWithoutSheetInput, OpponentOnSheetUncheckedCreateWithoutSheetInput> | OpponentOnSheetCreateWithoutSheetInput[] | OpponentOnSheetUncheckedCreateWithoutSheetInput[]
+    connectOrCreate?: OpponentOnSheetCreateOrConnectWithoutSheetInput | OpponentOnSheetCreateOrConnectWithoutSheetInput[]
+    upsert?: OpponentOnSheetUpsertWithWhereUniqueWithoutSheetInput | OpponentOnSheetUpsertWithWhereUniqueWithoutSheetInput[]
+    createMany?: OpponentOnSheetCreateManySheetInputEnvelope
+    set?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    disconnect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    delete?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    connect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    update?: OpponentOnSheetUpdateWithWhereUniqueWithoutSheetInput | OpponentOnSheetUpdateWithWhereUniqueWithoutSheetInput[]
+    updateMany?: OpponentOnSheetUpdateManyWithWhereWithoutSheetInput | OpponentOnSheetUpdateManyWithWhereWithoutSheetInput[]
+    deleteMany?: OpponentOnSheetScalarWhereInput | OpponentOnSheetScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutFilterInput = {
+    create?: XOR<UserCreateWithoutFilterInput, UserUncheckedCreateWithoutFilterInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFilterInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type SheetCreateNestedOneWithoutFilterInput = {
+    create?: XOR<SheetCreateWithoutFilterInput, SheetUncheckedCreateWithoutFilterInput>
+    connectOrCreate?: SheetCreateOrConnectWithoutFilterInput
+    connect?: SheetWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutFilterNestedInput = {
+    create?: XOR<UserCreateWithoutFilterInput, UserUncheckedCreateWithoutFilterInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFilterInput
+    upsert?: UserUpsertWithoutFilterInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFilterInput, UserUpdateWithoutFilterInput>, UserUncheckedUpdateWithoutFilterInput>
+  }
+
+  export type SheetUpdateOneWithoutFilterNestedInput = {
+    create?: XOR<SheetCreateWithoutFilterInput, SheetUncheckedCreateWithoutFilterInput>
+    connectOrCreate?: SheetCreateOrConnectWithoutFilterInput
+    upsert?: SheetUpsertWithoutFilterInput
+    disconnect?: SheetWhereInput | boolean
+    delete?: SheetWhereInput | boolean
+    connect?: SheetWhereUniqueInput
+    update?: XOR<XOR<SheetUpdateToOneWithWhereWithoutFilterInput, SheetUpdateWithoutFilterInput>, SheetUncheckedUpdateWithoutFilterInput>
+  }
+
+  export type CharacterCreateNestedManyWithoutFightingGameInput = {
+    create?: XOR<CharacterCreateWithoutFightingGameInput, CharacterUncheckedCreateWithoutFightingGameInput> | CharacterCreateWithoutFightingGameInput[] | CharacterUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: CharacterCreateOrConnectWithoutFightingGameInput | CharacterCreateOrConnectWithoutFightingGameInput[]
+    createMany?: CharacterCreateManyFightingGameInputEnvelope
+    connect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+  }
+
+  export type SheetCreateNestedManyWithoutFightingGameInput = {
+    create?: XOR<SheetCreateWithoutFightingGameInput, SheetUncheckedCreateWithoutFightingGameInput> | SheetCreateWithoutFightingGameInput[] | SheetUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: SheetCreateOrConnectWithoutFightingGameInput | SheetCreateOrConnectWithoutFightingGameInput[]
+    createMany?: SheetCreateManyFightingGameInputEnvelope
+    connect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+  }
+
+  export type FightingGameOnUserCreateNestedManyWithoutFightingGameInput = {
+    create?: XOR<FightingGameOnUserCreateWithoutFightingGameInput, FightingGameOnUserUncheckedCreateWithoutFightingGameInput> | FightingGameOnUserCreateWithoutFightingGameInput[] | FightingGameOnUserUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: FightingGameOnUserCreateOrConnectWithoutFightingGameInput | FightingGameOnUserCreateOrConnectWithoutFightingGameInput[]
+    createMany?: FightingGameOnUserCreateManyFightingGameInputEnvelope
+    connect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+  }
+
+  export type CharacterUncheckedCreateNestedManyWithoutFightingGameInput = {
+    create?: XOR<CharacterCreateWithoutFightingGameInput, CharacterUncheckedCreateWithoutFightingGameInput> | CharacterCreateWithoutFightingGameInput[] | CharacterUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: CharacterCreateOrConnectWithoutFightingGameInput | CharacterCreateOrConnectWithoutFightingGameInput[]
+    createMany?: CharacterCreateManyFightingGameInputEnvelope
+    connect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+  }
+
+  export type SheetUncheckedCreateNestedManyWithoutFightingGameInput = {
+    create?: XOR<SheetCreateWithoutFightingGameInput, SheetUncheckedCreateWithoutFightingGameInput> | SheetCreateWithoutFightingGameInput[] | SheetUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: SheetCreateOrConnectWithoutFightingGameInput | SheetCreateOrConnectWithoutFightingGameInput[]
+    createMany?: SheetCreateManyFightingGameInputEnvelope
+    connect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+  }
+
+  export type FightingGameOnUserUncheckedCreateNestedManyWithoutFightingGameInput = {
+    create?: XOR<FightingGameOnUserCreateWithoutFightingGameInput, FightingGameOnUserUncheckedCreateWithoutFightingGameInput> | FightingGameOnUserCreateWithoutFightingGameInput[] | FightingGameOnUserUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: FightingGameOnUserCreateOrConnectWithoutFightingGameInput | FightingGameOnUserCreateOrConnectWithoutFightingGameInput[]
+    createMany?: FightingGameOnUserCreateManyFightingGameInputEnvelope
+    connect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+  }
+
+  export type CharacterUpdateManyWithoutFightingGameNestedInput = {
+    create?: XOR<CharacterCreateWithoutFightingGameInput, CharacterUncheckedCreateWithoutFightingGameInput> | CharacterCreateWithoutFightingGameInput[] | CharacterUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: CharacterCreateOrConnectWithoutFightingGameInput | CharacterCreateOrConnectWithoutFightingGameInput[]
+    upsert?: CharacterUpsertWithWhereUniqueWithoutFightingGameInput | CharacterUpsertWithWhereUniqueWithoutFightingGameInput[]
+    createMany?: CharacterCreateManyFightingGameInputEnvelope
+    set?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    disconnect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    delete?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    connect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    update?: CharacterUpdateWithWhereUniqueWithoutFightingGameInput | CharacterUpdateWithWhereUniqueWithoutFightingGameInput[]
+    updateMany?: CharacterUpdateManyWithWhereWithoutFightingGameInput | CharacterUpdateManyWithWhereWithoutFightingGameInput[]
+    deleteMany?: CharacterScalarWhereInput | CharacterScalarWhereInput[]
+  }
+
+  export type SheetUpdateManyWithoutFightingGameNestedInput = {
+    create?: XOR<SheetCreateWithoutFightingGameInput, SheetUncheckedCreateWithoutFightingGameInput> | SheetCreateWithoutFightingGameInput[] | SheetUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: SheetCreateOrConnectWithoutFightingGameInput | SheetCreateOrConnectWithoutFightingGameInput[]
+    upsert?: SheetUpsertWithWhereUniqueWithoutFightingGameInput | SheetUpsertWithWhereUniqueWithoutFightingGameInput[]
+    createMany?: SheetCreateManyFightingGameInputEnvelope
+    set?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    disconnect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    delete?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    connect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    update?: SheetUpdateWithWhereUniqueWithoutFightingGameInput | SheetUpdateWithWhereUniqueWithoutFightingGameInput[]
+    updateMany?: SheetUpdateManyWithWhereWithoutFightingGameInput | SheetUpdateManyWithWhereWithoutFightingGameInput[]
+    deleteMany?: SheetScalarWhereInput | SheetScalarWhereInput[]
+  }
+
+  export type FightingGameOnUserUpdateManyWithoutFightingGameNestedInput = {
+    create?: XOR<FightingGameOnUserCreateWithoutFightingGameInput, FightingGameOnUserUncheckedCreateWithoutFightingGameInput> | FightingGameOnUserCreateWithoutFightingGameInput[] | FightingGameOnUserUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: FightingGameOnUserCreateOrConnectWithoutFightingGameInput | FightingGameOnUserCreateOrConnectWithoutFightingGameInput[]
+    upsert?: FightingGameOnUserUpsertWithWhereUniqueWithoutFightingGameInput | FightingGameOnUserUpsertWithWhereUniqueWithoutFightingGameInput[]
+    createMany?: FightingGameOnUserCreateManyFightingGameInputEnvelope
+    set?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    disconnect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    delete?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    connect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    update?: FightingGameOnUserUpdateWithWhereUniqueWithoutFightingGameInput | FightingGameOnUserUpdateWithWhereUniqueWithoutFightingGameInput[]
+    updateMany?: FightingGameOnUserUpdateManyWithWhereWithoutFightingGameInput | FightingGameOnUserUpdateManyWithWhereWithoutFightingGameInput[]
+    deleteMany?: FightingGameOnUserScalarWhereInput | FightingGameOnUserScalarWhereInput[]
+  }
+
+  export type CharacterUncheckedUpdateManyWithoutFightingGameNestedInput = {
+    create?: XOR<CharacterCreateWithoutFightingGameInput, CharacterUncheckedCreateWithoutFightingGameInput> | CharacterCreateWithoutFightingGameInput[] | CharacterUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: CharacterCreateOrConnectWithoutFightingGameInput | CharacterCreateOrConnectWithoutFightingGameInput[]
+    upsert?: CharacterUpsertWithWhereUniqueWithoutFightingGameInput | CharacterUpsertWithWhereUniqueWithoutFightingGameInput[]
+    createMany?: CharacterCreateManyFightingGameInputEnvelope
+    set?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    disconnect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    delete?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    connect?: CharacterWhereUniqueInput | CharacterWhereUniqueInput[]
+    update?: CharacterUpdateWithWhereUniqueWithoutFightingGameInput | CharacterUpdateWithWhereUniqueWithoutFightingGameInput[]
+    updateMany?: CharacterUpdateManyWithWhereWithoutFightingGameInput | CharacterUpdateManyWithWhereWithoutFightingGameInput[]
+    deleteMany?: CharacterScalarWhereInput | CharacterScalarWhereInput[]
+  }
+
+  export type SheetUncheckedUpdateManyWithoutFightingGameNestedInput = {
+    create?: XOR<SheetCreateWithoutFightingGameInput, SheetUncheckedCreateWithoutFightingGameInput> | SheetCreateWithoutFightingGameInput[] | SheetUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: SheetCreateOrConnectWithoutFightingGameInput | SheetCreateOrConnectWithoutFightingGameInput[]
+    upsert?: SheetUpsertWithWhereUniqueWithoutFightingGameInput | SheetUpsertWithWhereUniqueWithoutFightingGameInput[]
+    createMany?: SheetCreateManyFightingGameInputEnvelope
+    set?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    disconnect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    delete?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    connect?: SheetWhereUniqueInput | SheetWhereUniqueInput[]
+    update?: SheetUpdateWithWhereUniqueWithoutFightingGameInput | SheetUpdateWithWhereUniqueWithoutFightingGameInput[]
+    updateMany?: SheetUpdateManyWithWhereWithoutFightingGameInput | SheetUpdateManyWithWhereWithoutFightingGameInput[]
+    deleteMany?: SheetScalarWhereInput | SheetScalarWhereInput[]
+  }
+
+  export type FightingGameOnUserUncheckedUpdateManyWithoutFightingGameNestedInput = {
+    create?: XOR<FightingGameOnUserCreateWithoutFightingGameInput, FightingGameOnUserUncheckedCreateWithoutFightingGameInput> | FightingGameOnUserCreateWithoutFightingGameInput[] | FightingGameOnUserUncheckedCreateWithoutFightingGameInput[]
+    connectOrCreate?: FightingGameOnUserCreateOrConnectWithoutFightingGameInput | FightingGameOnUserCreateOrConnectWithoutFightingGameInput[]
+    upsert?: FightingGameOnUserUpsertWithWhereUniqueWithoutFightingGameInput | FightingGameOnUserUpsertWithWhereUniqueWithoutFightingGameInput[]
+    createMany?: FightingGameOnUserCreateManyFightingGameInputEnvelope
+    set?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    disconnect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    delete?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    connect?: FightingGameOnUserWhereUniqueInput | FightingGameOnUserWhereUniqueInput[]
+    update?: FightingGameOnUserUpdateWithWhereUniqueWithoutFightingGameInput | FightingGameOnUserUpdateWithWhereUniqueWithoutFightingGameInput[]
+    updateMany?: FightingGameOnUserUpdateManyWithWhereWithoutFightingGameInput | FightingGameOnUserUpdateManyWithWhereWithoutFightingGameInput[]
+    deleteMany?: FightingGameOnUserScalarWhereInput | FightingGameOnUserScalarWhereInput[]
+  }
+
+  export type FightingGameCreateNestedOneWithoutCharactersInput = {
+    create?: XOR<FightingGameCreateWithoutCharactersInput, FightingGameUncheckedCreateWithoutCharactersInput>
+    connectOrCreate?: FightingGameCreateOrConnectWithoutCharactersInput
+    connect?: FightingGameWhereUniqueInput
+  }
+
+  export type CharacterOnSheetCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<CharacterOnSheetCreateWithoutCharacterInput, CharacterOnSheetUncheckedCreateWithoutCharacterInput> | CharacterOnSheetCreateWithoutCharacterInput[] | CharacterOnSheetUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: CharacterOnSheetCreateOrConnectWithoutCharacterInput | CharacterOnSheetCreateOrConnectWithoutCharacterInput[]
+    createMany?: CharacterOnSheetCreateManyCharacterInputEnvelope
+    connect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+  }
+
+  export type OpponentOnSheetCreateNestedManyWithoutOpponentInput = {
+    create?: XOR<OpponentOnSheetCreateWithoutOpponentInput, OpponentOnSheetUncheckedCreateWithoutOpponentInput> | OpponentOnSheetCreateWithoutOpponentInput[] | OpponentOnSheetUncheckedCreateWithoutOpponentInput[]
+    connectOrCreate?: OpponentOnSheetCreateOrConnectWithoutOpponentInput | OpponentOnSheetCreateOrConnectWithoutOpponentInput[]
+    createMany?: OpponentOnSheetCreateManyOpponentInputEnvelope
+    connect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+  }
+
+  export type CharacterOnSheetUncheckedCreateNestedManyWithoutCharacterInput = {
+    create?: XOR<CharacterOnSheetCreateWithoutCharacterInput, CharacterOnSheetUncheckedCreateWithoutCharacterInput> | CharacterOnSheetCreateWithoutCharacterInput[] | CharacterOnSheetUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: CharacterOnSheetCreateOrConnectWithoutCharacterInput | CharacterOnSheetCreateOrConnectWithoutCharacterInput[]
+    createMany?: CharacterOnSheetCreateManyCharacterInputEnvelope
+    connect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+  }
+
+  export type OpponentOnSheetUncheckedCreateNestedManyWithoutOpponentInput = {
+    create?: XOR<OpponentOnSheetCreateWithoutOpponentInput, OpponentOnSheetUncheckedCreateWithoutOpponentInput> | OpponentOnSheetCreateWithoutOpponentInput[] | OpponentOnSheetUncheckedCreateWithoutOpponentInput[]
+    connectOrCreate?: OpponentOnSheetCreateOrConnectWithoutOpponentInput | OpponentOnSheetCreateOrConnectWithoutOpponentInput[]
+    createMany?: OpponentOnSheetCreateManyOpponentInputEnvelope
+    connect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+  }
+
+  export type FightingGameUpdateOneRequiredWithoutCharactersNestedInput = {
+    create?: XOR<FightingGameCreateWithoutCharactersInput, FightingGameUncheckedCreateWithoutCharactersInput>
+    connectOrCreate?: FightingGameCreateOrConnectWithoutCharactersInput
+    upsert?: FightingGameUpsertWithoutCharactersInput
+    connect?: FightingGameWhereUniqueInput
+    update?: XOR<XOR<FightingGameUpdateToOneWithWhereWithoutCharactersInput, FightingGameUpdateWithoutCharactersInput>, FightingGameUncheckedUpdateWithoutCharactersInput>
+  }
+
+  export type CharacterOnSheetUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<CharacterOnSheetCreateWithoutCharacterInput, CharacterOnSheetUncheckedCreateWithoutCharacterInput> | CharacterOnSheetCreateWithoutCharacterInput[] | CharacterOnSheetUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: CharacterOnSheetCreateOrConnectWithoutCharacterInput | CharacterOnSheetCreateOrConnectWithoutCharacterInput[]
+    upsert?: CharacterOnSheetUpsertWithWhereUniqueWithoutCharacterInput | CharacterOnSheetUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: CharacterOnSheetCreateManyCharacterInputEnvelope
+    set?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    disconnect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    delete?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    connect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    update?: CharacterOnSheetUpdateWithWhereUniqueWithoutCharacterInput | CharacterOnSheetUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: CharacterOnSheetUpdateManyWithWhereWithoutCharacterInput | CharacterOnSheetUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: CharacterOnSheetScalarWhereInput | CharacterOnSheetScalarWhereInput[]
+  }
+
+  export type OpponentOnSheetUpdateManyWithoutOpponentNestedInput = {
+    create?: XOR<OpponentOnSheetCreateWithoutOpponentInput, OpponentOnSheetUncheckedCreateWithoutOpponentInput> | OpponentOnSheetCreateWithoutOpponentInput[] | OpponentOnSheetUncheckedCreateWithoutOpponentInput[]
+    connectOrCreate?: OpponentOnSheetCreateOrConnectWithoutOpponentInput | OpponentOnSheetCreateOrConnectWithoutOpponentInput[]
+    upsert?: OpponentOnSheetUpsertWithWhereUniqueWithoutOpponentInput | OpponentOnSheetUpsertWithWhereUniqueWithoutOpponentInput[]
+    createMany?: OpponentOnSheetCreateManyOpponentInputEnvelope
+    set?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    disconnect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    delete?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    connect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    update?: OpponentOnSheetUpdateWithWhereUniqueWithoutOpponentInput | OpponentOnSheetUpdateWithWhereUniqueWithoutOpponentInput[]
+    updateMany?: OpponentOnSheetUpdateManyWithWhereWithoutOpponentInput | OpponentOnSheetUpdateManyWithWhereWithoutOpponentInput[]
+    deleteMany?: OpponentOnSheetScalarWhereInput | OpponentOnSheetScalarWhereInput[]
+  }
+
+  export type CharacterOnSheetUncheckedUpdateManyWithoutCharacterNestedInput = {
+    create?: XOR<CharacterOnSheetCreateWithoutCharacterInput, CharacterOnSheetUncheckedCreateWithoutCharacterInput> | CharacterOnSheetCreateWithoutCharacterInput[] | CharacterOnSheetUncheckedCreateWithoutCharacterInput[]
+    connectOrCreate?: CharacterOnSheetCreateOrConnectWithoutCharacterInput | CharacterOnSheetCreateOrConnectWithoutCharacterInput[]
+    upsert?: CharacterOnSheetUpsertWithWhereUniqueWithoutCharacterInput | CharacterOnSheetUpsertWithWhereUniqueWithoutCharacterInput[]
+    createMany?: CharacterOnSheetCreateManyCharacterInputEnvelope
+    set?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    disconnect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    delete?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    connect?: CharacterOnSheetWhereUniqueInput | CharacterOnSheetWhereUniqueInput[]
+    update?: CharacterOnSheetUpdateWithWhereUniqueWithoutCharacterInput | CharacterOnSheetUpdateWithWhereUniqueWithoutCharacterInput[]
+    updateMany?: CharacterOnSheetUpdateManyWithWhereWithoutCharacterInput | CharacterOnSheetUpdateManyWithWhereWithoutCharacterInput[]
+    deleteMany?: CharacterOnSheetScalarWhereInput | CharacterOnSheetScalarWhereInput[]
+  }
+
+  export type OpponentOnSheetUncheckedUpdateManyWithoutOpponentNestedInput = {
+    create?: XOR<OpponentOnSheetCreateWithoutOpponentInput, OpponentOnSheetUncheckedCreateWithoutOpponentInput> | OpponentOnSheetCreateWithoutOpponentInput[] | OpponentOnSheetUncheckedCreateWithoutOpponentInput[]
+    connectOrCreate?: OpponentOnSheetCreateOrConnectWithoutOpponentInput | OpponentOnSheetCreateOrConnectWithoutOpponentInput[]
+    upsert?: OpponentOnSheetUpsertWithWhereUniqueWithoutOpponentInput | OpponentOnSheetUpsertWithWhereUniqueWithoutOpponentInput[]
+    createMany?: OpponentOnSheetCreateManyOpponentInputEnvelope
+    set?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    disconnect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    delete?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    connect?: OpponentOnSheetWhereUniqueInput | OpponentOnSheetWhereUniqueInput[]
+    update?: OpponentOnSheetUpdateWithWhereUniqueWithoutOpponentInput | OpponentOnSheetUpdateWithWhereUniqueWithoutOpponentInput[]
+    updateMany?: OpponentOnSheetUpdateManyWithWhereWithoutOpponentInput | OpponentOnSheetUpdateManyWithWhereWithoutOpponentInput[]
+    deleteMany?: OpponentOnSheetScalarWhereInput | OpponentOnSheetScalarWhereInput[]
+  }
+
+  export type CharacterCreateNestedOneWithoutCharacterOnSheetInput = {
+    create?: XOR<CharacterCreateWithoutCharacterOnSheetInput, CharacterUncheckedCreateWithoutCharacterOnSheetInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutCharacterOnSheetInput
+    connect?: CharacterWhereUniqueInput
+  }
+
+  export type SheetCreateNestedOneWithoutCharacterOnSheetInput = {
+    create?: XOR<SheetCreateWithoutCharacterOnSheetInput, SheetUncheckedCreateWithoutCharacterOnSheetInput>
+    connectOrCreate?: SheetCreateOrConnectWithoutCharacterOnSheetInput
+    connect?: SheetWhereUniqueInput
+  }
+
+  export type CharacterUpdateOneRequiredWithoutCharacterOnSheetNestedInput = {
+    create?: XOR<CharacterCreateWithoutCharacterOnSheetInput, CharacterUncheckedCreateWithoutCharacterOnSheetInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutCharacterOnSheetInput
+    upsert?: CharacterUpsertWithoutCharacterOnSheetInput
+    connect?: CharacterWhereUniqueInput
+    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutCharacterOnSheetInput, CharacterUpdateWithoutCharacterOnSheetInput>, CharacterUncheckedUpdateWithoutCharacterOnSheetInput>
+  }
+
+  export type SheetUpdateOneRequiredWithoutCharacterOnSheetNestedInput = {
+    create?: XOR<SheetCreateWithoutCharacterOnSheetInput, SheetUncheckedCreateWithoutCharacterOnSheetInput>
+    connectOrCreate?: SheetCreateOrConnectWithoutCharacterOnSheetInput
+    upsert?: SheetUpsertWithoutCharacterOnSheetInput
+    connect?: SheetWhereUniqueInput
+    update?: XOR<XOR<SheetUpdateToOneWithWhereWithoutCharacterOnSheetInput, SheetUpdateWithoutCharacterOnSheetInput>, SheetUncheckedUpdateWithoutCharacterOnSheetInput>
+  }
+
+  export type CharacterCreateNestedOneWithoutOpponentOnSheetInput = {
+    create?: XOR<CharacterCreateWithoutOpponentOnSheetInput, CharacterUncheckedCreateWithoutOpponentOnSheetInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutOpponentOnSheetInput
+    connect?: CharacterWhereUniqueInput
+  }
+
+  export type SheetCreateNestedOneWithoutOpponentOnSheetInput = {
+    create?: XOR<SheetCreateWithoutOpponentOnSheetInput, SheetUncheckedCreateWithoutOpponentOnSheetInput>
+    connectOrCreate?: SheetCreateOrConnectWithoutOpponentOnSheetInput
+    connect?: SheetWhereUniqueInput
+  }
+
+  export type CharacterUpdateOneRequiredWithoutOpponentOnSheetNestedInput = {
+    create?: XOR<CharacterCreateWithoutOpponentOnSheetInput, CharacterUncheckedCreateWithoutOpponentOnSheetInput>
+    connectOrCreate?: CharacterCreateOrConnectWithoutOpponentOnSheetInput
+    upsert?: CharacterUpsertWithoutOpponentOnSheetInput
+    connect?: CharacterWhereUniqueInput
+    update?: XOR<XOR<CharacterUpdateToOneWithWhereWithoutOpponentOnSheetInput, CharacterUpdateWithoutOpponentOnSheetInput>, CharacterUncheckedUpdateWithoutOpponentOnSheetInput>
+  }
+
+  export type SheetUpdateOneRequiredWithoutOpponentOnSheetNestedInput = {
+    create?: XOR<SheetCreateWithoutOpponentOnSheetInput, SheetUncheckedCreateWithoutOpponentOnSheetInput>
+    connectOrCreate?: SheetCreateOrConnectWithoutOpponentOnSheetInput
+    upsert?: SheetUpsertWithoutOpponentOnSheetInput
+    connect?: SheetWhereUniqueInput
+    update?: XOR<XOR<SheetUpdateToOneWithWhereWithoutOpponentOnSheetInput, SheetUpdateWithoutOpponentOnSheetInput>, SheetUncheckedUpdateWithoutOpponentOnSheetInput>
+  }
+
+  export type UserCreateNestedOneWithoutFightingGameOnUserInput = {
+    create?: XOR<UserCreateWithoutFightingGameOnUserInput, UserUncheckedCreateWithoutFightingGameOnUserInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFightingGameOnUserInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type FightingGameCreateNestedOneWithoutFightingGameOnUserInput = {
+    create?: XOR<FightingGameCreateWithoutFightingGameOnUserInput, FightingGameUncheckedCreateWithoutFightingGameOnUserInput>
+    connectOrCreate?: FightingGameCreateOrConnectWithoutFightingGameOnUserInput
+    connect?: FightingGameWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutFightingGameOnUserNestedInput = {
+    create?: XOR<UserCreateWithoutFightingGameOnUserInput, UserUncheckedCreateWithoutFightingGameOnUserInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFightingGameOnUserInput
+    upsert?: UserUpsertWithoutFightingGameOnUserInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFightingGameOnUserInput, UserUpdateWithoutFightingGameOnUserInput>, UserUncheckedUpdateWithoutFightingGameOnUserInput>
+  }
+
+  export type FightingGameUpdateOneRequiredWithoutFightingGameOnUserNestedInput = {
+    create?: XOR<FightingGameCreateWithoutFightingGameOnUserInput, FightingGameUncheckedCreateWithoutFightingGameOnUserInput>
+    connectOrCreate?: FightingGameCreateOrConnectWithoutFightingGameOnUserInput
+    upsert?: FightingGameUpsertWithoutFightingGameOnUserInput
+    connect?: FightingGameWhereUniqueInput
+    update?: XOR<XOR<FightingGameUpdateToOneWithWhereWithoutFightingGameOnUserInput, FightingGameUpdateWithoutFightingGameOnUserInput>, FightingGameUncheckedUpdateWithoutFightingGameOnUserInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6989,6 +17246,86 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type SheetCreateWithoutUserInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGame: FightingGameCreateNestedOneWithoutSheetInput
+    filter?: FilterCreateNestedManyWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetUncheckedCreateWithoutUserInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGameId: string
+    filter?: FilterUncheckedCreateNestedManyWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetUncheckedCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetCreateOrConnectWithoutUserInput = {
+    where: SheetWhereUniqueInput
+    create: XOR<SheetCreateWithoutUserInput, SheetUncheckedCreateWithoutUserInput>
+  }
+
+  export type SheetCreateManyUserInputEnvelope = {
+    data: SheetCreateManyUserInput | SheetCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FilterCreateWithoutUserInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Sheet?: SheetCreateNestedOneWithoutFilterInput
+  }
+
+  export type FilterUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sheetId?: string | null
+  }
+
+  export type FilterCreateOrConnectWithoutUserInput = {
+    where: FilterWhereUniqueInput
+    create: XOR<FilterCreateWithoutUserInput, FilterUncheckedCreateWithoutUserInput>
+  }
+
+  export type FilterCreateManyUserInputEnvelope = {
+    data: FilterCreateManyUserInput | FilterCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FightingGameOnUserCreateWithoutUserInput = {
+    id?: string
+    fightingGame: FightingGameCreateNestedOneWithoutFightingGameOnUserInput
+  }
+
+  export type FightingGameOnUserUncheckedCreateWithoutUserInput = {
+    id?: string
+    fightingGameId: string
+  }
+
+  export type FightingGameOnUserCreateOrConnectWithoutUserInput = {
+    where: FightingGameOnUserWhereUniqueInput
+    create: XOR<FightingGameOnUserCreateWithoutUserInput, FightingGameOnUserUncheckedCreateWithoutUserInput>
+  }
+
+  export type FightingGameOnUserCreateManyUserInputEnvelope = {
+    data: FightingGameOnUserCreateManyUserInput | FightingGameOnUserCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
     where: SessionWhereUniqueInput
     update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
@@ -7054,6 +17391,88 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Account"> | Date | string
   }
 
+  export type SheetUpsertWithWhereUniqueWithoutUserInput = {
+    where: SheetWhereUniqueInput
+    update: XOR<SheetUpdateWithoutUserInput, SheetUncheckedUpdateWithoutUserInput>
+    create: XOR<SheetCreateWithoutUserInput, SheetUncheckedCreateWithoutUserInput>
+  }
+
+  export type SheetUpdateWithWhereUniqueWithoutUserInput = {
+    where: SheetWhereUniqueInput
+    data: XOR<SheetUpdateWithoutUserInput, SheetUncheckedUpdateWithoutUserInput>
+  }
+
+  export type SheetUpdateManyWithWhereWithoutUserInput = {
+    where: SheetScalarWhereInput
+    data: XOR<SheetUpdateManyMutationInput, SheetUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type SheetScalarWhereInput = {
+    AND?: SheetScalarWhereInput | SheetScalarWhereInput[]
+    OR?: SheetScalarWhereInput[]
+    NOT?: SheetScalarWhereInput | SheetScalarWhereInput[]
+    id?: StringFilter<"Sheet"> | string
+    title?: StringFilter<"Sheet"> | string
+    content?: StringFilter<"Sheet"> | string
+    createdAt?: DateTimeFilter<"Sheet"> | Date | string
+    updatedAt?: DateTimeFilter<"Sheet"> | Date | string
+    userId?: StringFilter<"Sheet"> | string
+    fightingGameId?: StringFilter<"Sheet"> | string
+  }
+
+  export type FilterUpsertWithWhereUniqueWithoutUserInput = {
+    where: FilterWhereUniqueInput
+    update: XOR<FilterUpdateWithoutUserInput, FilterUncheckedUpdateWithoutUserInput>
+    create: XOR<FilterCreateWithoutUserInput, FilterUncheckedCreateWithoutUserInput>
+  }
+
+  export type FilterUpdateWithWhereUniqueWithoutUserInput = {
+    where: FilterWhereUniqueInput
+    data: XOR<FilterUpdateWithoutUserInput, FilterUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FilterUpdateManyWithWhereWithoutUserInput = {
+    where: FilterScalarWhereInput
+    data: XOR<FilterUpdateManyMutationInput, FilterUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FilterScalarWhereInput = {
+    AND?: FilterScalarWhereInput | FilterScalarWhereInput[]
+    OR?: FilterScalarWhereInput[]
+    NOT?: FilterScalarWhereInput | FilterScalarWhereInput[]
+    id?: StringFilter<"Filter"> | string
+    name?: StringFilter<"Filter"> | string
+    createdAt?: DateTimeFilter<"Filter"> | Date | string
+    updatedAt?: DateTimeFilter<"Filter"> | Date | string
+    userId?: StringFilter<"Filter"> | string
+    sheetId?: StringNullableFilter<"Filter"> | string | null
+  }
+
+  export type FightingGameOnUserUpsertWithWhereUniqueWithoutUserInput = {
+    where: FightingGameOnUserWhereUniqueInput
+    update: XOR<FightingGameOnUserUpdateWithoutUserInput, FightingGameOnUserUncheckedUpdateWithoutUserInput>
+    create: XOR<FightingGameOnUserCreateWithoutUserInput, FightingGameOnUserUncheckedCreateWithoutUserInput>
+  }
+
+  export type FightingGameOnUserUpdateWithWhereUniqueWithoutUserInput = {
+    where: FightingGameOnUserWhereUniqueInput
+    data: XOR<FightingGameOnUserUpdateWithoutUserInput, FightingGameOnUserUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FightingGameOnUserUpdateManyWithWhereWithoutUserInput = {
+    where: FightingGameOnUserScalarWhereInput
+    data: XOR<FightingGameOnUserUpdateManyMutationInput, FightingGameOnUserUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FightingGameOnUserScalarWhereInput = {
+    AND?: FightingGameOnUserScalarWhereInput | FightingGameOnUserScalarWhereInput[]
+    OR?: FightingGameOnUserScalarWhereInput[]
+    NOT?: FightingGameOnUserScalarWhereInput | FightingGameOnUserScalarWhereInput[]
+    id?: StringFilter<"FightingGameOnUser"> | string
+    userId?: StringFilter<"FightingGameOnUser"> | string
+    fightingGameId?: StringFilter<"FightingGameOnUser"> | string
+  }
+
   export type UserCreateWithoutSessionsInput = {
     id: string
     name: string
@@ -7063,6 +17482,9 @@ export namespace Prisma {
     createdAt: Date | string
     updatedAt: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
+    Sheet?: SheetCreateNestedManyWithoutUserInput
+    Filter?: FilterCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -7074,6 +17496,9 @@ export namespace Prisma {
     createdAt: Date | string
     updatedAt: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    Sheet?: SheetUncheckedCreateNestedManyWithoutUserInput
+    Filter?: FilterUncheckedCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -7101,6 +17526,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUpdateManyWithoutUserNestedInput
+    Filter?: FilterUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -7112,6 +17540,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUncheckedUpdateManyWithoutUserNestedInput
+    Filter?: FilterUncheckedUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -7123,6 +17554,9 @@ export namespace Prisma {
     createdAt: Date | string
     updatedAt: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
+    Sheet?: SheetCreateNestedManyWithoutUserInput
+    Filter?: FilterCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -7134,6 +17568,9 @@ export namespace Prisma {
     createdAt: Date | string
     updatedAt: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    Sheet?: SheetUncheckedCreateNestedManyWithoutUserInput
+    Filter?: FilterUncheckedCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -7161,6 +17598,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUpdateManyWithoutUserNestedInput
+    Filter?: FilterUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -7172,6 +17612,1022 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUncheckedUpdateManyWithoutUserNestedInput
+    Filter?: FilterUncheckedUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type FightingGameCreateWithoutSheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    characters?: CharacterCreateNestedManyWithoutFightingGameInput
+    FightingGameOnUser?: FightingGameOnUserCreateNestedManyWithoutFightingGameInput
+  }
+
+  export type FightingGameUncheckedCreateWithoutSheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    characters?: CharacterUncheckedCreateNestedManyWithoutFightingGameInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedCreateNestedManyWithoutFightingGameInput
+  }
+
+  export type FightingGameCreateOrConnectWithoutSheetInput = {
+    where: FightingGameWhereUniqueInput
+    create: XOR<FightingGameCreateWithoutSheetInput, FightingGameUncheckedCreateWithoutSheetInput>
+  }
+
+  export type UserCreateWithoutSheetInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    Filter?: FilterCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSheetInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    Filter?: FilterUncheckedCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSheetInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSheetInput, UserUncheckedCreateWithoutSheetInput>
+  }
+
+  export type FilterCreateWithoutSheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutFilterInput
+  }
+
+  export type FilterUncheckedCreateWithoutSheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+  }
+
+  export type FilterCreateOrConnectWithoutSheetInput = {
+    where: FilterWhereUniqueInput
+    create: XOR<FilterCreateWithoutSheetInput, FilterUncheckedCreateWithoutSheetInput>
+  }
+
+  export type FilterCreateManySheetInputEnvelope = {
+    data: FilterCreateManySheetInput | FilterCreateManySheetInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CharacterOnSheetCreateWithoutSheetInput = {
+    id?: string
+    character: CharacterCreateNestedOneWithoutCharacterOnSheetInput
+  }
+
+  export type CharacterOnSheetUncheckedCreateWithoutSheetInput = {
+    id?: string
+    characterId: string
+  }
+
+  export type CharacterOnSheetCreateOrConnectWithoutSheetInput = {
+    where: CharacterOnSheetWhereUniqueInput
+    create: XOR<CharacterOnSheetCreateWithoutSheetInput, CharacterOnSheetUncheckedCreateWithoutSheetInput>
+  }
+
+  export type CharacterOnSheetCreateManySheetInputEnvelope = {
+    data: CharacterOnSheetCreateManySheetInput | CharacterOnSheetCreateManySheetInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OpponentOnSheetCreateWithoutSheetInput = {
+    id?: string
+    opponent: CharacterCreateNestedOneWithoutOpponentOnSheetInput
+  }
+
+  export type OpponentOnSheetUncheckedCreateWithoutSheetInput = {
+    id?: string
+    opponentId: string
+  }
+
+  export type OpponentOnSheetCreateOrConnectWithoutSheetInput = {
+    where: OpponentOnSheetWhereUniqueInput
+    create: XOR<OpponentOnSheetCreateWithoutSheetInput, OpponentOnSheetUncheckedCreateWithoutSheetInput>
+  }
+
+  export type OpponentOnSheetCreateManySheetInputEnvelope = {
+    data: OpponentOnSheetCreateManySheetInput | OpponentOnSheetCreateManySheetInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FightingGameUpsertWithoutSheetInput = {
+    update: XOR<FightingGameUpdateWithoutSheetInput, FightingGameUncheckedUpdateWithoutSheetInput>
+    create: XOR<FightingGameCreateWithoutSheetInput, FightingGameUncheckedCreateWithoutSheetInput>
+    where?: FightingGameWhereInput
+  }
+
+  export type FightingGameUpdateToOneWithWhereWithoutSheetInput = {
+    where?: FightingGameWhereInput
+    data: XOR<FightingGameUpdateWithoutSheetInput, FightingGameUncheckedUpdateWithoutSheetInput>
+  }
+
+  export type FightingGameUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    characters?: CharacterUpdateManyWithoutFightingGameNestedInput
+    FightingGameOnUser?: FightingGameOnUserUpdateManyWithoutFightingGameNestedInput
+  }
+
+  export type FightingGameUncheckedUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    characters?: CharacterUncheckedUpdateManyWithoutFightingGameNestedInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedUpdateManyWithoutFightingGameNestedInput
+  }
+
+  export type UserUpsertWithoutSheetInput = {
+    update: XOR<UserUpdateWithoutSheetInput, UserUncheckedUpdateWithoutSheetInput>
+    create: XOR<UserCreateWithoutSheetInput, UserUncheckedCreateWithoutSheetInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSheetInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSheetInput, UserUncheckedUpdateWithoutSheetInput>
+  }
+
+  export type UserUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    Filter?: FilterUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    Filter?: FilterUncheckedUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type FilterUpsertWithWhereUniqueWithoutSheetInput = {
+    where: FilterWhereUniqueInput
+    update: XOR<FilterUpdateWithoutSheetInput, FilterUncheckedUpdateWithoutSheetInput>
+    create: XOR<FilterCreateWithoutSheetInput, FilterUncheckedCreateWithoutSheetInput>
+  }
+
+  export type FilterUpdateWithWhereUniqueWithoutSheetInput = {
+    where: FilterWhereUniqueInput
+    data: XOR<FilterUpdateWithoutSheetInput, FilterUncheckedUpdateWithoutSheetInput>
+  }
+
+  export type FilterUpdateManyWithWhereWithoutSheetInput = {
+    where: FilterScalarWhereInput
+    data: XOR<FilterUpdateManyMutationInput, FilterUncheckedUpdateManyWithoutSheetInput>
+  }
+
+  export type CharacterOnSheetUpsertWithWhereUniqueWithoutSheetInput = {
+    where: CharacterOnSheetWhereUniqueInput
+    update: XOR<CharacterOnSheetUpdateWithoutSheetInput, CharacterOnSheetUncheckedUpdateWithoutSheetInput>
+    create: XOR<CharacterOnSheetCreateWithoutSheetInput, CharacterOnSheetUncheckedCreateWithoutSheetInput>
+  }
+
+  export type CharacterOnSheetUpdateWithWhereUniqueWithoutSheetInput = {
+    where: CharacterOnSheetWhereUniqueInput
+    data: XOR<CharacterOnSheetUpdateWithoutSheetInput, CharacterOnSheetUncheckedUpdateWithoutSheetInput>
+  }
+
+  export type CharacterOnSheetUpdateManyWithWhereWithoutSheetInput = {
+    where: CharacterOnSheetScalarWhereInput
+    data: XOR<CharacterOnSheetUpdateManyMutationInput, CharacterOnSheetUncheckedUpdateManyWithoutSheetInput>
+  }
+
+  export type CharacterOnSheetScalarWhereInput = {
+    AND?: CharacterOnSheetScalarWhereInput | CharacterOnSheetScalarWhereInput[]
+    OR?: CharacterOnSheetScalarWhereInput[]
+    NOT?: CharacterOnSheetScalarWhereInput | CharacterOnSheetScalarWhereInput[]
+    id?: StringFilter<"CharacterOnSheet"> | string
+    characterId?: StringFilter<"CharacterOnSheet"> | string
+    sheetId?: StringFilter<"CharacterOnSheet"> | string
+  }
+
+  export type OpponentOnSheetUpsertWithWhereUniqueWithoutSheetInput = {
+    where: OpponentOnSheetWhereUniqueInput
+    update: XOR<OpponentOnSheetUpdateWithoutSheetInput, OpponentOnSheetUncheckedUpdateWithoutSheetInput>
+    create: XOR<OpponentOnSheetCreateWithoutSheetInput, OpponentOnSheetUncheckedCreateWithoutSheetInput>
+  }
+
+  export type OpponentOnSheetUpdateWithWhereUniqueWithoutSheetInput = {
+    where: OpponentOnSheetWhereUniqueInput
+    data: XOR<OpponentOnSheetUpdateWithoutSheetInput, OpponentOnSheetUncheckedUpdateWithoutSheetInput>
+  }
+
+  export type OpponentOnSheetUpdateManyWithWhereWithoutSheetInput = {
+    where: OpponentOnSheetScalarWhereInput
+    data: XOR<OpponentOnSheetUpdateManyMutationInput, OpponentOnSheetUncheckedUpdateManyWithoutSheetInput>
+  }
+
+  export type OpponentOnSheetScalarWhereInput = {
+    AND?: OpponentOnSheetScalarWhereInput | OpponentOnSheetScalarWhereInput[]
+    OR?: OpponentOnSheetScalarWhereInput[]
+    NOT?: OpponentOnSheetScalarWhereInput | OpponentOnSheetScalarWhereInput[]
+    id?: StringFilter<"OpponentOnSheet"> | string
+    opponentId?: StringFilter<"OpponentOnSheet"> | string
+    sheetId?: StringFilter<"OpponentOnSheet"> | string
+  }
+
+  export type UserCreateWithoutFilterInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    Sheet?: SheetCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFilterInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    Sheet?: SheetUncheckedCreateNestedManyWithoutUserInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFilterInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFilterInput, UserUncheckedCreateWithoutFilterInput>
+  }
+
+  export type SheetCreateWithoutFilterInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGame: FightingGameCreateNestedOneWithoutSheetInput
+    user: UserCreateNestedOneWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetUncheckedCreateWithoutFilterInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    fightingGameId: string
+    CharacterOnSheet?: CharacterOnSheetUncheckedCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetCreateOrConnectWithoutFilterInput = {
+    where: SheetWhereUniqueInput
+    create: XOR<SheetCreateWithoutFilterInput, SheetUncheckedCreateWithoutFilterInput>
+  }
+
+  export type UserUpsertWithoutFilterInput = {
+    update: XOR<UserUpdateWithoutFilterInput, UserUncheckedUpdateWithoutFilterInput>
+    create: XOR<UserCreateWithoutFilterInput, UserUncheckedCreateWithoutFilterInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFilterInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFilterInput, UserUncheckedUpdateWithoutFilterInput>
+  }
+
+  export type UserUpdateWithoutFilterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFilterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUncheckedUpdateManyWithoutUserNestedInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type SheetUpsertWithoutFilterInput = {
+    update: XOR<SheetUpdateWithoutFilterInput, SheetUncheckedUpdateWithoutFilterInput>
+    create: XOR<SheetCreateWithoutFilterInput, SheetUncheckedCreateWithoutFilterInput>
+    where?: SheetWhereInput
+  }
+
+  export type SheetUpdateToOneWithWhereWithoutFilterInput = {
+    where?: SheetWhereInput
+    data: XOR<SheetUpdateWithoutFilterInput, SheetUncheckedUpdateWithoutFilterInput>
+  }
+
+  export type SheetUpdateWithoutFilterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutSheetNestedInput
+    user?: UserUpdateOneRequiredWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetUncheckedUpdateWithoutFilterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+    CharacterOnSheet?: CharacterOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type CharacterCreateWithoutFightingGameInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    CharacterOnSheet?: CharacterOnSheetCreateNestedManyWithoutCharacterInput
+    OpponentOnSheet?: OpponentOnSheetCreateNestedManyWithoutOpponentInput
+  }
+
+  export type CharacterUncheckedCreateWithoutFightingGameInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    CharacterOnSheet?: CharacterOnSheetUncheckedCreateNestedManyWithoutCharacterInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedCreateNestedManyWithoutOpponentInput
+  }
+
+  export type CharacterCreateOrConnectWithoutFightingGameInput = {
+    where: CharacterWhereUniqueInput
+    create: XOR<CharacterCreateWithoutFightingGameInput, CharacterUncheckedCreateWithoutFightingGameInput>
+  }
+
+  export type CharacterCreateManyFightingGameInputEnvelope = {
+    data: CharacterCreateManyFightingGameInput | CharacterCreateManyFightingGameInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SheetCreateWithoutFightingGameInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutSheetInput
+    filter?: FilterCreateNestedManyWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetUncheckedCreateWithoutFightingGameInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    filter?: FilterUncheckedCreateNestedManyWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetUncheckedCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetCreateOrConnectWithoutFightingGameInput = {
+    where: SheetWhereUniqueInput
+    create: XOR<SheetCreateWithoutFightingGameInput, SheetUncheckedCreateWithoutFightingGameInput>
+  }
+
+  export type SheetCreateManyFightingGameInputEnvelope = {
+    data: SheetCreateManyFightingGameInput | SheetCreateManyFightingGameInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FightingGameOnUserCreateWithoutFightingGameInput = {
+    id?: string
+    user: UserCreateNestedOneWithoutFightingGameOnUserInput
+  }
+
+  export type FightingGameOnUserUncheckedCreateWithoutFightingGameInput = {
+    id?: string
+    userId: string
+  }
+
+  export type FightingGameOnUserCreateOrConnectWithoutFightingGameInput = {
+    where: FightingGameOnUserWhereUniqueInput
+    create: XOR<FightingGameOnUserCreateWithoutFightingGameInput, FightingGameOnUserUncheckedCreateWithoutFightingGameInput>
+  }
+
+  export type FightingGameOnUserCreateManyFightingGameInputEnvelope = {
+    data: FightingGameOnUserCreateManyFightingGameInput | FightingGameOnUserCreateManyFightingGameInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CharacterUpsertWithWhereUniqueWithoutFightingGameInput = {
+    where: CharacterWhereUniqueInput
+    update: XOR<CharacterUpdateWithoutFightingGameInput, CharacterUncheckedUpdateWithoutFightingGameInput>
+    create: XOR<CharacterCreateWithoutFightingGameInput, CharacterUncheckedCreateWithoutFightingGameInput>
+  }
+
+  export type CharacterUpdateWithWhereUniqueWithoutFightingGameInput = {
+    where: CharacterWhereUniqueInput
+    data: XOR<CharacterUpdateWithoutFightingGameInput, CharacterUncheckedUpdateWithoutFightingGameInput>
+  }
+
+  export type CharacterUpdateManyWithWhereWithoutFightingGameInput = {
+    where: CharacterScalarWhereInput
+    data: XOR<CharacterUpdateManyMutationInput, CharacterUncheckedUpdateManyWithoutFightingGameInput>
+  }
+
+  export type CharacterScalarWhereInput = {
+    AND?: CharacterScalarWhereInput | CharacterScalarWhereInput[]
+    OR?: CharacterScalarWhereInput[]
+    NOT?: CharacterScalarWhereInput | CharacterScalarWhereInput[]
+    id?: StringFilter<"Character"> | string
+    name?: StringFilter<"Character"> | string
+    createdAt?: DateTimeFilter<"Character"> | Date | string
+    updatedAt?: DateTimeFilter<"Character"> | Date | string
+    fightingGameId?: StringFilter<"Character"> | string
+  }
+
+  export type SheetUpsertWithWhereUniqueWithoutFightingGameInput = {
+    where: SheetWhereUniqueInput
+    update: XOR<SheetUpdateWithoutFightingGameInput, SheetUncheckedUpdateWithoutFightingGameInput>
+    create: XOR<SheetCreateWithoutFightingGameInput, SheetUncheckedCreateWithoutFightingGameInput>
+  }
+
+  export type SheetUpdateWithWhereUniqueWithoutFightingGameInput = {
+    where: SheetWhereUniqueInput
+    data: XOR<SheetUpdateWithoutFightingGameInput, SheetUncheckedUpdateWithoutFightingGameInput>
+  }
+
+  export type SheetUpdateManyWithWhereWithoutFightingGameInput = {
+    where: SheetScalarWhereInput
+    data: XOR<SheetUpdateManyMutationInput, SheetUncheckedUpdateManyWithoutFightingGameInput>
+  }
+
+  export type FightingGameOnUserUpsertWithWhereUniqueWithoutFightingGameInput = {
+    where: FightingGameOnUserWhereUniqueInput
+    update: XOR<FightingGameOnUserUpdateWithoutFightingGameInput, FightingGameOnUserUncheckedUpdateWithoutFightingGameInput>
+    create: XOR<FightingGameOnUserCreateWithoutFightingGameInput, FightingGameOnUserUncheckedCreateWithoutFightingGameInput>
+  }
+
+  export type FightingGameOnUserUpdateWithWhereUniqueWithoutFightingGameInput = {
+    where: FightingGameOnUserWhereUniqueInput
+    data: XOR<FightingGameOnUserUpdateWithoutFightingGameInput, FightingGameOnUserUncheckedUpdateWithoutFightingGameInput>
+  }
+
+  export type FightingGameOnUserUpdateManyWithWhereWithoutFightingGameInput = {
+    where: FightingGameOnUserScalarWhereInput
+    data: XOR<FightingGameOnUserUpdateManyMutationInput, FightingGameOnUserUncheckedUpdateManyWithoutFightingGameInput>
+  }
+
+  export type FightingGameCreateWithoutCharactersInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Sheet?: SheetCreateNestedManyWithoutFightingGameInput
+    FightingGameOnUser?: FightingGameOnUserCreateNestedManyWithoutFightingGameInput
+  }
+
+  export type FightingGameUncheckedCreateWithoutCharactersInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Sheet?: SheetUncheckedCreateNestedManyWithoutFightingGameInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedCreateNestedManyWithoutFightingGameInput
+  }
+
+  export type FightingGameCreateOrConnectWithoutCharactersInput = {
+    where: FightingGameWhereUniqueInput
+    create: XOR<FightingGameCreateWithoutCharactersInput, FightingGameUncheckedCreateWithoutCharactersInput>
+  }
+
+  export type CharacterOnSheetCreateWithoutCharacterInput = {
+    id?: string
+    sheet: SheetCreateNestedOneWithoutCharacterOnSheetInput
+  }
+
+  export type CharacterOnSheetUncheckedCreateWithoutCharacterInput = {
+    id?: string
+    sheetId: string
+  }
+
+  export type CharacterOnSheetCreateOrConnectWithoutCharacterInput = {
+    where: CharacterOnSheetWhereUniqueInput
+    create: XOR<CharacterOnSheetCreateWithoutCharacterInput, CharacterOnSheetUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type CharacterOnSheetCreateManyCharacterInputEnvelope = {
+    data: CharacterOnSheetCreateManyCharacterInput | CharacterOnSheetCreateManyCharacterInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OpponentOnSheetCreateWithoutOpponentInput = {
+    id?: string
+    sheet: SheetCreateNestedOneWithoutOpponentOnSheetInput
+  }
+
+  export type OpponentOnSheetUncheckedCreateWithoutOpponentInput = {
+    id?: string
+    sheetId: string
+  }
+
+  export type OpponentOnSheetCreateOrConnectWithoutOpponentInput = {
+    where: OpponentOnSheetWhereUniqueInput
+    create: XOR<OpponentOnSheetCreateWithoutOpponentInput, OpponentOnSheetUncheckedCreateWithoutOpponentInput>
+  }
+
+  export type OpponentOnSheetCreateManyOpponentInputEnvelope = {
+    data: OpponentOnSheetCreateManyOpponentInput | OpponentOnSheetCreateManyOpponentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FightingGameUpsertWithoutCharactersInput = {
+    update: XOR<FightingGameUpdateWithoutCharactersInput, FightingGameUncheckedUpdateWithoutCharactersInput>
+    create: XOR<FightingGameCreateWithoutCharactersInput, FightingGameUncheckedCreateWithoutCharactersInput>
+    where?: FightingGameWhereInput
+  }
+
+  export type FightingGameUpdateToOneWithWhereWithoutCharactersInput = {
+    where?: FightingGameWhereInput
+    data: XOR<FightingGameUpdateWithoutCharactersInput, FightingGameUncheckedUpdateWithoutCharactersInput>
+  }
+
+  export type FightingGameUpdateWithoutCharactersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Sheet?: SheetUpdateManyWithoutFightingGameNestedInput
+    FightingGameOnUser?: FightingGameOnUserUpdateManyWithoutFightingGameNestedInput
+  }
+
+  export type FightingGameUncheckedUpdateWithoutCharactersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Sheet?: SheetUncheckedUpdateManyWithoutFightingGameNestedInput
+    FightingGameOnUser?: FightingGameOnUserUncheckedUpdateManyWithoutFightingGameNestedInput
+  }
+
+  export type CharacterOnSheetUpsertWithWhereUniqueWithoutCharacterInput = {
+    where: CharacterOnSheetWhereUniqueInput
+    update: XOR<CharacterOnSheetUpdateWithoutCharacterInput, CharacterOnSheetUncheckedUpdateWithoutCharacterInput>
+    create: XOR<CharacterOnSheetCreateWithoutCharacterInput, CharacterOnSheetUncheckedCreateWithoutCharacterInput>
+  }
+
+  export type CharacterOnSheetUpdateWithWhereUniqueWithoutCharacterInput = {
+    where: CharacterOnSheetWhereUniqueInput
+    data: XOR<CharacterOnSheetUpdateWithoutCharacterInput, CharacterOnSheetUncheckedUpdateWithoutCharacterInput>
+  }
+
+  export type CharacterOnSheetUpdateManyWithWhereWithoutCharacterInput = {
+    where: CharacterOnSheetScalarWhereInput
+    data: XOR<CharacterOnSheetUpdateManyMutationInput, CharacterOnSheetUncheckedUpdateManyWithoutCharacterInput>
+  }
+
+  export type OpponentOnSheetUpsertWithWhereUniqueWithoutOpponentInput = {
+    where: OpponentOnSheetWhereUniqueInput
+    update: XOR<OpponentOnSheetUpdateWithoutOpponentInput, OpponentOnSheetUncheckedUpdateWithoutOpponentInput>
+    create: XOR<OpponentOnSheetCreateWithoutOpponentInput, OpponentOnSheetUncheckedCreateWithoutOpponentInput>
+  }
+
+  export type OpponentOnSheetUpdateWithWhereUniqueWithoutOpponentInput = {
+    where: OpponentOnSheetWhereUniqueInput
+    data: XOR<OpponentOnSheetUpdateWithoutOpponentInput, OpponentOnSheetUncheckedUpdateWithoutOpponentInput>
+  }
+
+  export type OpponentOnSheetUpdateManyWithWhereWithoutOpponentInput = {
+    where: OpponentOnSheetScalarWhereInput
+    data: XOR<OpponentOnSheetUpdateManyMutationInput, OpponentOnSheetUncheckedUpdateManyWithoutOpponentInput>
+  }
+
+  export type CharacterCreateWithoutCharacterOnSheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGame: FightingGameCreateNestedOneWithoutCharactersInput
+    OpponentOnSheet?: OpponentOnSheetCreateNestedManyWithoutOpponentInput
+  }
+
+  export type CharacterUncheckedCreateWithoutCharacterOnSheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGameId: string
+    OpponentOnSheet?: OpponentOnSheetUncheckedCreateNestedManyWithoutOpponentInput
+  }
+
+  export type CharacterCreateOrConnectWithoutCharacterOnSheetInput = {
+    where: CharacterWhereUniqueInput
+    create: XOR<CharacterCreateWithoutCharacterOnSheetInput, CharacterUncheckedCreateWithoutCharacterOnSheetInput>
+  }
+
+  export type SheetCreateWithoutCharacterOnSheetInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGame: FightingGameCreateNestedOneWithoutSheetInput
+    user: UserCreateNestedOneWithoutSheetInput
+    filter?: FilterCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetUncheckedCreateWithoutCharacterOnSheetInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    fightingGameId: string
+    filter?: FilterUncheckedCreateNestedManyWithoutSheetInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetCreateOrConnectWithoutCharacterOnSheetInput = {
+    where: SheetWhereUniqueInput
+    create: XOR<SheetCreateWithoutCharacterOnSheetInput, SheetUncheckedCreateWithoutCharacterOnSheetInput>
+  }
+
+  export type CharacterUpsertWithoutCharacterOnSheetInput = {
+    update: XOR<CharacterUpdateWithoutCharacterOnSheetInput, CharacterUncheckedUpdateWithoutCharacterOnSheetInput>
+    create: XOR<CharacterCreateWithoutCharacterOnSheetInput, CharacterUncheckedCreateWithoutCharacterOnSheetInput>
+    where?: CharacterWhereInput
+  }
+
+  export type CharacterUpdateToOneWithWhereWithoutCharacterOnSheetInput = {
+    where?: CharacterWhereInput
+    data: XOR<CharacterUpdateWithoutCharacterOnSheetInput, CharacterUncheckedUpdateWithoutCharacterOnSheetInput>
+  }
+
+  export type CharacterUpdateWithoutCharacterOnSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutCharactersNestedInput
+    OpponentOnSheet?: OpponentOnSheetUpdateManyWithoutOpponentNestedInput
+  }
+
+  export type CharacterUncheckedUpdateWithoutCharacterOnSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+    OpponentOnSheet?: OpponentOnSheetUncheckedUpdateManyWithoutOpponentNestedInput
+  }
+
+  export type SheetUpsertWithoutCharacterOnSheetInput = {
+    update: XOR<SheetUpdateWithoutCharacterOnSheetInput, SheetUncheckedUpdateWithoutCharacterOnSheetInput>
+    create: XOR<SheetCreateWithoutCharacterOnSheetInput, SheetUncheckedCreateWithoutCharacterOnSheetInput>
+    where?: SheetWhereInput
+  }
+
+  export type SheetUpdateToOneWithWhereWithoutCharacterOnSheetInput = {
+    where?: SheetWhereInput
+    data: XOR<SheetUpdateWithoutCharacterOnSheetInput, SheetUncheckedUpdateWithoutCharacterOnSheetInput>
+  }
+
+  export type SheetUpdateWithoutCharacterOnSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutSheetNestedInput
+    user?: UserUpdateOneRequiredWithoutSheetNestedInput
+    filter?: FilterUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetUncheckedUpdateWithoutCharacterOnSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+    filter?: FilterUncheckedUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type CharacterCreateWithoutOpponentOnSheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGame: FightingGameCreateNestedOneWithoutCharactersInput
+    CharacterOnSheet?: CharacterOnSheetCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterUncheckedCreateWithoutOpponentOnSheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGameId: string
+    CharacterOnSheet?: CharacterOnSheetUncheckedCreateNestedManyWithoutCharacterInput
+  }
+
+  export type CharacterCreateOrConnectWithoutOpponentOnSheetInput = {
+    where: CharacterWhereUniqueInput
+    create: XOR<CharacterCreateWithoutOpponentOnSheetInput, CharacterUncheckedCreateWithoutOpponentOnSheetInput>
+  }
+
+  export type SheetCreateWithoutOpponentOnSheetInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGame: FightingGameCreateNestedOneWithoutSheetInput
+    user: UserCreateNestedOneWithoutSheetInput
+    filter?: FilterCreateNestedManyWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetUncheckedCreateWithoutOpponentOnSheetInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    fightingGameId: string
+    filter?: FilterUncheckedCreateNestedManyWithoutSheetInput
+    CharacterOnSheet?: CharacterOnSheetUncheckedCreateNestedManyWithoutSheetInput
+  }
+
+  export type SheetCreateOrConnectWithoutOpponentOnSheetInput = {
+    where: SheetWhereUniqueInput
+    create: XOR<SheetCreateWithoutOpponentOnSheetInput, SheetUncheckedCreateWithoutOpponentOnSheetInput>
+  }
+
+  export type CharacterUpsertWithoutOpponentOnSheetInput = {
+    update: XOR<CharacterUpdateWithoutOpponentOnSheetInput, CharacterUncheckedUpdateWithoutOpponentOnSheetInput>
+    create: XOR<CharacterCreateWithoutOpponentOnSheetInput, CharacterUncheckedCreateWithoutOpponentOnSheetInput>
+    where?: CharacterWhereInput
+  }
+
+  export type CharacterUpdateToOneWithWhereWithoutOpponentOnSheetInput = {
+    where?: CharacterWhereInput
+    data: XOR<CharacterUpdateWithoutOpponentOnSheetInput, CharacterUncheckedUpdateWithoutOpponentOnSheetInput>
+  }
+
+  export type CharacterUpdateWithoutOpponentOnSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutCharactersNestedInput
+    CharacterOnSheet?: CharacterOnSheetUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type CharacterUncheckedUpdateWithoutOpponentOnSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+    CharacterOnSheet?: CharacterOnSheetUncheckedUpdateManyWithoutCharacterNestedInput
+  }
+
+  export type SheetUpsertWithoutOpponentOnSheetInput = {
+    update: XOR<SheetUpdateWithoutOpponentOnSheetInput, SheetUncheckedUpdateWithoutOpponentOnSheetInput>
+    create: XOR<SheetCreateWithoutOpponentOnSheetInput, SheetUncheckedCreateWithoutOpponentOnSheetInput>
+    where?: SheetWhereInput
+  }
+
+  export type SheetUpdateToOneWithWhereWithoutOpponentOnSheetInput = {
+    where?: SheetWhereInput
+    data: XOR<SheetUpdateWithoutOpponentOnSheetInput, SheetUncheckedUpdateWithoutOpponentOnSheetInput>
+  }
+
+  export type SheetUpdateWithoutOpponentOnSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutSheetNestedInput
+    user?: UserUpdateOneRequiredWithoutSheetNestedInput
+    filter?: FilterUpdateManyWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetUncheckedUpdateWithoutOpponentOnSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+    filter?: FilterUncheckedUpdateManyWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type UserCreateWithoutFightingGameOnUserInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    Sheet?: SheetCreateNestedManyWithoutUserInput
+    Filter?: FilterCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFightingGameOnUserInput = {
+    id: string
+    name: string
+    email: string
+    emailVerified: boolean
+    image?: string | null
+    createdAt: Date | string
+    updatedAt: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    Sheet?: SheetUncheckedCreateNestedManyWithoutUserInput
+    Filter?: FilterUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFightingGameOnUserInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFightingGameOnUserInput, UserUncheckedCreateWithoutFightingGameOnUserInput>
+  }
+
+  export type FightingGameCreateWithoutFightingGameOnUserInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    characters?: CharacterCreateNestedManyWithoutFightingGameInput
+    Sheet?: SheetCreateNestedManyWithoutFightingGameInput
+  }
+
+  export type FightingGameUncheckedCreateWithoutFightingGameOnUserInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    characters?: CharacterUncheckedCreateNestedManyWithoutFightingGameInput
+    Sheet?: SheetUncheckedCreateNestedManyWithoutFightingGameInput
+  }
+
+  export type FightingGameCreateOrConnectWithoutFightingGameOnUserInput = {
+    where: FightingGameWhereUniqueInput
+    create: XOR<FightingGameCreateWithoutFightingGameOnUserInput, FightingGameUncheckedCreateWithoutFightingGameOnUserInput>
+  }
+
+  export type UserUpsertWithoutFightingGameOnUserInput = {
+    update: XOR<UserUpdateWithoutFightingGameOnUserInput, UserUncheckedUpdateWithoutFightingGameOnUserInput>
+    create: XOR<UserCreateWithoutFightingGameOnUserInput, UserUncheckedCreateWithoutFightingGameOnUserInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFightingGameOnUserInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFightingGameOnUserInput, UserUncheckedUpdateWithoutFightingGameOnUserInput>
+  }
+
+  export type UserUpdateWithoutFightingGameOnUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUpdateManyWithoutUserNestedInput
+    Filter?: FilterUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFightingGameOnUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    Sheet?: SheetUncheckedUpdateManyWithoutUserNestedInput
+    Filter?: FilterUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type FightingGameUpsertWithoutFightingGameOnUserInput = {
+    update: XOR<FightingGameUpdateWithoutFightingGameOnUserInput, FightingGameUncheckedUpdateWithoutFightingGameOnUserInput>
+    create: XOR<FightingGameCreateWithoutFightingGameOnUserInput, FightingGameUncheckedCreateWithoutFightingGameOnUserInput>
+    where?: FightingGameWhereInput
+  }
+
+  export type FightingGameUpdateToOneWithWhereWithoutFightingGameOnUserInput = {
+    where?: FightingGameWhereInput
+    data: XOR<FightingGameUpdateWithoutFightingGameOnUserInput, FightingGameUncheckedUpdateWithoutFightingGameOnUserInput>
+  }
+
+  export type FightingGameUpdateWithoutFightingGameOnUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    characters?: CharacterUpdateManyWithoutFightingGameNestedInput
+    Sheet?: SheetUpdateManyWithoutFightingGameNestedInput
+  }
+
+  export type FightingGameUncheckedUpdateWithoutFightingGameOnUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    characters?: CharacterUncheckedUpdateManyWithoutFightingGameNestedInput
+    Sheet?: SheetUncheckedUpdateManyWithoutFightingGameNestedInput
   }
 
   export type SessionCreateManyUserInput = {
@@ -7197,6 +18653,28 @@ export namespace Prisma {
     password?: string | null
     createdAt: Date | string
     updatedAt: Date | string
+  }
+
+  export type SheetCreateManyUserInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    fightingGameId: string
+  }
+
+  export type FilterCreateManyUserInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sheetId?: string | null
+  }
+
+  export type FightingGameOnUserCreateManyUserInput = {
+    id?: string
+    fightingGameId: string
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -7272,6 +18750,284 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SheetUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutSheetNestedInput
+    filter?: FilterUpdateManyWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+    filter?: FilterUncheckedUpdateManyWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FilterUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Sheet?: SheetUpdateOneWithoutFilterNestedInput
+  }
+
+  export type FilterUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sheetId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FilterUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sheetId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type FightingGameOnUserUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fightingGame?: FightingGameUpdateOneRequiredWithoutFightingGameOnUserNestedInput
+  }
+
+  export type FightingGameOnUserUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FightingGameOnUserUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fightingGameId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FilterCreateManySheetInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+  }
+
+  export type CharacterOnSheetCreateManySheetInput = {
+    id?: string
+    characterId: string
+  }
+
+  export type OpponentOnSheetCreateManySheetInput = {
+    id?: string
+    opponentId: string
+  }
+
+  export type FilterUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFilterNestedInput
+  }
+
+  export type FilterUncheckedUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FilterUncheckedUpdateManyWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CharacterOnSheetUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    character?: CharacterUpdateOneRequiredWithoutCharacterOnSheetNestedInput
+  }
+
+  export type CharacterOnSheetUncheckedUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CharacterOnSheetUncheckedUpdateManyWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    characterId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OpponentOnSheetUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    opponent?: CharacterUpdateOneRequiredWithoutOpponentOnSheetNestedInput
+  }
+
+  export type OpponentOnSheetUncheckedUpdateWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    opponentId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OpponentOnSheetUncheckedUpdateManyWithoutSheetInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    opponentId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CharacterCreateManyFightingGameInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SheetCreateManyFightingGameInput = {
+    id?: string
+    title: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+  }
+
+  export type FightingGameOnUserCreateManyFightingGameInput = {
+    id?: string
+    userId: string
+  }
+
+  export type CharacterUpdateWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CharacterOnSheet?: CharacterOnSheetUpdateManyWithoutCharacterNestedInput
+    OpponentOnSheet?: OpponentOnSheetUpdateManyWithoutOpponentNestedInput
+  }
+
+  export type CharacterUncheckedUpdateWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    CharacterOnSheet?: CharacterOnSheetUncheckedUpdateManyWithoutCharacterNestedInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedUpdateManyWithoutOpponentNestedInput
+  }
+
+  export type CharacterUncheckedUpdateManyWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SheetUpdateWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutSheetNestedInput
+    filter?: FilterUpdateManyWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetUncheckedUpdateWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    filter?: FilterUncheckedUpdateManyWithoutSheetNestedInput
+    CharacterOnSheet?: CharacterOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+    OpponentOnSheet?: OpponentOnSheetUncheckedUpdateManyWithoutSheetNestedInput
+  }
+
+  export type SheetUncheckedUpdateManyWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FightingGameOnUserUpdateWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutFightingGameOnUserNestedInput
+  }
+
+  export type FightingGameOnUserUncheckedUpdateWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FightingGameOnUserUncheckedUpdateManyWithoutFightingGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CharacterOnSheetCreateManyCharacterInput = {
+    id?: string
+    sheetId: string
+  }
+
+  export type OpponentOnSheetCreateManyOpponentInput = {
+    id?: string
+    sheetId: string
+  }
+
+  export type CharacterOnSheetUpdateWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sheet?: SheetUpdateOneRequiredWithoutCharacterOnSheetNestedInput
+  }
+
+  export type CharacterOnSheetUncheckedUpdateWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sheetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CharacterOnSheetUncheckedUpdateManyWithoutCharacterInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sheetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OpponentOnSheetUpdateWithoutOpponentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sheet?: SheetUpdateOneRequiredWithoutOpponentOnSheetNestedInput
+  }
+
+  export type OpponentOnSheetUncheckedUpdateWithoutOpponentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sheetId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type OpponentOnSheetUncheckedUpdateManyWithoutOpponentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sheetId?: StringFieldUpdateOperationsInput | string
   }
 
 
