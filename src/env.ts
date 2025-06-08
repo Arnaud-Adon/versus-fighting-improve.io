@@ -8,6 +8,10 @@ export const env = createEnv({
     GITHUB_CLIENT_SECRET: z.string(),
     TWITCH_CLIENT_ID: z.string(),
     TWITCH_CLIENT_SECRET: z.string(),
+    AWS_S3_BUCKET_NAME: z.string(),
+    AWS_S3_ACCESS_KEY_ID: z.string(),
+    AWS_S3_SECRET_ACCESS_KEY_ID: z.string(),
+    AWS_S3_REGION: z.string(),
   },
   client: {
     // Nothing here yet
