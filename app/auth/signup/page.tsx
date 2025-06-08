@@ -12,12 +12,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { signUp } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { User } from "better-auth";
 import { FormEventHandler, useState } from "react";
 import { toast } from "sonner";
 
-export default function SignUpPage() {
-  const router = useRouter();
+export default function SignUpPage(props: { user: User }) {
   const [isLoading, setIsLoading] = useState(false);
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
