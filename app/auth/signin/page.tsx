@@ -13,13 +13,12 @@ import { Input } from "@/components/ui/input";
 import { signIn } from "@/lib/auth-client";
 
 import { Label } from "@/components/ui/label";
-import { useRouter } from "next/navigation";
 import { FormEventHandler, useState } from "react";
 import { toast } from "sonner";
 
 export default function SignInPage() {
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
+
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);

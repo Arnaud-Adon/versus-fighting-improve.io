@@ -3,8 +3,8 @@ export default function Home() {
     <main className="flex flex-col justify-center items-center gap-4 px-8 py-16">
       <p className="text-2xl  font-bold">Versus Fighting Improve.io</p>
       <p>
-        Bienvenue sur la plateforme qui te permettera de t'ameliorer sur un jeu
-        de combat
+        Bienvenue sur la plateforme qui te permettera de t&apos;améliorer sur un
+        jeu de combat
       </p>
       <p>La plateforme se focalise pour le moment sur Street Fighter 6</p>
       <p className="mb-4">Cette plateforme te permet:</p>
@@ -47,7 +47,7 @@ export default function Home() {
                 />
               </svg>
             </span>
-            Partager tes notes avec d'autres joueurs
+            Partager tes notes avec d&apos;autres joueurs
           </li>
           <li>
             <span className="text- text-indigo-500">
