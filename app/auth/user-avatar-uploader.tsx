@@ -3,6 +3,7 @@ import { CircleUserRoundIcon, XIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FileWithPreview, useFileUpload } from "@/hooks/use-file-upload";
 import { User } from "better-auth";
+import Image from "next/image";
 import { uploadAction } from "./upload.action";
 
 export function UserAvatarUploader(props: { user?: User }) {
@@ -57,7 +58,7 @@ export function UserAvatarUploader(props: { user?: User }) {
           aria-label={previewUrl ? "Change image" : "Upload image"}
         >
           {previewUrl ? (
-            <img
+            <Image
               className="size-full object-cover"
               src={previewUrl}
               alt={files[0]?.file?.name || "Uploaded image"}
