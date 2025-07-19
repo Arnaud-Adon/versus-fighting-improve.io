@@ -66,10 +66,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install
-        run: pnpm test:ci
+        run: pnpm install
         env:
           CI: true
-      - name: Run Typescript check
-        run: pnpm ts
+      - name: Run tests
+        run: pnpm test:ci
         env:
           CI: true

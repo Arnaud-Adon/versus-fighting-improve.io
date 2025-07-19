@@ -259,6 +259,7 @@ describe("useFileUpload", () => {
       const { result } = renderHook(() => useFileUpload());
       const [, actions] = result.current;
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const mockEvent = {
         preventDefault: vi.fn(),
         stopPropagation: vi.fn(),
@@ -276,6 +277,7 @@ describe("useFileUpload", () => {
       const { result } = renderHook(() => useFileUpload());
       const [, actions] = result.current;
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const mockEvent = {
         preventDefault: vi.fn(),
         stopPropagation: vi.fn(),
@@ -300,6 +302,8 @@ describe("useFileUpload", () => {
       const [, actions] = result.current;
 
       const file = createMockFile("test.txt", 100, "text/plain");
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const mockEvent = {
         preventDefault: vi.fn(),
         stopPropagation: vi.fn(),
@@ -324,6 +328,8 @@ describe("useFileUpload", () => {
       const [, actions] = result.current;
 
       const file = createMockFile("test.txt", 100, "text/plain");
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const mockEvent = {
         target: {
           files: [file],
