@@ -8,5 +8,11 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: path.resolve(__dirname, "vitest.setup.ts"),
+    exclude: [
+      "e2e/**",
+      "playwright-report/**",
+      "test-results/**",
+      "node_modules/**",
+    ],
   },
 });
