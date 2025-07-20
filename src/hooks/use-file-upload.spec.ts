@@ -43,7 +43,7 @@ const createMockFileMetadata = (
 describe("useFileUpload", () => {
   describe("initial state", () => {
     it("should initialize with empty state by default", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [state] = result.current;
 
       expect(state.files).toEqual([]);
@@ -67,7 +67,7 @@ describe("useFileUpload", () => {
 
   describe("addFiles", () => {
     it("should add single file successfully", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [, actions] = result.current;
       const file = createMockFile("test.txt", 100, "text/plain");
 
@@ -98,7 +98,7 @@ describe("useFileUpload", () => {
     });
 
     it("should replace file in single mode", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [, actions] = result.current;
       const file1 = createMockFile("test1.txt", 100, "text/plain");
       const file2 = createMockFile("test2.txt", 200, "text/plain");
@@ -192,7 +192,7 @@ describe("useFileUpload", () => {
 
   describe("removeFile", () => {
     it("should remove file by id", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [, actions] = result.current;
       const file = createMockFile("test.txt", 100, "text/plain");
 
@@ -212,7 +212,7 @@ describe("useFileUpload", () => {
     });
 
     it("should revoke object URL when removing image file", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [, actions] = result.current;
       const file = createMockFile("test.jpg", 100, "image/jpeg");
 
@@ -256,14 +256,14 @@ describe("useFileUpload", () => {
 
   describe("drag and drop handlers", () => {
     it("should set isDragging to true on drag enter", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [, actions] = result.current;
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const mockEvent = {
+      const mockEvent: any = {
         preventDefault: vi.fn(),
         stopPropagation: vi.fn(),
-      } as any;
+      };
 
       act(() => {
         actions.handleDragEnter(mockEvent);
@@ -274,16 +274,16 @@ describe("useFileUpload", () => {
     });
 
     it("should set isDragging to false on drag leave", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [, actions] = result.current;
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const mockEvent = {
+      const mockEvent: any = {
         preventDefault: vi.fn(),
         stopPropagation: vi.fn(),
         currentTarget: { contains: vi.fn().mockReturnValue(false) },
         relatedTarget: null,
-      } as any;
+      };
 
       act(() => {
         actions.handleDragEnter(mockEvent);
@@ -298,19 +298,19 @@ describe("useFileUpload", () => {
     });
 
     it("should handle drop and add files", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [, actions] = result.current;
 
       const file = createMockFile("test.txt", 100, "text/plain");
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const mockEvent = {
+      const mockEvent: any = {
         preventDefault: vi.fn(),
         stopPropagation: vi.fn(),
         dataTransfer: {
           files: [file],
         },
-      } as any;
+      };
 
       act(() => {
         actions.handleDrop(mockEvent);
@@ -324,17 +324,17 @@ describe("useFileUpload", () => {
 
   describe("file input handling", () => {
     it("should handle file input change", () => {
-      const { result } = renderHook(() => useFileUpload());
+      const { result } = renderHook(useFileUpload);
       const [, actions] = result.current;
 
       const file = createMockFile("test.txt", 100, "text/plain");
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const mockEvent = {
+      const mockEvent: any = {
         target: {
           files: [file],
         },
-      } as any;
+      };
 
       act(() => {
         actions.handleFileChange(mockEvent);
