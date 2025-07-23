@@ -16,10 +16,7 @@ export default async function DashboardPage() {
 
   const sheets = await getDashboardUserSheets({ userId: user.id });
 
-  console.log({ sheets });
-
   if (!sheets.length) {
-    console.log("No sheet");
     return (
       <Layout>
         <LayoutContent>

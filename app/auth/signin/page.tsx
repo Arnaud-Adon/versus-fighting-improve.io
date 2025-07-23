@@ -13,11 +13,34 @@ import { Input } from "@/components/ui/input";
 import { signIn } from "@/lib/auth-client";
 
 import { Label } from "@/components/ui/label";
-import { FormEventHandler, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { FormEventHandler } from "react";
 import { toast } from "sonner";
 
 export default function SignInPage() {
-  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const { mutate, isPending } = useMutation({
+    mutationFn: async ({
+      email,
+      password,
+    }: {
+      email: string;
+      password: string;
+    }) => {
+      const { error } = await signIn.email({
+        email,
+        password,
+      });
+
+      if (error) {
+        toast.error(error.message);
+      }
+
+      router.push("/dashboard");
+      router.refresh();
+    },
+  });
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -25,20 +48,7 @@ export default function SignInPage() {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    signIn.email(
-      {
-        email,
-        password,
-        callbackURL: "/dashboard",
-      },
-      {
-        onRequest: () => setIsLoading(true),
-        onError: (ctx) => {
-          toast.error(ctx.error.message);
-          setIsLoading(false);
-        },
-      }
-    );
+    mutate({ email, password });
   };
 
   return (
@@ -75,8 +85,8 @@ export default function SignInPage() {
                   />
                 </div>
               </div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Se connecte..." : "Se connecter"}
+              <Button type="submit" className="w-full" disabled={isPending}>
+                {isPending ? "Se connecte..." : "Se connecter"}
               </Button>
             </form>
 
