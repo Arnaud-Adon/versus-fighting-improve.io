@@ -11,35 +11,50 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+
 import { signUp } from "@/lib/auth-client";
-import { FormEventHandler, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { FormEvent } from "react";
 import { toast } from "sonner";
 
 export default function SignUpPage() {
-  const [isLoading, setIsLoading] = useState(false);
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
-    const name = formData.get("name") as string;
-
-    signUp.email(
-      {
+  const router = useRouter();
+  const { mutate, isPending } = useMutation({
+    mutationFn: async ({
+      name,
+      email,
+      password,
+    }: {
+      name: string;
+      email: string;
+      password: string;
+    }) => {
+      const { error } = await signUp.email({
         email,
         password,
         name,
-        callbackURL: "/",
-      },
-      {
-        onRequest: () => setIsLoading(true),
+      });
 
-        onError: (ctx) => {
-          toast.error(ctx.error.message);
-          setIsLoading(false);
-        },
+      if (error) {
+        toast.error(error.message);
+        return;
       }
-    );
+
+      toast.success("Compte créé avec succès");
+      router.push("/dashboard");
+      router.refresh();
+    },
+  });
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    mutate({ name, email, password });
   };
 
   return (
@@ -62,7 +77,6 @@ export default function SignUpPage() {
                     name="name"
                     placeholder="Matt Welsh"
                     type="text"
-                    required
                   />
                 </div>
                 <div className="*:not-first:mt-2">
@@ -72,7 +86,6 @@ export default function SignUpPage() {
                     name="email"
                     placeholder="hi@yourcompany.com"
                     type="email"
-                    required
                   />
                 </div>
                 <div className="*:not-first:mt-2">
@@ -82,12 +95,11 @@ export default function SignUpPage() {
                     name="password"
                     placeholder="Enter your password"
                     type="password"
-                    required
                   />
                 </div>
               </div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Signing up..." : "Sign up"}
+              <Button type="submit" className="w-full" disabled={isPending}>
+                {isPending ? "Signing up..." : "Sign up"}
               </Button>
             </form>
 

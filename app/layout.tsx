@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
+import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/config/site-config";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -38,6 +39,7 @@ export default function RootLayout({
             <div className="flex-1">{children}</div>
           </div>
           <TailwindIndicator />
+          <Toaster />
         </Providers>
       </body>
     </html>
