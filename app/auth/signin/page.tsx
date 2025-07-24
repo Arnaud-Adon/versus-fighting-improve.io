@@ -35,6 +35,7 @@ export default function SignInPage() {
 
       if (error) {
         toast.error(error.message);
+        return;
       }
 
       router.push("/dashboard");
